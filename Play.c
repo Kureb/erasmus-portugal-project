@@ -230,6 +230,8 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
         do
         {
             // Print some info
+            setCursorPosition(19, 17);
+			printf("%s (%c), make your move.", currentGamer->name, (currentGamer->num == 1 ? J1 : J2));
             setCursorPosition(50, 3);
             printf("Turn number %d\t", numTurns);
             setCursorPosition(50, 5);
@@ -272,8 +274,8 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
             if(!win && freePos > 0)
             {
                 currentGamer = (currentGamer->num == 1 ? g2 : g1);
-                setCursorPosition(19, 17);
-                printf("Player %d (%c), make your move.", currentGamer->num, (currentGamer->num == 1 ? J1 : J2));
+                /*setCursorPosition(19, 17);
+                printf("Player %d (%c), make your move.", currentGamer->num, (currentGamer->num == 1 ? J1 : J2));*/
                 if(currentGamer->num == 1)
                     numTurns++;
             }
@@ -403,7 +405,7 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
             g1->moves = 0;
             g2->moves = 0;
             initializeGrid(p);
-            showBoard(p, *g1);
+            showBoard(p);
         }
     }
     while(ch != 27);
@@ -422,6 +424,8 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
         do
         {
             // Print some info
+            setCursorPosition(19, 17);
+			printf("%s (%c), make your move.", g1->name, (g1->num == 1 ? J1 : J2));
             setCursorPosition(50, 3);
             printf("Turn number %d\t", numTurns);
             setCursorPosition(50, 5);
@@ -505,7 +509,7 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
 
         setCursorPosition(19, 17);
         if(win)
-            printf("%s won! Congratulations!\t", winner->name);
+            printf("%s won! %s\t", winner->name, (winner->num == 2 ? "Better luck next time." : "Congratulations!"));
         else // The board was filled
             printf("Draw! Noob equality.\t\t");
 
@@ -588,7 +592,7 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
             g1->moves = 0;
             g2->moves = 0;
             initializeGrid(p);
-            showBoard(p, *g1);
+            showBoard(p);
         }
     } while(ch != 27);
 }

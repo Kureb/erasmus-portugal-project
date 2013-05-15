@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <conio.h>
 #include <windows.h>
 #include <string.h>
-#include "Global.h"		// This is the same header that the french students created, except that the the Gamer structure was modified because the 'moves' field was missing
+#include "Global.h"
 #include "utilities.h"
 #include "TeamPT.h"
 #include "Play.h"
 #include "Board.h"
+#include "Statistics.h"
 
 /* -------------------------- main project goals ----------------------
 -> define the data structures and other configurations that support the game
@@ -22,11 +24,11 @@
 //*****************************************
 int main()
 {
-    int option, difficulty = 0;
+    int option, difficulty = 4;
 
     do
     {
-        system("cls");
+        clrscr(); // Replaces system("cls"). Only testing for now
         setCursorVisible(FALSE);
         option = welcome(); // Give the welcome screen to the user and wait until he decides which game type he will choose. His decision is then returned
         if(option > 0)
@@ -42,52 +44,64 @@ int main()
                     system("cls");
                     difficulty = chooseDifficulty();
                 }
-                setCursorVisible(TRUE);
-
-                board p;
-                Gamer g1, g2;
-                char name[PLAYERNAME];
-
-                do
+                if(difficulty > 0)
                 {
-                    system("cls");
-                    printf("Enter player 1 name: ");
-                    fflush(stdin);
-                    fgets(name, PLAYERNAME, stdin);
-                    chomp(name);
-                }
-                while(strcmp(name, "") == 0); // Make sure the name is not empty
-                strcpy(g1.name, name);
-                g1.num = 1;
-                g1.moves = 0;
+                    setCursorVisible(TRUE);
 
-                if(option == 2)
-                {
-                    strcpy(g2.name, "Computer");
-                }
-                else
-                {
+                    board p;
+                    Gamer g1, g2;
+                    char name[PLAYERNAME];
+
                     do
                     {
                         system("cls");
-                        printf("Enter player 2 name: ");
+                        printf("Enter player 1 name: ");
                         fflush(stdin);
                         fgets(name, PLAYERNAME, stdin);
                         chomp(name);
                     }
                     while(strcmp(name, "") == 0); // Make sure the name is not empty
-                    strcpy(g2.name, name);
-                }
-                g2.num = 2;
-                g2.moves = 0;
+                    strcpy(g1.name, name);
+                    g1.num = 1;
+                    g1.moves = 0;
 
-                initializeGrid(p);
-                showBoard(p, g1);
-                setCursorVisible(FALSE);
-                if(option == 1) // Player vs Player
-                    playerVsPlayer(&g1, &g2, p);
-                else // Player vs Computer
-                    playerVsComputer(&g1, &g2, p, difficulty);
+                    if(option == 2)
+                    {
+                        strcpy(g2.name, "Computer");
+                    }
+                    else
+                    {
+                        do
+                        {
+                            system("cls");
+                            printf("Enter player 2 name: ");
+                            fflush(stdin);
+                            fgets(name, PLAYERNAME, stdin);
+                            chomp(name);
+                            if(stricmp(g1.name, name) == 0) // Check if both players don't have the same name
+                            {
+                                printf("Both players can't have the same name. Press ENTER to type a new name.");
+                                do
+                                {
+                                    fflush(stdin);
+                                }
+                                while(getch() != 13);
+                            }
+                        }
+                        while(strcmp(name, "") == 0 || stricmp(g1.name, name) == 0); // Make sure the name is not empty
+                        strcpy(g2.name, name);
+                    }
+                    g2.num = 2;
+                    g2.moves = 0;
+
+                    initializeGrid(p);
+                    showBoard(p);
+                    setCursorVisible(FALSE);
+                    if(option == 1) // Player vs Player
+                        playerVsPlayer(&g1, &g2, p);
+                    else // Player vs Computer
+                        playerVsComputer(&g1, &g2, p, difficulty);
+                }
             }
         }
     }

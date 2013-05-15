@@ -11,6 +11,6 @@ void initializeGrid(board p);
 ** with graphic-text boxes
 ** and we fill boxes
 */
-void showBoard(board p, Gamer g);
+void showBoard(board p);
 
 #endif

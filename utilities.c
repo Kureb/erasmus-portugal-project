@@ -45,3 +45,16 @@ void setCursorVisible(BOOL visible)
 
     SetConsoleCursorInfo(Screen, &ConCurInf);
 }
+
+int random(int n)
+{
+	FILETIME now;
+    GetSystemTimeAsFileTime(&now);
+    srand(now.dwLowDateTime);
+    return rand() % n;
+}
+
+void clrscr()
+{
+	system(CLEAR);
+}

@@ -30,10 +30,4 @@ int welcome();
 //*****************************************
 int chooseDifficulty();
 
-void showStatistics();
-
-void showHighScores(int numStats, GamerStat *stats);
-void showGameStatistics(int numStats, GamerStat *stats);
-void showPlayerData(GamerStat playerState);
-
 #endif // TEAMPT_H
