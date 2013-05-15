@@ -1,6 +1,12 @@
 #ifndef UTILITIES_H
 #define UTILITIES_H
 
+#ifdef WIN32
+#define CLEAR "cls"
+#else
+#define CLEAR "clear"
+#endif
+
 #include <windows.h>
 
 // Colors
@@ -70,10 +76,30 @@ void setTextColor(short color);
 //Changes the cursos visibility
 //
 //input parameters:
-//		visible: whether the cursor will be visible or not
+//		visible: whether the cursor will be visible or not (TRUE or FALSE)
 //output value:
 //		nothing
 //*****************************************
 void setCursorVisible(BOOL visible);
+
+//*****************************************
+//Clears the console
+//
+//input parameters:
+//		n: the limit for the generated number
+//output value:
+//		the random number ranging from 0 to n-1
+//*****************************************
+int random(int n);
+
+//*****************************************
+//Clears the console
+//
+//input parameters:
+//		nothing
+//output value:
+//		nothing
+//*****************************************
+void clrscr();
 
 #endif // UTILITIES_H

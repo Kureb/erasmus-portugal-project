@@ -23,7 +23,7 @@ void initializeGrid(board p)
 ** with graphic-text boxes
 ** and we fill boxes
 */
-void showBoard(board p, Gamer g)
+void showBoard(board p)
 {
 	int i, j;
 	char ch;
@@ -96,6 +96,4 @@ void showBoard(board p, Gamer g)
     setCursorPosition(19, 16);
     for(i = 0; i < 29; i++) // Print the bottom line of hyfens
         putch('-');
-    setCursorPosition(19, 17);
-    printf("Player %d (%c), make your move.", g.num, (g.num == 1 ? J1 : J2));
 }
