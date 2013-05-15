@@ -6,6 +6,7 @@
 #include "Play.h"
 #include "utilities.h"
 #include "IA.h"
+#include "Statistics.h"
 
 /* Checks if a player has won.
 ** Takes the coordinates of the last token played
@@ -234,7 +235,7 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
         {
             // Print some info
             setCursorPosition(19, 17);
-			printf("%s (%c), make your move.", currentGamer->name, (currentGamer->num == 1 ? J1 : J2));
+			printf("%s (%c), make your move.\t\t", currentGamer->name, (currentGamer->num == 1 ? J1 : J2));
             setCursorPosition(50, 3);
             printf("Turn number %d\t", numTurns);
             setCursorPosition(50, 5);
@@ -301,9 +302,9 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
 		// Store data to files
 
 		// Read data
-		FILE *file;
 		GamerStat *stats = NULL;
 		int numStats = 0;
+		/*FILE *file;
 		file = fopen("stats.dat", "rb");
 		if(file != NULL)
 		{
@@ -311,7 +312,8 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
 			stats = (GamerStat *) malloc(numStats * sizeof(GamerStat));
 			fread(stats, sizeof(GamerStat), numStats, file);
 			fclose(file);
-		}
+		}*/
+		stats = readStatisticsFile(stats, &numStats);
 
 		GamerStat newStat;
 		Gamer otherGamer = (currentGamer->num == 1 ? *g2 : *g1);
@@ -358,11 +360,7 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
 			stats = realloc(stats, sizeof(GamerStat) * (numStats + 1)); // Create a new position in the array
 			stats[numStats] = newStat;
 			numStats++;
-			/*setCursorPosition(0,0);
-			printf("Number of stats at 1: %d", numStats);*/
 		}
-		/*setCursorPosition(0,1);
-		printf("After calculating new stats 1");*/
 		if(!foundStatP2)
 		{
 			newStat.numGames = 1;
@@ -374,23 +372,9 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
 			stats[numStats] = newStat;
 			numStats++;
 		}
-		/*setCursorPosition(0,1);
-		printf("Total wins: %d", stats[0].numWins);*/
-		/*setCursorPosition(0,3);
-		printf("After calculating new stats");*/
 
-		// write new stats to file
-		file = fopen("stats.dat", "wb");
-		if(file != NULL)
-		{
-			/*setCursorPosition(0,2);
-			printf("Writing to file");*/
-			fwrite(&numStats, sizeof(int), 1, file);
-			fwrite(stats, sizeof(GamerStat), numStats, file);
-			/*setCursorPosition(0,5);
-			printf("Done");*/
-			fclose(file);
-		}
+		// Write stats to file
+		writeStatisticsFile(stats, numStats);
 		free(stats);
 
         printStringCenter("Press ENTER to play again", 19);
@@ -518,17 +502,10 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
 
 
 		// Read data
-		FILE *file;
+
 		GamerStat *stats = NULL;
 		int numStats = 0;
-		file = fopen("stats.dat", "rb");
-		if(file != NULL)
-		{
-			fread(&numStats, sizeof(int), 1, file);
-			stats = (GamerStat *) malloc(numStats * sizeof(GamerStat));
-			fread(stats, sizeof(GamerStat), numStats, file);
-			fclose(file);
-		}
+		stats = readStatisticsFile(stats, &numStats);
 
 		GamerStat newStat;
 		int foundStatP1 = 0;
@@ -570,14 +547,7 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
 			numStats++;
 		}
 
-		// write new stats to file
-		file = fopen("stats.dat", "wb");
-		if(file != NULL)
-		{
-			fwrite(&numStats, sizeof(int), 1, file);
-			fwrite(stats, sizeof(GamerStat), numStats, file);
-			fclose(file);
-		}
+		writeStatisticsFile(stats, numStats);
 		free(stats);
 
         printStringCenter("Press ENTER to play again", 19);
