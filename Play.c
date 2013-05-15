@@ -224,9 +224,12 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
     do
     {
         // This code belongs to the italian team, with some modifications
-        Gamer *currentGamer = g1;
-        int play, i, win = 0, numTurns = 1, validMove, freePos = WIDTH * HEIGHT;
+        Gamer *currentGamer;
+        int play, i, win = 0, numTurns = 1, validMove, freePos = WIDTH * HEIGHT, firstNum;
         char mark;
+        i = random(2);
+        currentGamer = (i == 0 ? g1 : g2); // Choose a random player to play first
+        firstNum = currentGamer->num;
         do
         {
             // Print some info
@@ -276,7 +279,7 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
                 currentGamer = (currentGamer->num == 1 ? g2 : g1);
                 /*setCursorPosition(19, 17);
                 printf("Player %d (%c), make your move.", currentGamer->num, (currentGamer->num == 1 ? J1 : J2));*/
-                if(currentGamer->num == 1)
+                if(currentGamer->num == firstNum)
                     numTurns++;
             }
         }
