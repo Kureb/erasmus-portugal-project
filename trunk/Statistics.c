@@ -8,13 +8,12 @@
 void showStatistics()
 {
     GamerStat *stats = NULL;
-    FILE *file;
     int option, numStats = 0, i;
     char player[PLAYERNAME];
 
     system("cls");
-    file = fopen("stats.dat", "rb");
-    if(file == NULL)
+    stats = readStatisticsFile(stats, &numStats);
+    if(stats == NULL)
     {
         printf("Error opening file. Press ENTER to return.");
         do
@@ -25,11 +24,6 @@ void showStatistics()
     }
     else
     {
-        fread(&numStats, sizeof(int), 1, file);
-        stats = (GamerStat *) malloc(numStats * sizeof(GamerStat));
-        fread(stats, sizeof(GamerStat), numStats, file);
-        fclose(file);
-
         if(numStats <= 0)
         {
             printf("There are no statistics yet. Press ENTER to return.");
@@ -100,6 +94,32 @@ void showStatistics()
     }
     free(stats);
 
+}
+
+void writeStatisticsFile(GamerStat *stats, int numStats)
+{
+	FILE *file;
+	file = fopen("stats.dat", "wb");
+	if(file != NULL)
+	{
+		fwrite(&numStats, sizeof(int), 1, file);
+		fwrite(stats, sizeof(GamerStat), numStats, file);
+		fclose(file);
+	}
+}
+
+GamerStat* readStatisticsFile(GamerStat *stats, int *numStats)
+{
+	FILE *file;
+	file = fopen("stats.dat", "rb");
+	if(file != NULL)
+	{
+		fread(numStats, sizeof(int), 1, file);
+		stats = (GamerStat *) malloc((*numStats) * sizeof(GamerStat));
+		fread(stats, sizeof(GamerStat), *numStats, file);
+		fclose(file);
+	}
+	return stats;
 }
 
 void showHighScores(int numStats, GamerStat *stats)
