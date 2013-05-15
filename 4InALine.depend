@@ -1,0 +1,108 @@
+# depslib dependency file v1.0
+1367763772 source:c:\users\asus\desktop\finland project\4inaline\utilities.c
+	<windows.h>
+	<string.h>
+	<stdio.h>
+	"utilities.h"
+
+1368283853 c:\users\asus\desktop\finland project\4inaline\utilities.h
+	<windows.h>
+
+1367763213 source:c:\users\asus\desktop\finland project\4inaline\board.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"Global.h"
+	"Board.h"
+	"utilities.h"
+
+1368284536 c:\users\asus\desktop\finland project\4inaline\global.h
+
+1367681160 c:\users\asus\desktop\finland project\4inaline\board.h
+
+1368184663 source:c:\users\asus\desktop\finland project\4inaline\ia.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"Global.h"
+	"Board.h"
+	"Play.h"
+	"IA.h"
+
+1368284843 c:\users\asus\desktop\finland project\4inaline\play.h
+
+1368287020 source:c:\users\asus\desktop\finland project\4inaline\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<string.h>
+	"Global.h"
+	"utilities.h"
+	"TeamPT.h"
+	"Play.h"
+	"Board.h"
+
+1368374824 source:c:\users\asus\desktop\finland project\4inaline\play.c
+	<stdio.h>
+	<conio.h>
+	<string.h>
+	"Global.h"
+	"Board.h"
+	"Play.h"
+	"utilities.h"
+	"IA.h"
+
+1368294505 c:\users\asus\desktop\finland project\4inaline\teampt.h
+
+1368373535 source:c:\users\asus\desktop\finland project\4inaline\teampt.c
+	<stdio.h>
+	<conio.h>
+	"Global.h"
+	"utilities.h"
+	"TeamPT.h"
+
+1367852538 c:\users\asus\desktop\finland project\4inaline\ia.h
+
+1368379032 source:c:\users\vaio user\google drive\4inaline project\code\4ial_proposal_pt\4inaline\board.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"Global.h"
+	"Board.h"
+	"utilities.h"
+
+1368379035 c:\users\vaio user\google drive\4inaline project\code\4ial_proposal_pt\4inaline\global.h
+
+1368379034 c:\users\vaio user\google drive\4inaline project\code\4ial_proposal_pt\4inaline\board.h
+
+1368379062 c:\users\vaio user\google drive\4inaline project\code\4ial_proposal_pt\4inaline\utilities.h
+	<windows.h>
+
+1368379037 source:c:\users\vaio user\google drive\4inaline project\code\4ial_proposal_pt\4inaline\ia.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"Global.h"
+	"Board.h"
+	"Play.h"
+	"IA.h"
+
+1368379054 c:\users\vaio user\google drive\4inaline project\code\4ial_proposal_pt\4inaline\play.h
+
+1368379039 c:\users\vaio user\google drive\4inaline project\code\4ial_proposal_pt\4inaline\ia.h
+
+1368379040 source:c:\users\vaio user\google drive\4inaline project\code\4ial_proposal_pt\4inaline\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<string.h>
+	"Global.h"
+	"utilities.h"
+	"TeamPT.h"
+	"Play.h"
+	"Board.h"
+
+1368379059 c:\users\vaio user\google drive\4inaline project\code\4ial_proposal_pt\4inaline\teampt.h
+
