@@ -12,7 +12,7 @@ void showStatistics()
     char player[PLAYERNAME];
 
     system("cls");
-    stats = readStatisticsFile(stats, &numStats);
+    stats = readStatisticsFile(&numStats);
     if(stats == NULL)
     {
         printf("Error opening file. Press ENTER to return.");
@@ -108,9 +108,16 @@ void writeStatisticsFile(GamerStat *stats, int numStats)
 	}
 }
 
-GamerStat* readStatisticsFile(GamerStat *stats, int *numStats)
+int calculateScore(int moves)
+{
+    return (1.0 / (float) moves) * 1000; // the higher the number of moves, the lower the score
+}
+
+GamerStat* readStatisticsFile(int *numStats)
 {
 	FILE *file;
+	GamerStat *stats = NULL;
+
 	file = fopen("stats.dat", "rb");
 	if(file != NULL)
 	{
@@ -243,7 +250,7 @@ void showPlayerData(GamerStat playerStat)
 	if(playerStat.numGames > 0)
 	{
 		setCursorPosition(20, 11);
-		printf("Percentage of games won: %.1f", (float) playerStat.numWins / (float) playerStat.numGames * 100.0);
+		printf("Percentage of games won: %.1f%%", (float) playerStat.numWins / (float) playerStat.numGames * 100.0);
 		setCursorPosition(20, 12);
 		printf("Average moves per game: %.1f", (float) playerStat.totalNumMoves / (float) playerStat.numGames);
 	}

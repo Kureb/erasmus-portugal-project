@@ -25,7 +25,7 @@
 **  v
 **  y (k)
 */
-int checkWin(board p, int j, int k)
+int checkWin(board p, int j, int k, int paint)
 {
     int vertical = 1;
     int horizontal = 1;
@@ -35,150 +35,102 @@ int checkWin(board p, int j, int k)
 
     int v;//vertical
     int h;//horizontal
+    int i, l; // counters
 
     //Vertical
     for(v=k+1; v < HEIGHT && p[j][v]==disc; v++, vertical++);
     for(v=k-1; v >= 0 && p[j][v]==disc; v--, vertical++);
     if(vertical>=4)
-		return 1;
+    {
+        if(paint)
+        {
+            setTextColor(LIGHT_RED);
+            for(i=k; i < HEIGHT && p[j][i] == disc; i++)
+            {
+                setCursorPosition(21 + j * 4, 3 + i * 2);
+                putch(disc);
+            }
+            for(i=k - 1; i >= 0 && p[j][i] == disc; i--)
+            {
+                setCursorPosition(21 + j * 4, 3 + i * 2);
+                putch(disc);
+            }
+            setTextColor(PURE_WHITE);
+        }
+        return 1;
+    }
 
     //Horizontal(-)
     for(h=j-1; h>=0 && p[h][k]==disc; h--,horizontal++);
     for(h=j+1; h<WIDTH && p[h][k]==disc; h++,horizontal++);
     if(horizontal>=4)
-		return 1;
+    {
+        if(paint)
+        {
+            setTextColor(LIGHT_RED);
+            for(i=j; i < WIDTH && p[i][k] == disc; i++)
+            {
+                setCursorPosition(21 + i * 4, 3 + k * 2);
+                putch(disc);
+            }
+            for(i=j - 1; i >= 0 && p[i][k] == disc; i--)
+            {
+                setCursorPosition(21 + i * 4, 3 + k * 2);
+                putch(disc);
+            }
+            setTextColor(PURE_WHITE);
+        }
+        return 1;
+    }
 
     //check for diagonal 1
-    for(v=j-1, h=k-1; v>=0 && h>=0 && p[v][h]==disc;diago1++,v--,h--);
+    for(v=j-1, h=k-1; v>=0 && h>=0 && p[v][h]==disc; diago1++,v--,h--);
     for(v=j+1, h=k+1; v<WIDTH && h<HEIGHT && p[v][h]==disc; diago1++, v++, h++);
     if(diago1>=4)
-		return 1;
+    {
+        if(paint)
+        {
+            setTextColor(LIGHT_RED);
+            for(i=j, l = k; i < WIDTH && l < HEIGHT && p[i][l] == disc; i++, l++)
+            {
+                setCursorPosition(21 + i * 4, 3 + l * 2);
+                putch(disc);
+            }
+            for(i=j - 1, l = k - 1; i >= 0 && j >= 0 && p[i][l] == disc; i--, l--)
+            {
+                setCursorPosition(21 + i * 4, 3 + l * 2);
+                putch(disc);
+            }
+            setTextColor(PURE_WHITE);
+        }
+        return 1;
+    }
 
     //check for diagonal 2
     for(v=j-1, h=k+1; v>=0 && h<HEIGHT && p[v][h]==disc; diago2++, v--, h++);
     for(v=j+1, h=k-1; v<WIDTH && h>=0 && p[v][h]==disc; diago2++, v++, h--);
     if(diago2>=4)
-		return 1;
+    {
+        if(paint)
+        {
+            setTextColor(LIGHT_RED);
+            for(i=j, l = k; i >= 0 && l < HEIGHT && p[i][l] == disc; i--, l++)
+            {
+                setCursorPosition(21 + i * 4, 3 + l * 2);
+                putch(disc);
+            }
+            for(i=j + 1, l = k - 1; i < WIDTH && j >= 0 && p[i][l] == disc; i++, l--)
+            {
+                setCursorPosition(21 + i * 4, 3 + l * 2);
+                putch(disc);
+            }
+            setTextColor(PURE_WHITE);
+        }
+        return 1;
+    }
 
     return 0;
     //return winHorizontal(p,j,k) || winVertical(p,j,k) || winDiagDownUp(p,j,k) || winDiagUpDown(p,j,k);
-}
-
-int winHorizontal(board p, int j, int k)
-{
-    int token = p[j][k];
-    int token_ok = 1;
-    int i;
-
-    /* Left side*/
-    for(i=1; k-i>=0 && p[j][k-i]==token; i++)
-    {
-        token_ok++;
-    }
-    /* Right side*/
-    for(i=1; k+i<WIDTH && p[j][k+i]==token; i++)
-    {
-        token_ok++;
-    }
-
-    return token_ok >= 4;
-}
-
-int winVertical(board p, int j, int k)
-{
-    /*if(j>=4-1)
-    {
-        int token = p[j][k];
-        int token_ok;
-        for(token_ok=1; p[j-token_ok][k]==token; token_ok++)
-        {
-            if(token_ok >= 4 - 1)
-            {
-                return 1;
-            }
-        }
-    }
-    return 0;*/
-
-    int i = j;
-    char mark = p[j][k];
-
-    do
-    {
-        if(i >= 0 && p[i][k] == mark)
-            i--;
-        else
-            break;
-    } while(1);
-    i++;
-    /*setCursorPosition(0, 1);
-	printf("Terminated i: %d\t\n", i);*/
-    int numToks = 0, aux = i, l; // aux is only useful for recoloring marks, as well as l
-    do
-    {
-        if(i < WIDTH && p[i][k] == mark)
-        {
-            numToks++;
-            i++;
-        }
-        else
-            break;
-    } while(1);
-
-	/*setCursorPosition(0, 2);
-	printf("Found toks %d\nTerminated at: %d", numToks, i - 1);*/
-    // Recoloring
-    if(numToks >= 4)
-    {
-        setTextColor(GREEN);
-        for(l = aux; l < i; l++)
-        {
-            setCursorPosition(21 + l* 4, 3 + k * 2);
-            putchar(mark);
-        }
-        setTextColor(PURE_WHITE);
-    }
-    return numToks >= 4;
-}
-
-int winDiagUpDown(board p, int j, int k)
-{
-
-    int token = p[j][k];
-    int token_ok = 1;
-    int i;
-
-    /* Left side */
-    for(i=1; k-i>=0 && j-i>=0 && p[j-i][k-i]==token; i++)
-    {
-        token_ok++;
-    }
-    /* Right side */
-    for (i=1; k+i<WIDTH && j+i<HEIGHT && p[j+i][k+i]==token; i++)
-    {
-        token_ok++;
-    }
-    return token_ok >= 4;
-}
-
-int winDiagDownUp(board p, int j, int k)
-{
-
-    int token = p[j][k];
-    int token_ok = 1;
-    int i;
-
-    /* Left side */
-    for(i=1; k-i>=0 && j+i<HEIGHT && p[j+i][k-i]==token; i++)
-    {
-        token_ok++;
-    }
-    /* Right side */
-    for(i=1; k+i<WIDTH && j-i>=0 && p[j-i][k+i]==token; i++)
-    {
-        token_ok++;
-    }
-    return token_ok >= 4;
 }
 
 int validate(board p, int col)
@@ -193,9 +145,13 @@ int validate(board p, int col)
     return valid;
 }
 
-int calculateScore(int moves)
+int findLine(board p, int col)
 {
-	return (1.0 / (float) moves) * 1000; // the higher the number of moves, the lower the score
+	int line = -1, i;
+	for(i = HEIGHT - 1; i >= 0 && line < 0; i--)
+		if(p[col][i] == EMPTY)
+			line = i;
+	return line;
 }
 
 void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
@@ -235,7 +191,7 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
         {
             // Print some info
             setCursorPosition(19, 17);
-			printf("%s (%c), make your move.\t\t", currentGamer->name, (currentGamer->num == 1 ? J1 : J2));
+            printf("%s (%c), make your move.\t\t", currentGamer->name, (currentGamer->num == 1 ? J1 : J2));
             setCursorPosition(50, 3);
             printf("Turn number %d\t", numTurns);
             setCursorPosition(50, 5);
@@ -262,9 +218,7 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
             }
             while(!validMove);
 
-            for(i = HEIGHT - 1; i >= 0; i--)
-                if(p[play][i] == EMPTY)
-                    break;
+            i = findLine(p, play);
             mark = (currentGamer->num == 1 ? J1 : J2);
             p[play][i] = mark;
 
@@ -272,7 +226,7 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
             setCursorPosition(21 + play * 4, 3 + i * 2);
             putchar(mark);
 
-            win = checkWin(p, play, i);
+            win = checkWin(p, play, i, 1);
             currentGamer->moves++; // Increase number of moves
             freePos--;
             if(!win && freePos > 0)
@@ -299,83 +253,83 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
         else // The board was filled
             printf("Draw! Noob equality.\t\t");
 
-		// Store data to files
+        // Store data to files
 
-		// Read data
-		GamerStat *stats = NULL;
-		int numStats = 0;
-		/*FILE *file;
-		file = fopen("stats.dat", "rb");
-		if(file != NULL)
-		{
-			fread(&numStats, sizeof(int), 1, file);
-			stats = (GamerStat *) malloc(numStats * sizeof(GamerStat));
-			fread(stats, sizeof(GamerStat), numStats, file);
-			fclose(file);
-		}*/
-		stats = readStatisticsFile(stats, &numStats);
+        // Read data
+        GamerStat *stats = NULL;
+        int numStats = 0;
+        /*FILE *file;
+        file = fopen("stats.dat", "rb");
+        if(file != NULL)
+        {
+        	fread(&numStats, sizeof(int), 1, file);
+        	stats = (GamerStat *) malloc(numStats * sizeof(GamerStat));
+        	fread(stats, sizeof(GamerStat), numStats, file);
+        	fclose(file);
+        }*/
+        stats = readStatisticsFile(&numStats);
 
-		GamerStat newStat;
-		Gamer otherGamer = (currentGamer->num == 1 ? *g2 : *g1);
-		int foundStatP1 = 0, foundStatP2 = 0;
-		if(numStats > 0)
-		{
-			for(i = 0; i < numStats && (!foundStatP1 || !foundStatP2); i++)
-			{
-				if(stricmp(currentGamer->name, stats[i].name) == 0)
-				{
-					stats[i].numGames++;
-					if(freePos > 0)
-					{
-						stats[i].numWins++;
-						stats[i].totalScore += calculateScore(currentGamer->moves);
-					}
-					stats[i].totalNumMoves += currentGamer->moves;
-					foundStatP1 = 1;
-				}
-				if(stricmp(otherGamer.name, stats[i].name) == 0)
-				{
-					stats[i].numGames++;
-					stats[i].totalNumMoves += otherGamer.moves;
-					foundStatP2 = 1;
-				}
-			}
-		}
+        GamerStat newStat;
+        Gamer otherGamer = (currentGamer->num == 1 ? *g2 : *g1);
+        int foundStatP1 = 0, foundStatP2 = 0;
+        if(numStats > 0)
+        {
+            for(i = 0; i < numStats && (!foundStatP1 || !foundStatP2); i++)
+            {
+                if(stricmp(currentGamer->name, stats[i].name) == 0)
+                {
+                    stats[i].numGames++;
+                    if(freePos > 0)
+                    {
+                        stats[i].numWins++;
+                        stats[i].totalScore += calculateScore(currentGamer->moves);
+                    }
+                    stats[i].totalNumMoves += currentGamer->moves;
+                    foundStatP1 = 1;
+                }
+                if(stricmp(otherGamer.name, stats[i].name) == 0)
+                {
+                    stats[i].numGames++;
+                    stats[i].totalNumMoves += otherGamer.moves;
+                    foundStatP2 = 1;
+                }
+            }
+        }
 
-		if(!foundStatP1)
-		{
-			newStat.numGames = 1;
-			if(freePos > 0)
-			{
-				newStat.numWins = 1;
-				newStat.totalScore = calculateScore(currentGamer->moves);
-			}
-			else
-			{
-				newStat.numWins = 0;
-				newStat.totalScore = 0;
-			}
-			newStat.totalNumMoves = currentGamer->moves;
-			strcpy(newStat.name, currentGamer->name);
-			stats = realloc(stats, sizeof(GamerStat) * (numStats + 1)); // Create a new position in the array
-			stats[numStats] = newStat;
-			numStats++;
-		}
-		if(!foundStatP2)
-		{
-			newStat.numGames = 1;
-			newStat.numWins = 0;
-			newStat.totalScore = 0;
-			newStat.totalNumMoves = otherGamer.moves;
-			strcpy(newStat.name, otherGamer.name);
-			stats = realloc(stats, sizeof(GamerStat) * (numStats + 1)); // Create a new position in the array
-			stats[numStats] = newStat;
-			numStats++;
-		}
+        if(!foundStatP1)
+        {
+            newStat.numGames = 1;
+            if(freePos > 0)
+            {
+                newStat.numWins = 1;
+                newStat.totalScore = calculateScore(currentGamer->moves);
+            }
+            else
+            {
+                newStat.numWins = 0;
+                newStat.totalScore = 0;
+            }
+            newStat.totalNumMoves = currentGamer->moves;
+            strcpy(newStat.name, currentGamer->name);
+            stats = realloc(stats, sizeof(GamerStat) * (numStats + 1)); // Create a new position in the array
+            stats[numStats] = newStat;
+            numStats++;
+        }
+        if(!foundStatP2)
+        {
+            newStat.numGames = 1;
+            newStat.numWins = 0;
+            newStat.totalScore = 0;
+            newStat.totalNumMoves = otherGamer.moves;
+            strcpy(newStat.name, otherGamer.name);
+            stats = realloc(stats, sizeof(GamerStat) * (numStats + 1)); // Create a new position in the array
+            stats[numStats] = newStat;
+            numStats++;
+        }
 
-		// Write stats to file
-		writeStatisticsFile(stats, numStats);
-		free(stats);
+        // Write stats to file
+        writeStatisticsFile(stats, numStats);
+        free(stats);
 
         printStringCenter("Press ENTER to play again", 19);
         printStringCenter("or ESC to return to main menu", 20);
@@ -405,14 +359,14 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
     char ch;
     do
     {
-    	winner = NULL;
-    	numTurns = 1;
-    	freeSpaces = WIDTH * HEIGHT;
+        winner = NULL;
+        numTurns = 1;
+        freeSpaces = WIDTH * HEIGHT;
         do
         {
             // Print some info
             setCursorPosition(19, 17);
-			printf("%s (%c), make your move.", g1->name, (g1->num == 1 ? J1 : J2));
+            printf("%s (%c), make your move.", g1->name, (g1->num == 1 ? J1 : J2));
             setCursorPosition(50, 3);
             printf("Turn number %d\t", numTurns);
             setCursorPosition(50, 5);
@@ -440,22 +394,20 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
             }
             while(!validMove);
 
-            for(i = HEIGHT - 1; i >= 0; i--)
-                if(p[play][i] == EMPTY)
-                    break;
+            i = findLine(p, play);
             p[play][i] = J1;
 
             // Print the char
             setCursorPosition(21 + play * 4, 3 + i * 2);
             putchar(J1);
 
-            win = checkWin(p, play, i);
+            win = checkWin(p, play, i, 1);
             g1->moves++; // Increase number of moves
             freeSpaces--;
 
             if(!win) // If player didn't won, the computer will play
             {
-            	setCursorPosition(50, 10);
+                setCursorPosition(50, 10);
                 printf("Computer is thinking...\t"); // If the loop takes a lot of time, the player will know the computer is processing
                 if (difficulty==1)
                 {
@@ -464,20 +416,22 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
 
                 if(difficulty==2)
                 {
-                    play = playIA_normal(p);
+                    play = playIA_normal(p, numTurns);
                 }
-                for(i = HEIGHT - 1; i >= 0; i--)
-                    if(p[play][i] == EMPTY)
-                        break;
+
+                if(difficulty==3)
+                    play = playIA_hardcore(p, numTurns);
+
+                i = findLine(p, play);
                 setCursorPosition(21 + play * 4, 3 + i * 2);
                 putchar(J2);
                 p[play][i] = J2;
-                win = checkWin(p, play, i);
+                win = checkWin(p, play, i, 1);
                 g2->moves++;
                 if(win)
                     winner = g2;
-				else
-					numTurns++;
+                else
+                    numTurns++;
                 freeSpaces--;
                 setCursorPosition(50, 10);
                 printf("Computer chose column %d\t", play+1);
@@ -501,54 +455,54 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
             printf("Draw! Noob equality.\t\t");
 
 
-		// Read data
+        // Read data
 
-		GamerStat *stats = NULL;
-		int numStats = 0;
-		stats = readStatisticsFile(stats, &numStats);
+        GamerStat *stats = NULL;
+        int numStats = 0;
+        stats = readStatisticsFile(&numStats);
 
-		GamerStat newStat;
-		int foundStatP1 = 0;
-		if(numStats > 0)
-		{
-			for(i = 0; i < numStats && !foundStatP1; i++)
-			{
-				if(stricmp(g1->name, stats[i].name) == 0)
-				{
-					stats[i].numGames++;
-					if(winner->num == g1->num && freeSpaces > 0)
-					{
-						stats[i].numWins++;
-						stats[i].totalScore += calculateScore(g1->moves);
-					}
-					stats[i].totalNumMoves += g1->moves;
-					foundStatP1 = 1;
-				}
-			}
-		}
+        GamerStat newStat;
+        int foundStatP1 = 0;
+        if(numStats > 0)
+        {
+            for(i = 0; i < numStats && !foundStatP1; i++)
+            {
+                if(stricmp(g1->name, stats[i].name) == 0)
+                {
+                    stats[i].numGames++;
+                    if(winner->num == g1->num && freeSpaces > 0)
+                    {
+                        stats[i].numWins++;
+                        stats[i].totalScore += calculateScore(g1->moves);
+                    }
+                    stats[i].totalNumMoves += g1->moves;
+                    foundStatP1 = 1;
+                }
+            }
+        }
 
-		if(!foundStatP1)
-		{
-			newStat.numGames = 1;
-			if(winner->num == g1->num && freeSpaces > 0)
-			{
-				newStat.numWins = 1;
-				newStat.totalScore = calculateScore(g1->moves);
-			}
-			else
-			{
-				newStat.numWins = 0;
-				newStat.totalScore = 0;
-			}
-			newStat.totalNumMoves = g1->moves;
-			strcpy(newStat.name, g1->name);
-			stats = realloc(stats, sizeof(GamerStat) * (numStats + 1)); // Create a new position in the array
-			stats[numStats] = newStat;
-			numStats++;
-		}
+        if(!foundStatP1)
+        {
+            newStat.numGames = 1;
+            if(winner->num == g1->num && freeSpaces > 0)
+            {
+                newStat.numWins = 1;
+                newStat.totalScore = calculateScore(g1->moves);
+            }
+            else
+            {
+                newStat.numWins = 0;
+                newStat.totalScore = 0;
+            }
+            newStat.totalNumMoves = g1->moves;
+            strcpy(newStat.name, g1->name);
+            stats = realloc(stats, sizeof(GamerStat) * (numStats + 1)); // Create a new position in the array
+            stats[numStats] = newStat;
+            numStats++;
+        }
 
-		writeStatisticsFile(stats, numStats);
-		free(stats);
+        writeStatisticsFile(stats, numStats);
+        free(stats);
 
         printStringCenter("Press ENTER to play again", 19);
         printStringCenter("or ESC to return to main menu", 20);
@@ -567,5 +521,6 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
             initializeGrid(p);
             showBoard(p);
         }
-    } while(ch != 27);
+    }
+    while(ch != 27);
 }

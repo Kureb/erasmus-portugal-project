@@ -13,9 +13,9 @@ void initializeGrid(board p)
 {
     int i,j;
     for(i=0;i<WIDTH;i++){
-            for(j=0;j<HEIGHT;j++){
-                p[i][j] = EMPTY;
-            }
+		for(j=0;j<HEIGHT;j++){
+			p[i][j] = EMPTY;
+        }
     }
 }
 
@@ -30,7 +30,7 @@ void showBoard(board p)
     system("cls");	// Clear the screen
     setCursorPosition(19, 0);
     for(i = 0; i < 29; i++) // Print the top line of hifens
-        putchar('-');
+		putchar('-');
 	setCursorPosition(28, 1);
     printf("GAME BOARD");
     for(j = 0; j < 7; j++)	// Print all lines of chars
