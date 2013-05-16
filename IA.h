@@ -8,14 +8,14 @@ int playIA_noob(board p);
  * Doesn't work at all
  * Once the first line filled, the computer can not choose column
  */
-int playIA_normal(board p);
+int playIA_normal(board p, int numTurns);
 
 /* Last level of IA
  * It needs to look carefullyif it
  * can block the other player
  * and allow itself to win
  */
-int playIA_hardcore(board p);
+int playIA_hardcore(board p, int numTurns);
 
 /* The five following compute in each columns
  * if we put a token, how many tokens are already aligned

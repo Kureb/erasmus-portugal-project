@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <windows.h>
 #include <time.h>
+#include "utilities.h"
 #include "Global.h"
 #include "Board.h"
 #include "Play.h"
@@ -16,32 +16,12 @@
 int playIA_noob(board p)
 {
     int num;
-    srand(time(NULL));
-    Sleep(1000);
     do
-	{
-		num = (rand() % (WIDTH));
-	} while (!validate(p, num));
-    //printf("The computer chose column %d \n", num);
-    /*int number = num-1;
-    int i=0;
-    for(i=HEIGHT-1; i>=0; i--)
     {
-        //From top to bottom, it stops at the first blank
-        if(p[number][i] == EMPTY)
-        {
-            //The Computer is the player 2
-            p[(number)][i] = J2;
-            break;
-        }
-    }*/
-    //showBoard(p, g);
-    /*int a = (checkWin(p, number, i));
-    if(a==1)
-    {
-        //printf("%s won ! Congratulation \n", g.name);
-        play=1;
-    }*/
+        num = random(WIDTH);
+    }
+    while (!validate(p, num));
+    Sleep(1000);
 
     return num;
 }
@@ -50,9 +30,9 @@ int playIA_noob(board p)
 //UNE FOIS QUE LA PREMIERE LIGNE
 //EST REMPLIE
 
-int playIA_normal(board p)
+int playIA_normal(board p, int numTurns)
 {
-    int i,j,w,a,number = 0;
+    /*int i,j,w,a,number = 0;
     int ok=0;
 
     for(j=WIDTH-1; j>=0; j--)
@@ -92,7 +72,7 @@ int playIA_normal(board p)
             break;
         }
 
-    }
+    }*/
 
     //printf("The computer chose column %d \n", number);
     /*showBoard(p, g);
@@ -103,12 +83,145 @@ int playIA_normal(board p)
         play=1;
     }*/
 
-    return number + 1;
+    int i, j, k, l, num = -1;
+    if(numTurns == 1) // This is the first turn. So, we will play randomly
+    {
+        if(p[2][HEIGHT - 1] == J1)
+            num = 2;
+        else if(p[4][HEIGHT - 1] == J1)
+            num = 4;
+        else
+            num = 3;
+    }
+    else
+    {
+        int plays[WIDTH] = {0}, pos[WIDTH] = {-1}, max, maxPos, winFlag, marksHorizontal, marksVertical, couldNotValidate, marksDiag1, marksDiag2;
+        setCursorPosition(0, 10);
+        for(i = 0; i < WIDTH; i++)
+            pos[i] = findLine(p, i);
+
+
+        for(i = 0; i < WIDTH; i++)
+        {
+            if(pos[i] >= 0)
+            {
+                p[i][pos[i]] = J2;
+                winFlag = checkWin(p, i, pos[i], 0); // Check if if the computer playes here, it will win
+                p[i][pos[i]] = EMPTY; // Clear the position
+                if(winFlag)
+                {
+                    num = i;
+                    break;
+                }
+                else
+                {
+                    p[i][pos[i]] = J1;
+                    winFlag = checkWin(p, i, pos[i], 0); // If checkWin returns true here, the player would win if he played in this position. So, the computer will play here to prevent that
+                    p[i][pos[i]] = EMPTY; // Clear the position
+                    if(winFlag)
+                    {
+                        num = i;
+                        break;
+                    }
+                    else
+                    {
+                        marksHorizontal = marksVertical = marksDiag1 = marksDiag2 = 0;
+                        for(k = i - 1; k >= 0 && p[k][pos[i]] == J2; k--, marksHorizontal++);
+                        for(k = i + 1; k < WIDTH && p[k][pos[i]] == J2; k++, marksHorizontal++);
+
+                        for(k = pos[i] + 1; k < HEIGHT && p[i][k] == J2; k++, marksVertical++);
+
+                        for(k = i - 1, l = pos[i] - 1; i >= 0 && l >= 0 && p[k][l] == J2; k--, l--, marksDiag1++);
+                        for(k = i + 1, l = pos[i] + 1; i < WIDTH && l < HEIGHT && p[k][l] == J2; k++, l++, marksDiag1++);
+
+                        for(k = i + 1, l = pos[i] - 1; i < WIDTH && l >= 0 && p[k][l] == J2; k++, l--, marksDiag2++);
+                        for(k = i - 1, l = pos[i] + 1; i >= 0 && l < HEIGHT && p[k][l] == J2; k--, l++, marksDiag2++);
+                        max = marksHorizontal;
+                        if(marksVertical > max)
+                            max = marksVertical;
+						if(marksDiag1 > max)
+							max = marksDiag1;
+						if(marksDiag2 > max)
+							max = marksDiag2;
+                        plays[i] = max;
+                    }
+                }
+            }
+        }
+
+        if(num == -1)
+        {
+            couldNotValidate = 1;
+            /*do
+            {*/
+            	max = 0;
+				maxPos = 0;
+                for(j = 0; j < WIDTH; j++)
+                {
+                	winFlag = 0;
+                	if(plays[j] > max)
+					{
+						if(pos[j] - 1 >= 0)
+						{
+							p[j][pos[j] - 1] = J1;
+							winFlag = checkWin(p, j, pos[j] - 1, 0);
+							p[j][pos[j] - 1] = EMPTY;
+						}
+
+						if(!winFlag || couldNotValidate)
+						{
+							maxPos = j;
+							max = plays[j];
+						}
+					}
+                }
+                num = maxPos;
+                /*couldNotValidate = validate(p, num);
+            } while(couldNotValidate);*/
+        }
+    }
+
+    return num;
 }
 
-int playIA_hardcore(board p)
+int playIA_hardcore(board p, int numTurns)
 {
-    return 0;
+    int play = 0, i, j;
+
+    if(numTurns == 1)
+    {
+        if(p[2][HEIGHT - 1] == J1)
+            play = 2;
+        else if(p[4][HEIGHT - 1] == J1)
+            play = 4;
+        else
+            play = 3;
+    }
+    else
+    {
+        int pos[WIDTH] = {-1};
+        for(i = 0; i < WIDTH; i++)
+        {
+            for(j = HEIGHT - 1; j >= 0; j--)
+                if(p[i][j] == EMPTY)
+                {
+                    pos[i] = j;
+                    break;
+                }
+        }
+        for(i = 0; i < WIDTH; i++)
+        {
+            if(pos[i] != -1)
+            {
+                if(pos[i] > 0)
+                {
+                }
+            }
+        }
+        //play = random(WIDTH);
+    }
+
+    return play;
 }
 
 /* Returns the number of tokens
