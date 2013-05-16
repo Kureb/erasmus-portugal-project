@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <windows.h>
 #include <time.h>
 #include "Global.h"
 #include "Board.h"
@@ -16,6 +17,7 @@ int playIA_noob(board p)
 {
     int num;
     srand(time(NULL));
+    Sleep(1000);
     do
 	{
 		num = (rand() % (WIDTH));
