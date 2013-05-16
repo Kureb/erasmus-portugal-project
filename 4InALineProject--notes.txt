@@ -4,5 +4,8 @@ I´m making new changes!
 
 Hello!!!
 
+<<<<<<< .mine
 Hello!!! :)
-some notes about the project
+line2=======
+Hello!!! :)
+some notes about the project>>>>>>> .r26
