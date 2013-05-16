@@ -191,7 +191,7 @@ int playIA_normal(board p, int numTurns)
             } while(couldNotValidate);*/
         }
     }
-
+    Sleep(1000);
     return num;
 }
 
@@ -231,6 +231,7 @@ int playIA_hardcore(board p, int numTurns)
         }
         //play = random(WIDTH);
     }
+    Sleep(1000);
 
     return play;
 }
