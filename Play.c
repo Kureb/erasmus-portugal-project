@@ -25,50 +25,6 @@
 **  v
 **  y (k)
 */
-FILE *save;
-
-void savegame (Gamer player1, Gamer player2,board p,int numTurns,int freeSpaces,Gamer currentgamer){
-	int i,j;
-	save=fopen("save.txt", "w");
-	fputs (player1.name, save);
-	fprintf (save,"\n");
-	fputs (player2.name, save);
-	fprintf (save,"\n");
-	for (i=0;i<WIDTH;i++){
-        for(j=0;j<HEIGHT;j++)
-            fprintf (save, "%c",p[i][j] );
-        fprintf (save,"\n");
-	}
-    fprintf(save,"%d\n",numTurns);
-    fprintf(save,"%d\n",freeSpaces);
-    fprintf(save,"%d\n",player1.moves);
-    fprintf(save,"%d\n",player2.moves);
-    fprintf(save,"%d\n",currentgamer.num);
-	fclose(save);
-	}
-
-void loadgame (Gamer* player1, Gamer* player2,board p,int *numTurns,int*freeSpaces,int*Move1,int*Move2,int *WHOSETURNISIT,Gamer*currentgamer){
-    int i;
-    save=fopen("save.txt", "r");
-    initializeGrid(p);
-    fscanf(save,"%s",player1->name);
-    fscanf(save,"%s",player2->name);
-    	for (i=0;i<WIDTH;i++)
-            fscanf(save,"%s",p[i]);
-    fscanf(save,"%d",numTurns);
-    fscanf(save,"%d",freeSpaces);
-    fscanf(save,"%d",Move1);
-    fscanf(save,"%d",Move2);
-    player1->moves = *Move1;
-    player2->moves = *Move2;
-    fscanf(save,"%d",WHOSETURNISIT);
-    if (*WHOSETURNISIT==1)
-        currentgamer=player1;
-        else if(*WHOSETURNISIT==2)
-        currentgamer=player2;
-    	fclose(save);
-}
-
 int checkWin(board p, int j, int k, int paint)
 {
     int vertical = 1;
@@ -177,18 +133,10 @@ int checkWin(board p, int j, int k, int paint)
     //return winHorizontal(p,j,k) || winVertical(p,j,k) || winDiagDownUp(p,j,k) || winDiagUpDown(p,j,k);
 }
 
-int validate(board p, int col, Gamer *g1, Gamer *g2,int *numTurns,int *freeSpaces,int*num,int*TOTmoves,int*WHOSETURNISIT,Gamer*currentgamer){
+int validate(board p, int col)
+{
     int valid = 1;
-    if (col == -1){
-        savegame(*g1,*g2,p,*numTurns,*freeSpaces,*currentgamer);
-        return 2;
-
-	}
-	else if (col == 8){
-        loadgame(g1,g2,p,numTurns,freeSpaces,num,TOTmoves,WHOSETURNISIT, currentgamer);
-        return 3;
-	}
-    else if ((col<0) || (col>6))
+    if ((col<0) || (col>6))
     {
         valid = 0;
     }
@@ -234,7 +182,7 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
     {
         // This code belongs to the italian team, with some modifications
         Gamer *currentGamer;
-        int play, i, win = 0, numTurns = 1, validMove, freePos = WIDTH * HEIGHT, firstNum,TOTmoves=0,turn,WHOSETURNISIT;
+        int play, i, win = 0, numTurns = 1, validMove, freePos = WIDTH * HEIGHT, firstNum;
         char mark;
         i = random(2);
         currentGamer = (i == 0 ? g1 : g2); // Choose a random player to play first
@@ -250,62 +198,25 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
             printf("%s moves: %d\t", g1->name, g1->moves);
             setCursorPosition(50, 6);
             printf("%s moves: %d\t", g2->name, g2->moves);
-            setCursorPosition(50,7);
-            printf("Press 0 to save.");
-            setCursorPosition(50,8);
-            printf("Press 9 to load a save.");
+
             do
             {
                 play = getch() - '0' - 1;
-  validMove = validate(p, play,g1,g2,&numTurns,&freePos,&turn,&firstNum,&WHOSETURNISIT,currentGamer);
-                if(validMove==0)
+                validMove = validate(p, play);
+                if(!validMove)
                 {
                     setTextColor(LIGHT_RED);
-                    setCursorPosition(50, 9);
+                    setCursorPosition(50, 8);
                     printf("Invalid move");
                 }
-                else if(validMove==2)
-                {
-                    setTextColor(LIGHT_RED);
-                    setCursorPosition(50, 10);
-                    printf("Game saved");
-                }
-                else if(validMove==3)
-                {
-                    setTextColor(PURE_WHITE);
-                    showBoard(p);
-                    setCursorPosition(50, 3);
-                    printf("Turn number %d\t", numTurns);
-                    setCursorPosition(50, 5);
-                    printf("%s moves: %d\t", g1->name, g1->moves);
-                    setCursorPosition(50, 6);
-                    printf("%s moves: %d\t", g2->name, g2->moves);
-                    setCursorPosition(50,7);
-                    printf("Press 0 to save.");
-                    setCursorPosition(50,8);
-                    printf("Press 9 to load a save.");
-                    if (WHOSETURNISIT==1)
-                        currentGamer=g1;
-                    else if(WHOSETURNISIT==2)
-                        currentGamer=g2;
-                    setCursorPosition(19, 17);
-                    printf("%s (%c), make your move.\t\t", currentGamer->name, (currentGamer->num == 1 ? J1 : J2));
-                    setTextColor(LIGHT_RED);
-                    setCursorPosition(50, 9);
-                    printf("Game loaded");
-
-                }
-
                 else
                 {
                     setTextColor(PURE_WHITE);
-                    setCursorPosition(50, 9);
-                    printf("\t\t");
-                    setCursorPosition(50, 10);
+                    setCursorPosition(50, 8);
                     printf("\t\t");
                 }
             }
-            while(validMove!=1);
+            while(!validMove);
 
             i = findLine(p, play);
             mark = (currentGamer->num == 1 ? J1 : J2);
@@ -321,7 +232,6 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
             if(!win && freePos > 0)
             {
                 currentGamer = (currentGamer->num == 1 ? g2 : g1);
-                WHOSETURNISIT=currentGamer->num;
                 /*setCursorPosition(19, 17);
                 printf("Player %d (%c), make your move.", currentGamer->num, (currentGamer->num == 1 ? J1 : J2));*/
                 if(currentGamer->num == firstNum)
@@ -445,7 +355,7 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
 void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
 {
     Gamer *winner;
-    int freeSpaces, i, win, play, validMove, numTurns,turn=1,TOTmoves=0,WHOSETURNISIT=1;
+    int freeSpaces, i, win, play, validMove, numTurns;
     char ch;
     do
     {
@@ -463,60 +373,26 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
             printf("%s moves: %d\t", g1->name, g1->moves);
             setCursorPosition(50, 6);
             printf("%s moves: %d\t", g2->name, g2->moves);
-            setCursorPosition(50,7);
-            printf("Press 0 to save.");
-            setCursorPosition(50,8);
-            printf("Press 9 to load a save.");
 
             // Player turn
             do
             {
                 play = getch() - '0' - 1;
-              validMove = validate(p, play,g1,g2,&numTurns,&freeSpaces,&turn,&TOTmoves,&WHOSETURNISIT,g1);
-                if(validMove==0)
+                validMove = validate(p, play);
+                if(!validMove)
                 {
                     setTextColor(LIGHT_RED);
-                    setCursorPosition(50, 9);
+                    setCursorPosition(50, 8);
                     printf("Invalid move");
                 }
-                else if(validMove==2)
-                {
-                    setTextColor(LIGHT_RED);
-                    setCursorPosition(50, 10);
-                    printf("Game saved");
-                }
-                else if(validMove==3)
-                {
-                    setTextColor(PURE_WHITE);
-                    showBoard(p);
-                    setCursorPosition(50, 3);
-                    printf("Turn number %d\t", numTurns);
-                    setCursorPosition(50, 5);
-                    printf("%s moves: %d\t", g1->name, g1->moves);
-                    setCursorPosition(50, 6);
-                    printf("%s moves: %d\t", g2->name, g2->moves);
-                    setCursorPosition(50,7);
-                    printf("Press 0 to save.");
-                    setCursorPosition(50,8);
-                    printf("Press 9 to load a save.");
-                    setCursorPosition(19, 17);
-                    printf("%s (%c), make your move.\t\t", g1->name, (g1->num == 1 ? J1 : J2));
-                    setTextColor(LIGHT_RED);
-                    setCursorPosition(50, 9);
-                    printf("Game loaded");
-
-                }
-
                 else
                 {
                     setTextColor(PURE_WHITE);
-                    setCursorPosition(50, 9);
-                    printf("\t\t");
-                    setCursorPosition(50, 10);
+                    setCursorPosition(50, 8);
                     printf("\t\t");
                 }
             }
-            while(validMove!=1);
+            while(!validMove);
 
             i = findLine(p, play);
             p[play][i] = J1;
@@ -531,7 +407,7 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
 
             if(!win) // If player didn't won, the computer will play
             {
-                setCursorPosition(50, 11);
+                setCursorPosition(50, 10);
                 printf("Computer is thinking...\t"); // If the loop takes a lot of time, the player will know the computer is processing
                 if (difficulty==1)
                 {
@@ -557,7 +433,7 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
                 else
                     numTurns++;
                 freeSpaces--;
-                setCursorPosition(50, 11);
+                setCursorPosition(50, 10);
                 printf("Computer chose column %d\t", play+1);
             }
             else
