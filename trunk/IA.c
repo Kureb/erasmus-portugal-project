@@ -13,6 +13,17 @@
 ** a number between 1 and WIDTH
 ** of the board
 */
+int validateIA(board p, int col)
+{
+   int valid = 1;
+   if ((col<0) || (col>6))
+   {
+       valid = 0;
+   }
+   else if(p[col][0] != EMPTY)
+       valid = 0;
+   return valid;
+}
 int playIA_noob(board p)
 {
     int num;
@@ -20,7 +31,7 @@ int playIA_noob(board p)
     {
         num = random(WIDTH);
     }
-    while (!validate(p, num));
+    while (!validateIA(p, num));
     Sleep(1000);
 
     return num;

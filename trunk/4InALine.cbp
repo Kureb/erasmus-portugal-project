@@ -44,6 +44,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Play.h" />
+		<Unit filename="Statistics.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Statistics.h" />
 		<Unit filename="TeamPT.c">
 			<Option compilerVar="CC" />
 		</Unit>
