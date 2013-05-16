@@ -106,3 +106,163 @@
 
 1368379059 c:\users\vaio user\google drive\4inaline project\code\4ial_proposal_pt\4inaline\teampt.h
 
+1368694661 source:d:\windows\utilisateurs\alexandre\bureau\eramsus\board.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"Global.h"
+	"Board.h"
+	"utilities.h"
+
+1368704880 d:\windows\utilisateurs\alexandre\bureau\eramsus\global.h
+
+1368694661 d:\windows\utilisateurs\alexandre\bureau\eramsus\board.h
+
+1368694661 d:\windows\utilisateurs\alexandre\bureau\eramsus\utilities.h
+	<windows.h>
+
+1368705361 source:d:\windows\utilisateurs\alexandre\bureau\eramsus\ia.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+	<time.h>
+	"Global.h"
+	"Board.h"
+	"Play.h"
+	"IA.h"
+
+1368713504 d:\windows\utilisateurs\alexandre\bureau\eramsus\play.h
+
+1368705305 d:\windows\utilisateurs\alexandre\bureau\eramsus\ia.h
+
+1368694661 source:d:\windows\utilisateurs\alexandre\bureau\eramsus\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<windows.h>
+	<string.h>
+	"Global.h"
+	"utilities.h"
+	"TeamPT.h"
+	"Play.h"
+	"Board.h"
+	"Statistics.h"
+
+1368694661 d:\windows\utilisateurs\alexandre\bureau\eramsus\teampt.h
+
+1368713504 d:\windows\utilisateurs\alexandre\bureau\eramsus\statistics.h
+	"Global.h"
+
+1368694661 source:d:\windows\utilisateurs\alexandre\bureau\eramsus\play.c
+	<stdio.h>
+	<conio.h>
+	<string.h>
+	"Global.h"
+	"Board.h"
+	"Play.h"
+	"utilities.h"
+	"IA.h"
+	"Statistics.h"
+
+1368694661 source:d:\windows\utilisateurs\alexandre\bureau\eramsus\teampt.c
+	<stdio.h>
+	<conio.h>
+	"Global.h"
+	"utilities.h"
+	"TeamPT.h"
+
+1368694661 source:d:\windows\utilisateurs\alexandre\bureau\eramsus\utilities.c
+	<windows.h>
+	<string.h>
+	<stdio.h>
+	"utilities.h"
+
+1368694661 source:d:\windows\utilisateurs\alexandre\bureau\eramsus\statistics.c
+	<stdio.h>
+	<windows.h>
+	<conio.h>
+	"Global.h"
+	"Statistics.h"
+	"utilities.h"
+
+1368713504 source:d:\windows\utilisateurs\alexandre\bureau\copy\board.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"Global.h"
+	"Board.h"
+	"utilities.h"
+
+1368715475 d:\windows\utilisateurs\alexandre\bureau\copy\global.h
+
+1368694661 d:\windows\utilisateurs\alexandre\bureau\copy\board.h
+
+1368694661 d:\windows\utilisateurs\alexandre\bureau\copy\utilities.h
+	<windows.h>
+
+1368694661 source:d:\windows\utilisateurs\alexandre\bureau\copy\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<windows.h>
+	<string.h>
+	"Global.h"
+	"utilities.h"
+	"TeamPT.h"
+	"Play.h"
+	"Board.h"
+	"Statistics.h"
+
+1368694661 d:\windows\utilisateurs\alexandre\bureau\copy\teampt.h
+
+1368713504 d:\windows\utilisateurs\alexandre\bureau\copy\play.h
+
+1368713504 d:\windows\utilisateurs\alexandre\bureau\copy\statistics.h
+	"Global.h"
+
+1368713504 source:d:\windows\utilisateurs\alexandre\bureau\copy\play.c
+	<stdio.h>
+	<conio.h>
+	<string.h>
+	"Global.h"
+	"Board.h"
+	"Play.h"
+	"utilities.h"
+	"IA.h"
+	"Statistics.h"
+
+1368713762 d:\windows\utilisateurs\alexandre\bureau\copy\ia.h
+
+1368694661 source:d:\windows\utilisateurs\alexandre\bureau\copy\teampt.c
+	<stdio.h>
+	<conio.h>
+	"Global.h"
+	"utilities.h"
+	"TeamPT.h"
+
+1368694661 source:d:\windows\utilisateurs\alexandre\bureau\copy\utilities.c
+	<windows.h>
+	<string.h>
+	<stdio.h>
+	"utilities.h"
+
+1368714472 source:d:\windows\utilisateurs\alexandre\bureau\copy\ia.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"utilities.h"
+	"Global.h"
+	"Board.h"
+	"Play.h"
+	"IA.h"
+
+1368713504 source:d:\windows\utilisateurs\alexandre\bureau\copy\statistics.c
+	<stdio.h>
+	<windows.h>
+	<conio.h>
+	"Global.h"
+	"Statistics.h"
+	"utilities.h"
+
