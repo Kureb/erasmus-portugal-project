@@ -1,4 +1,5 @@
 ﻿This is a simple test file...
-
-Hello!
-Read the READ.txt file
+Hello
+Read the READ.txt file
+See the Documentation folder.
+
