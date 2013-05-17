@@ -8,6 +8,13 @@
 #include "IA.h"
 #include "IA_woot.h"
 
+/**
+ * This function calculates the play for the computer in hardcore mode (currently bugged).
+ * @param p Receives the board.
+ * @param numTurns Receives the number of turns in order to predict some plays.
+ * @param lastPlay Receives the last play so it can prevent some win situations from the player.
+ * @return play Returns the play that computer will do.
+ */
 int playIA_hardcore_Jorge(board p, int numTurns, int lastPlay) {
 
     int play = 9, j, k, i = 0;
@@ -39,28 +46,34 @@ int playIA_hardcore_Jorge(board p, int numTurns, int lastPlay) {
                 }
 
             }
-            for (j = 0; j < WIDTH; j++) {
-                for (k = HEIGHT - 1; k > 0; k--) {
-                    if (p[j][k] == EMPTY && play == 9) {
-                        p[j][k] = J1;
-                        if (checkWin(p, j, k, 0)) {
-                            play = j;
-                        }
-                        p[j][k] = EMPTY;
-                    }
-                }
-            }
         }
-        if (play == 9) {
-            for (j = 0; j < WIDTH; j++) {
-                for (k = HEIGHT - 1; k > 0; k--) {
-                    if ((p[j][k] == EMPTY) && aux[j][k] > i) {
-                        i = aux[j][k];
+        for (j = 0; j < WIDTH; j++) {
+            for (k = HEIGHT - 1; k > 0; k--) {
+                if (p[j][k] == EMPTY && play == 9) {
+                    p[j][k] = J1;
+                    if (checkWin(p, j, k, 0)) {
                         play = j;
                     }
+                    p[j][k] = EMPTY;
                 }
             }
         }
+
+       if (play == 9) {
+             for (j = 0; j < WIDTH; j++) {
+              for (k = HEIGHT - 1; k > 0; k--) {
+                     if (p[j][k] == EMPTY && aux[j][k] > i){
+                         p[j][k-1] = J1;
+                         if(!checkWin(p, j, k-1,0)){
+                                i = aux[j][k];
+                                play = j;
+                         }
+                         p[j][k-1] = EMPTY;
+                    }
+                }
+            }
+        }
+
     }
     return play;
 }

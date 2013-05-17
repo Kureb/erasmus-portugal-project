@@ -9,23 +9,25 @@
 #include "IA_woot.h"
 #include "Statistics.h"
 
-/* Checks if a player has won.
-** Takes the coordinates of the last token played
-** and checks if there is alignment
-** returns 1 if yes, 0 otherwise.
-** p[j][k] is the last token played
-**
-**  +-----------------------> x (j)
-**  |
-**  |
-**  |
-**  |
-**  |
-**  |
-**  |
-**  v
-**  y (k)
-*/
+/**
+ * Checks if a player has won. 
+ * Takes the coordinates of the last token played and checks if there is alignment.\n
+ * +-----------------------> x (j)\n
+ * |\n
+ * |\n
+ * |\n
+ * |\n
+ * |\n
+ * |\n
+ * |\n
+ * v\n
+ * y (k)
+ * @param p This is the board.
+ * @param j This is the x coordinate.
+ * @param k This is the y coordinate.
+ * @param paint Selects the color you want to paint the winning move. If 0 is select it does not paint it.
+ * @return Returns 1 if it won, 0 otherwise.\
+ */
 int checkWin(board p, int j, int k, int paint)
 {
     int vertical = 1;
