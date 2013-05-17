@@ -13,17 +13,7 @@
 ** a number between 1 and WIDTH
 ** of the board
 */
-int validateIA(board p, int col)
-{
-   int valid = 1;
-   if ((col<0) || (col>6))
-   {
-       valid = 0;
-   }
-   else if(p[col][0] != EMPTY)
-       valid = 0;
-   return valid;
-}
+
 int playIA_noob(board p)
 {
     int num;
@@ -31,76 +21,19 @@ int playIA_noob(board p)
     {
         num = random(WIDTH);
     }
-    while (!validateIA(p, num));
+    while (!validate(p, num));
     Sleep(1000);
 
     return num;
 }
 
-//NE MARCHE PAS
-//UNE FOIS QUE LA PREMIERE LIGNE
-//EST REMPLIE
-
 int playIA_normal(board p, int numTurns)
 {
-    /*int i,j,w,a,number = 0;
-    int ok=0;
-
-    for(j=WIDTH-1; j>=0; j--)
-    {
-        for(i=HEIGHT-1; i>=0; i--)
-        {
-
-            if(p[j][i]==EMPTY)
-            {
-                //a = checkWeight(p,j,i);
-                p[j][i] = J2;//Obligé de placer un jeton pour comparer
-                a = checkWeight(p,j,i);
-                w=4;
-                while(ok!=1)
-                {
-
-
-                    if(a==w)
-                    {
-                        p[j][i] = J2;
-                        ok=1;//pour sortir de toutes ces imbrications de boucle
-                        number = j+1;//on récupère la colonne
-                        i=-1;//idem
-                        j=-1;//sortir des imbrications
-
-                    }
-                    else
-                    {
-                        p[j][i] = EMPTY;
-                    }
-                    w--;
-
-
-                }//fin while
-                //break;
-            }//Fin if EMPTY
-            break;
-        }
-
-    }*/
-
-    //printf("The computer chose column %d \n", number);
-    /*showBoard(p, g);
-    int b = (checkWin(p, number+1, i));
-    if(b==1)
-    {
-        //printf("%s won ! Congratulation \n", g.name);
-        play=1;
-    }*/
-
     int i, j, k, l, num = -1;
-    if(numTurns == 1) // This is the first turn. So, we will play randomly
+    if(numTurns == 1) // This is the first turn
     {
-        if(p[2][HEIGHT - 1] == J1)
-            num = 2;
-        else if(p[4][HEIGHT - 1] == J1)
-            num = 4;
+        if(p[3][HEIGHT - 1] == J1)
+            num = 2 + (random(2) * 2); // 2 or 4
         else
             num = 3;
     }
@@ -150,10 +83,10 @@ int playIA_normal(board p, int numTurns)
                         max = marksHorizontal;
                         if(marksVertical > max)
                             max = marksVertical;
-						if(marksDiag1 > max)
-							max = marksDiag1;
-						if(marksDiag2 > max)
-							max = marksDiag2;
+                        if(marksDiag1 > max)
+                            max = marksDiag1;
+                        if(marksDiag2 > max)
+                            max = marksDiag2;
                         plays[i] = max;
                     }
                 }
@@ -162,36 +95,20 @@ int playIA_normal(board p, int numTurns)
 
         if(num == -1)
         {
-            couldNotValidate = 1;
-            /*do
-            {*/
-            	max = 0;
-				maxPos = 0;
-                for(j = 0; j < WIDTH; j++)
+            max = 0;
+            maxPos = 0;
+            for(j = 0; j < WIDTH; j++)
+            {
+                if(pos[j] >= 0 && plays[j] > max)// && !(pos[j] - 1 >= 0 && checkWin(p, j, pos[j] - 1, 0)))
                 {
-                	winFlag = 0;
-                	if(plays[j] > max)
-					{
-						if(pos[j] - 1 >= 0)
-						{
-							p[j][pos[j] - 1] = J1;
-							winFlag = checkWin(p, j, pos[j] - 1, 0);
-							p[j][pos[j] - 1] = EMPTY;
-						}
-
-						if(!winFlag || couldNotValidate)
-						{
-							maxPos = j;
-							max = plays[j];
-						}
-					}
+                    maxPos = j;
+                    max = plays[j];
                 }
-                num = maxPos;
-                /*couldNotValidate = validate(p, num);
-            } while(couldNotValidate);*/
+            }
+            num = maxPos;
         }
     }
-    Sleep(1000);
+	Sleep(1000);
     return num;
 }
 
