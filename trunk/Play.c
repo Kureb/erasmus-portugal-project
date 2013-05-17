@@ -6,6 +6,7 @@
 #include "Play.h"
 #include "utilities.h"
 #include "IA.h"
+#include "IA_woot.h"
 #include "Statistics.h"
 
 /* Checks if a player has won.
@@ -355,7 +356,7 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
 void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
 {
     Gamer *winner;
-    int freeSpaces, i, win, play, validMove, numTurns;
+    int freeSpaces, i, win, play, validMove, numTurns, lastPlay;
     char ch;
     do
     {
@@ -395,6 +396,7 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
             while(!validMove);
 
             i = findLine(p, play);
+			lastPlay=play;
             p[play][i] = J1;
 
             // Print the char
@@ -420,7 +422,7 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
                 }
 
                 if(difficulty==3)
-                    play = playIA_hardcore(p, numTurns);
+                    play = playIA_hardcore_Jorge(p, numTurns, lastPlay);
 
                 i = findLine(p, play);
                 setCursorPosition(21 + play * 4, 3 + i * 2);
