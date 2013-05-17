@@ -119,7 +119,7 @@ int checkWin(board p, int j, int k, int paint)
                 setCursorPosition(21 + i * 4, 3 + l * 2);
                 putch(disc);
             }
-            for(i=j + 1, l = k - 1; i < WIDTH && j >= 0 && p[i][l] == disc; i++, l--)
+            for(i=j + 1, l = k - 1; i < WIDTH && l >= 0 && p[i][l] == disc; i++, l--)
             {
                 setCursorPosition(21 + i * 4, 3 + l * 2);
                 putch(disc);
