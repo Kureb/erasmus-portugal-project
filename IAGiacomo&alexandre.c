@@ -1,100 +1,131 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <windows.h>
 #include <time.h>
 #include "Global.h"
 #include "Board.h"
 #include "Play.h"
 #include "IA.h"
 
-/* First level of IA
-** Computer just generate
-** a number between 1 and WIDTH
-** of the board
-*/
 
 
-int playIA_normal(board p, int col)
+
+
+int checkOrizontal (board p)
+{
+    srand ((unsigned)time(NULL));
+    int j,k,def=-1;
+        for (k=0; k<HEIGHT ; k++)
+            for (j=0; j<WIDTH ; j++){
+                if (p[j][k]==J1){
+                    if (p[j+1][k]==J1) {
+                        if (k==(HEIGHT-1))    {
+                            if ((p[j+2][k]==EMPTY)&&(p[j-1][k]==EMPTY)){
+                                if ((rand()%2)==0)
+                                    def=(j+2);
+                                else
+                                    def=(j-1);
+                                }
+                            if ((p[j+2][k]==J1)&&(p[j-1][k]!=EMPTY)&&(p[j+3][k]==EMPTY)){
+                                def=(j+3) ;
+                            }
+                            if ((p[j+2][k]==J1)&&(p[j+3][k]!=EMPTY)&&(p[j-1][k]==EMPTY)){
+                                def=(j-1);
+                            }
+                        }
+
+                        else {
+                        if ((p[j+2][k]==EMPTY)&&(p[j-1][k]==EMPTY)&&(p[j-1][k+1]!=EMPTY)&&(p[j+2][k+1]!=EMPTY)){
+                            if ((rand()%2)==0)
+                                def=(j+2);
+                            else
+                                def=(j-1);
+                            }
+                        if ((p[j+2][k]==J1)&&(p[j-1][k]!=EMPTY)&&(p[j+3][k]==EMPTY)&&(p[j-1][k+1]!=EMPTY)){
+                            def=(j+3) ;
+                        }
+                        if ((p[j+2][k]==J1)&&(p[j+3][k]!=EMPTY)&&(p[j+3][k+1]!=EMPTY)&&(p[j-1][k]==EMPTY)){
+                            def=(j-1);
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+
+    return def;
+}
+
+int winning (board p) // if the pc is about to win, return the column in whitch the computer has to play to win, otherwise returns 0
+    {
+
+
+    int j,k,win=0;
+    for (k=0; k<HEIGHT ; k++){
+        for (j=0; j<WIDTH ; j++){
+            if (p[j][k]==J2){
+                if ((p[j][k+1]==J2)&&(p[j][k+2]==J2)&& (k>0))
+                        win=j;
+
+                if ((p[j+1][k]==J2)&&(p[j+2][k]==J2)){
+                        if(((j+3)<=(WIDTH-1))&& p[j+3][k]==EMPTY)
+                            win=j+3;
+                        if(((j-1)>=0)&& p[j-1][k]==EMPTY)
+                            win=j-1;
+                        }
+                    }
+
+                }
+            }
+            return win;
+    }
+
+int playIA_normal(board p,int k, int col)
 
 {
-	int num,k,j, play;
-    srand((unsigned)time(NULL));
+    int limit = WIDTH-1, limitk = HEIGHT-1;
+	int num,j, play=-1;
+	int x,y;
+	j=col;
+
+    Sleep(1500);
     do
 	{
-		/*check_if_player_is_about_to_win_first(p);*/
-	int k = whatstherow (p, j) ;
-	//for (j=0; j<HIGHT ; j++)
-		//for (k=0; k<WIDTH ; k++)
-		if (!j)
-		//check only right
+			//WINNING FUNC FIXED
+			if (winning(p))
+                return winning(p);
+            //COLUMN FIXED
 
-			if (p[k][j]==J1)
-				if ((j-2>=0) && (j+2<=6))
-					if (p[k][j-1]==J1)
-						if ((p[k][j-2]=='-')&&(p[k][j+1]=='-')&&((p[k][j+2]==J1)))
-							play=j+1//p[k][j+1]=J2;
+                if (k<HEIGHT-1){
+                    if ((p[j][k+1]==J1)&&(p[j][k+2]==J1)&&(k>0))
+                        return j;
+                }
 
-				if ((j-3>=0) && (j+1<=6))
-					if (p[k][j-1]==J1)
-						if ((p[k][j-2]=='-')&&(p[k][j+1]=='-')&&((p[k][j-3]==J1)))
-							play=j-2//p[]k[j-2]=J2;
+            // ORIZONTAL
+            if (checkOrizontal(p)!=-1)
+                return checkOrizontal(p);
 
-				if ((j-1>=0) && (j+2<=6))
-					if (p[k][j+1]==J1)
-						if ((p[k][j-1]=='-')&&(p[k][j+2]=='-')&&((p[k][j+3]==J1)))
-							play=j+2//p[k][j+2]=J2;
-				if ((j-2>=0) && (j+2<=6))
 
-						if ((p[k][j-1]=='-')&&(p[k][j+2]=='-')&&((p[k][j-2]==J1)))
-							play=j-1//p[]k[j-1]=J2;
+            if (play == -1)
+                if (j>3)
+                    play=j-1;
+                else
+                    play=j+1;
 
-	} while (!validate(p, num));
+
+
+
+
+			//}
+	} while (play==-1);
 
     return play;
 }
 
-int whatstherow (board p,int col)
-{
-	for (k=WIDTH-1;k>=0;k--)
-		if (p[i][col]=='-')
-			return k;
-}
-
-
-/*int check_if_player_is_about_to_win_first(board p, int j)
-
-{
-
-	int k = whatstherow (p, j) ;
-	//for (j=0; j<HIGHT ; j++)
-		//for (k=0; k<WIDTH ; k++)
-		if (!j)
-		//check only right
-
-			if (p[k][j]==J1)
-				if ((j-2>=0) && (j+2<=6))
-					if (p[k][j-1]==J1)
-						if ((p[k][j-2]=='-')&&(p[k][j+1]=='-')&&((p[k][j+2]==J1)))
-							p[k][j+1]=J2;
-
-				if ((j-3>=0) && (j+1<=6))
-					if (p[k][j-1]==J1)
-						if ((p[k][j-2]=='-')&&(p[k][j+1]=='-')&&((p[k][j-3]==J1)))
-							p[]k[j-2]=J2;
-
-				if ((j-1>=0) && (j+2<=6))
-					if (p[k][j+1]==J1)
-						if ((p[k][j-1]=='-')&&(p[k][j+2]=='-')&&((p[k][j+3]==J1)))
-							p[k][j+2]=J2;
-				if ((j-2>=0) && (j+2<=6))
-
-						if ((p[k][j-1]=='-')&&(p[k][j+2]=='-')&&((p[k][j-2]==J1)))
-							p[]k[j-1]=J2;
 
 
 
 
-
-
-
-	return is_him_about;*/
