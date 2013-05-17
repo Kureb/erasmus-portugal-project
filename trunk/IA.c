@@ -27,7 +27,120 @@ int playIA_noob(board p)
     return num;
 }
 
-int playIA_normal(board p, int numTurns)
+int checkOrizontal (board p)
+{
+    srand ((unsigned)time(NULL));
+    int j,k,def=-1;
+        for (k=0; k<HEIGHT ; k++)
+            for (j=0; j<WIDTH ; j++){
+                if (p[j][k]==J1){
+                    if (p[j+1][k]==J1) {
+                        if (k==(HEIGHT-1))    {
+                            if ((p[j+2][k]==EMPTY)&&(p[j-1][k]==EMPTY)){
+                                if ((rand()%2)==0)
+                                    def=(j+2);
+                                else
+                                    def=(j-1);
+                                }
+                            if ((p[j+2][k]==J1)&&(p[j-1][k]!=EMPTY)&&(p[j+3][k]==EMPTY)){
+                                def=(j+3) ;
+                            }
+                            if ((p[j+2][k]==J1)&&(p[j+3][k]!=EMPTY)&&(p[j-1][k]==EMPTY)){
+                                def=(j-1);
+                            }
+                        }
+
+                        else {
+                        if ((p[j+2][k]==EMPTY)&&(p[j-1][k]==EMPTY)&&(p[j-1][k+1]!=EMPTY)&&(p[j+2][k+1]!=EMPTY)){
+                            if ((rand()%2)==0)
+                                def=(j+2);
+                            else
+                                def=(j-1);
+                            }
+                        if ((p[j+2][k]==J1)&&(p[j-1][k]!=EMPTY)&&(p[j+3][k]==EMPTY)&&(p[j-1][k+1]!=EMPTY)){
+                            def=(j+3) ;
+                        }
+                        if ((p[j+2][k]==J1)&&(p[j+3][k]!=EMPTY)&&(p[j+3][k+1]!=EMPTY)&&(p[j-1][k]==EMPTY)){
+                            def=(j-1);
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+
+    return def;
+}
+
+int winning (board p) // if the pc is about to win, return the column in whitch the computer has to play to win, otherwise returns 0
+    {
+
+
+    int j,k,win=0;
+    for (k=0; k<HEIGHT ; k++){
+        for (j=0; j<WIDTH ; j++){
+            if (p[j][k]==J2){
+                if ((p[j][k+1]==J2)&&(p[j][k+2]==J2)&& (k>0))
+                        win=j;
+
+                if ((p[j+1][k]==J2)&&(p[j+2][k]==J2)){
+                        if(((j+3)<=(WIDTH-1))&& p[j+3][k]==EMPTY)
+                            win=j+3;
+                        if(((j-1)>=0)&& p[j-1][k]==EMPTY)
+                            win=j-1;
+                        }
+                    }
+
+                }
+            }
+            return win;
+    }
+
+int playIA_normal(board p,int k, int col)
+
+{
+    int limit = WIDTH-1, limitk = HEIGHT-1;
+	int num,j, play=-1;
+	int x,y;
+	j=col;
+
+    Sleep(1500);
+    do
+	{
+			//WINNING FUNC FIXED
+			if (winning(p))
+                return winning(p);
+            //COLUMN FIXED
+
+                if (k<HEIGHT-1){
+                    if ((p[j][k+1]==J1)&&(p[j][k+2]==J1)&&(k>0))
+                        return j;
+                }
+
+            // ORIZONTAL
+            if (checkOrizontal(p)!=-1)
+                return checkOrizontal(p);
+
+
+            if (play == -1)
+                if (j>3)
+                    play=j-1;
+                else
+                    play=j+1;
+
+
+
+
+
+			//}
+	} while (play==-1);
+
+    return play;
+}
+
+int playIA_hardcore(board p, int numTurns)
 {
     int i, j, k, l, num = -1;
     if(numTurns == 1) // This is the first turn
@@ -132,47 +245,6 @@ int playIA_normal(board p, int numTurns)
     }
     Sleep(500);
     return num;
-}
-
-int playIA_hardcore(board p, int numTurns)
-{
-    int play = 0, i, j;
-
-    if(numTurns == 1)
-    {
-        if(p[2][HEIGHT - 1] == J1)
-            play = 2;
-        else if(p[4][HEIGHT - 1] == J1)
-            play = 4;
-        else
-            play = 3;
-    }
-    else
-    {
-        int pos[WIDTH] = {-1};
-        for(i = 0; i < WIDTH; i++)
-        {
-            for(j = HEIGHT - 1; j >= 0; j--)
-                if(p[i][j] == EMPTY)
-                {
-                    pos[i] = j;
-                    break;
-                }
-        }
-        for(i = 0; i < WIDTH; i++)
-        {
-            if(pos[i] != -1)
-            {
-                if(pos[i] > 0)
-                {
-                }
-            }
-        }
-        //play = random(WIDTH);
-    }
-    Sleep(1000);
-
-    return play;
 }
 
 /* Returns the number of tokens

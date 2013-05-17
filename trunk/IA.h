@@ -4,11 +4,14 @@
 //First level of IA
 int playIA_noob(board p);
 
+int checkOrizontal (board p);
+int winning (board p);
+
 /* Second level of IA
  * Doesn't work at all
  * Once the first line filled, the computer can not choose column
  */
-int playIA_normal(board p, int numTurns);
+int playIA_normal(board p, int k, int col);
 
 /* Last level of IA
  * It needs to look carefullyif it
