@@ -22,7 +22,7 @@ int playIA_noob(board p)
         num = random(WIDTH);
     }
     while (!validate(p, num));
-    Sleep(1000);
+    Sleep(300);
 
     return num;
 }
@@ -39,11 +39,10 @@ int playIA_normal(board p, int numTurns)
     }
     else
     {
-        int plays[WIDTH] = {0}, pos[WIDTH] = {-1}, max, maxPos, winFlag, marksHorizontal, marksVertical, couldNotValidate, marksDiag1, marksDiag2;
+        int plays[WIDTH] = {0}, pos[WIDTH] = {-1}, max, maxPos, winFlag, marksHorizontal, marksVertical, couldNotValidate, marksDiag1, marksDiag2, moveValidated;
         setCursorPosition(0, 10);
         for(i = 0; i < WIDTH; i++)
             pos[i] = findLine(p, i);
-
 
         for(i = 0; i < WIDTH; i++)
         {
@@ -57,7 +56,14 @@ int playIA_normal(board p, int numTurns)
                     num = i;
                     break;
                 }
-                else
+            }
+        }
+
+        if(num < 0)
+        {
+            for(i = 0; i < WIDTH; i++)
+            {
+                if(pos[i] >= 0)
                 {
                     p[i][pos[i]] = J1;
                     winFlag = checkWin(p, i, pos[i], 0); // If checkWin returns true here, the player would win if he played in this position. So, the computer will play here to prevent that
@@ -95,20 +101,36 @@ int playIA_normal(board p, int numTurns)
 
         if(num == -1)
         {
-            max = 0;
-            maxPos = 0;
-            for(j = 0; j < WIDTH; j++)
+            moveValidated = 1;
+            do
             {
-                if(pos[j] >= 0 && plays[j] > max)// && !(pos[j] - 1 >= 0 && checkWin(p, j, pos[j] - 1, 0)))
+                max = 0;
+                maxPos = 0;
+                for(j = 0; j < WIDTH; j++)
                 {
-                    maxPos = j;
-                    max = plays[j];
+                    if(pos[j] >= 0 && plays[j] > max)
+                    {
+                        winFlag = 0;
+                        if(pos[j] > 0 && moveValidated)
+                        {
+                            p[j][pos[j] - 1] = J1;
+                            winFlag = checkWin(p, j, pos[j] - 1, 0);
+                            p[j][pos[j] - 1] = EMPTY;
+                        }
+                        if(!winFlag)
+                        {
+                            maxPos = j;
+                            max = plays[j];
+                        }
+                    }
                 }
+                num = maxPos;
+                moveValidated = validate(p, num);
             }
-            num = maxPos;
+            while(moveValidated != 1);
         }
     }
-	Sleep(1000);
+    Sleep(500);
     return num;
 }
 
