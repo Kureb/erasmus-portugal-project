@@ -266,3 +266,93 @@
 	"Statistics.h"
 	"utilities.h"
 
+1368864374 source:d:\windows\utilisateurs\alexandre\bureau\eramsus project\board.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"Global.h"
+	"Board.h"
+	"utilities.h"
+
+1368864374 d:\windows\utilisateurs\alexandre\bureau\eramsus project\global.h
+
+1368864374 d:\windows\utilisateurs\alexandre\bureau\eramsus project\board.h
+
+1368864374 d:\windows\utilisateurs\alexandre\bureau\eramsus project\utilities.h
+	<windows.h>
+
+1368864374 source:d:\windows\utilisateurs\alexandre\bureau\eramsus project\ia.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"utilities.h"
+	"Global.h"
+	"Board.h"
+	"Play.h"
+	"IA.h"
+
+1368864374 d:\windows\utilisateurs\alexandre\bureau\eramsus project\play.h
+
+1368864374 d:\windows\utilisateurs\alexandre\bureau\eramsus project\ia.h
+
+1368865769 source:d:\windows\utilisateurs\alexandre\bureau\eramsus project\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<windows.h>
+	<string.h>
+	"Global.h"
+	"utilities.h"
+	"TeamPT.h"
+	"Play.h"
+	"Board.h"
+	"Statistics.h"
+	"Credits.h"
+
+1368864374 d:\windows\utilisateurs\alexandre\bureau\eramsus project\teampt.h
+
+1368864374 d:\windows\utilisateurs\alexandre\bureau\eramsus project\statistics.h
+	"Global.h"
+
+1368864374 source:d:\windows\utilisateurs\alexandre\bureau\eramsus project\play.c
+	<stdio.h>
+	<conio.h>
+	<string.h>
+	"Global.h"
+	"Board.h"
+	"Play.h"
+	"utilities.h"
+	"IA.h"
+	"Statistics.h"
+
+1368864374 source:d:\windows\utilisateurs\alexandre\bureau\eramsus project\statistics.c
+	<stdio.h>
+	<windows.h>
+	<conio.h>
+	"Global.h"
+	"Statistics.h"
+	"utilities.h"
+
+1368865958 source:d:\windows\utilisateurs\alexandre\bureau\eramsus project\teampt.c
+	<stdio.h>
+	<conio.h>
+	"Global.h"
+	"utilities.h"
+	"TeamPT.h"
+
+1368864374 source:d:\windows\utilisateurs\alexandre\bureau\eramsus project\utilities.c
+	<windows.h>
+	<string.h>
+	<stdio.h>
+	"utilities.h"
+
+1368953514 source:d:\windows\utilisateurs\alexandre\bureau\eramsus project\credits.c
+	<windows.h>
+	<string.h>
+	<stdio.h>
+	"utilities.h"
+	"Credits.h"
+
+1368865592 d:\windows\utilisateurs\alexandre\bureau\eramsus project\credits.h
+

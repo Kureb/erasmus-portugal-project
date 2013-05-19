@@ -9,6 +9,7 @@
 #include "Play.h"
 #include "Board.h"
 #include "Statistics.h"
+#include "Credits.h"
 
 /* -------------------------- main project goals ----------------------
 -> define the data structures and other configurations that support the game
@@ -36,6 +37,10 @@ int main()
             if(option == 3)
             {
                 showStatistics();
+            }
+            else if(option == 4)
+            {
+                print_credits();
             }
             else
             {

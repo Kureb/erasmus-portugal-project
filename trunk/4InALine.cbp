@@ -35,6 +35,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Board.h" />
+		<Unit filename="Credits.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Credits.h" />
 		<Unit filename="Global.h" />
 		<Unit filename="IA.c">
 			<Option compilerVar="CC" />
