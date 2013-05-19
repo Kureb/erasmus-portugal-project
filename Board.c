@@ -11,6 +11,7 @@
 */
 void initializeGrid(board p)
 {
+    setTextColor(WHITE);
     int i,j;
     for(i=0;i<WIDTH;i++){
 		for(j=0;j<HEIGHT;j++){

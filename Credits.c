@@ -26,7 +26,7 @@ void print_credits()
     printf("Otteran Ludachris");
 
 
-    printStringCenter("A proposal from", 15);
+    printStringCenter("A proposal from Portugal", 15);
     setCursorPosition(2,17);
     printf("Marisa Maximiano");
     setCursorPosition(45,17);
@@ -49,9 +49,19 @@ void print_credits()
 print_informations()
 {
     system("cls");
-    printStringCenter("Informations", 1);
-    setCursorPosition(5,5);
-    printf("The aim of this project is the development of the 4InALine game. The concept of the game is to arrange four discs in a row (in our case since we use a text-based interface it depends on the player symbol). The payer discs need to be lined up. Horizontal, vertical, and diagonal lines are valid. There are two players and only one player plays at a time.");
+    printStringCenter("Informations", 0);
+    setCursorPosition(1,5);
+    printf("The aim of this project is the development of the 4InALine game.");
+    setCursorPosition(1,6);
+    printf("The concept of the game is to arrange four discs in a row");
+    setCursorPosition(1,7);
+    printf("(in our case since we use a text-based interface it depends ");
+    setCursorPosition(1,8);
+    printf("on the player symbol). The payer discs need to be lined up.");
+    setCursorPosition(1,9);
+    printf("Horizontal, vertical, and diagonal lines are valid.");
+    setCursorPosition(1,10);
+    printf("There are two players and only one player plays at a time.");
 
      printStringCenter("Press ENTER to return", 22);
     do
