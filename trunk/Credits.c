@@ -46,6 +46,22 @@ void print_credits()
 }
 
 
+print_informations()
+{
+    system("cls");
+    printStringCenter("Informations", 1);
+    setCursorPosition(5,5);
+    printf("The aim of this project is the development of the 4InALine game. The concept of the game is to arrange four discs in a row (in our case since we use a text-based interface it depends on the player symbol). The payer discs need to be lined up. Horizontal, vertical, and diagonal lines are valid. There are two players and only one player plays at a time.");
+
+     printStringCenter("Press ENTER to return", 22);
+    do
+    {
+        fflush(stdin);
+    }
+    while(getch() != 13);
+}
+
+
 
 
 
