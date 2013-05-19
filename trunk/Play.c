@@ -9,7 +9,7 @@
 #include "Statistics.h"
 
 /**
- * Checks if a player has won. 
+ * Checks if a player has won.
  * Takes the coordinates of the last token played and checks if there is alignment.\n
  * +-----------------------> x (j)\n
  * |\n
@@ -220,6 +220,10 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
             }
             while(!validMove);
 
+            //Color the char
+            short color = (currentGamer->num == 1 ? GREEN : CYAN);
+            setTextColor(color);
+
             i = findLine(p, play);
             mark = (currentGamer->num == 1 ? J1 : J2);
             p[play][i] = mark;
@@ -227,6 +231,9 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
             // Print the char
             setCursorPosition(21 + play * 4, 3 + i * 2);
             putchar(mark);
+
+            setTextColor(WHITE);
+            //End of colo the char
 
             win = checkWin(p, play, i, 1);
             currentGamer->moves++; // Increase number of moves
@@ -396,12 +403,16 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
             }
             while(!validMove);
 
+            //Change the color of the tokens
+            short color = (g1->num == 1 ? GREEN : CYAN);
+            setTextColor(color);
             i = findLine(p, play);
             p[play][i] = J1;
 
             // Print the char
             setCursorPosition(21 + play * 4, 3 + i * 2);
             putchar(J1);
+            setTextColor(WHITE);
 
             win = checkWin(p, play, i, 1);
             g1->moves++; // Increase number of moves
@@ -423,11 +434,15 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
 
                 if(difficulty==3)
                     play = playIA_hardcore(p, numTurns);
+                //Set Color
+                color = (g1->num == 2 ? GREEN : CYAN);
+                setTextColor(color);
 
                 i = findLine(p, play);
                 setCursorPosition(21 + play * 4, 3 + i * 2);
                 putchar(J2);
                 p[play][i] = J2;
+                setTextColor(WHITE);
                 win = checkWin(p, play, i, 1);
                 g2->moves++;
                 if(win)

@@ -186,7 +186,7 @@
 	"Statistics.h"
 	"utilities.h"
 
-1368713504 source:d:\windows\utilisateurs\alexandre\bureau\copy\board.c
+1368955806 source:d:\windows\utilisateurs\alexandre\bureau\copy\board.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -194,14 +194,14 @@
 	"Board.h"
 	"utilities.h"
 
-1368715475 d:\windows\utilisateurs\alexandre\bureau\copy\global.h
+1368864374 d:\windows\utilisateurs\alexandre\bureau\copy\global.h
 
-1368694661 d:\windows\utilisateurs\alexandre\bureau\copy\board.h
+1368864374 d:\windows\utilisateurs\alexandre\bureau\copy\board.h
 
-1368694661 d:\windows\utilisateurs\alexandre\bureau\copy\utilities.h
+1368864374 d:\windows\utilisateurs\alexandre\bureau\copy\utilities.h
 	<windows.h>
 
-1368694661 source:d:\windows\utilisateurs\alexandre\bureau\copy\main.c
+1368954090 source:d:\windows\utilisateurs\alexandre\bureau\copy\main.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -213,15 +213,16 @@
 	"Play.h"
 	"Board.h"
 	"Statistics.h"
+	"Credits.h"
 
-1368694661 d:\windows\utilisateurs\alexandre\bureau\copy\teampt.h
+1368864374 d:\windows\utilisateurs\alexandre\bureau\copy\teampt.h
 
-1368713504 d:\windows\utilisateurs\alexandre\bureau\copy\play.h
+1368864374 d:\windows\utilisateurs\alexandre\bureau\copy\play.h
 
-1368713504 d:\windows\utilisateurs\alexandre\bureau\copy\statistics.h
+1368864374 d:\windows\utilisateurs\alexandre\bureau\copy\statistics.h
 	"Global.h"
 
-1368713504 source:d:\windows\utilisateurs\alexandre\bureau\copy\play.c
+1368957520 source:d:\windows\utilisateurs\alexandre\bureau\copy\play.c
 	<stdio.h>
 	<conio.h>
 	<string.h>
@@ -232,22 +233,22 @@
 	"IA.h"
 	"Statistics.h"
 
-1368713762 d:\windows\utilisateurs\alexandre\bureau\copy\ia.h
+1368864374 d:\windows\utilisateurs\alexandre\bureau\copy\ia.h
 
-1368694661 source:d:\windows\utilisateurs\alexandre\bureau\copy\teampt.c
+1368954264 source:d:\windows\utilisateurs\alexandre\bureau\copy\teampt.c
 	<stdio.h>
 	<conio.h>
 	"Global.h"
 	"utilities.h"
 	"TeamPT.h"
 
-1368694661 source:d:\windows\utilisateurs\alexandre\bureau\copy\utilities.c
+1368864374 source:d:\windows\utilisateurs\alexandre\bureau\copy\utilities.c
 	<windows.h>
 	<string.h>
 	<stdio.h>
 	"utilities.h"
 
-1368714472 source:d:\windows\utilisateurs\alexandre\bureau\copy\ia.c
+1368864374 source:d:\windows\utilisateurs\alexandre\bureau\copy\ia.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -258,7 +259,7 @@
 	"Play.h"
 	"IA.h"
 
-1368713504 source:d:\windows\utilisateurs\alexandre\bureau\copy\statistics.c
+1368864374 source:d:\windows\utilisateurs\alexandre\bureau\copy\statistics.c
 	<stdio.h>
 	<windows.h>
 	<conio.h>
@@ -355,4 +356,13 @@
 	"Credits.h"
 
 1368954104 d:\windows\utilisateurs\alexandre\bureau\eramsus project\credits.h
+
+1368957974 source:d:\windows\utilisateurs\alexandre\bureau\copy\credits.c
+	<windows.h>
+	<string.h>
+	<stdio.h>
+	"utilities.h"
+	"Credits.h"
+
+1368954104 d:\windows\utilisateurs\alexandre\bureau\copy\credits.h
 
