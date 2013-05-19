@@ -26,13 +26,14 @@ int welcome()
     printStringCenter("2 - Player vs Computer", 15);
     printStringCenter("3 - Check Statistics", 16);
     printStringCenter("4 - Credits", 17);
-    printStringCenter("0 - Exit", 18);
+    printStringCenter("5 - Description", 18);
+    printStringCenter("0 - Exit", 19);
     do
     {
         fflush(stdin);
         option = getch() - '0'; // Read a char from the keyboard without echo and subtract the ASCII value of 0 to it, creating an integer that suits our needs
     }
-    while(option < 0 || option > 4);   // Check if the option was valid and repeat the cicle if not
+    while(option < 0 || option > 5);   // Check if the option was valid and repeat the cicle if not
     return option;
 }
 

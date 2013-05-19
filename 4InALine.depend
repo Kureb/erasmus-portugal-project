@@ -296,7 +296,7 @@
 
 1368864374 d:\windows\utilisateurs\alexandre\bureau\eramsus project\ia.h
 
-1368865769 source:d:\windows\utilisateurs\alexandre\bureau\eramsus project\main.c
+1368954090 source:d:\windows\utilisateurs\alexandre\bureau\eramsus project\main.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -334,7 +334,7 @@
 	"Statistics.h"
 	"utilities.h"
 
-1368865958 source:d:\windows\utilisateurs\alexandre\bureau\eramsus project\teampt.c
+1368954264 source:d:\windows\utilisateurs\alexandre\bureau\eramsus project\teampt.c
 	<stdio.h>
 	<conio.h>
 	"Global.h"
@@ -347,12 +347,12 @@
 	<stdio.h>
 	"utilities.h"
 
-1368953514 source:d:\windows\utilisateurs\alexandre\bureau\eramsus project\credits.c
+1368954193 source:d:\windows\utilisateurs\alexandre\bureau\eramsus project\credits.c
 	<windows.h>
 	<string.h>
 	<stdio.h>
 	"utilities.h"
 	"Credits.h"
 
-1368865592 d:\windows\utilisateurs\alexandre\bureau\eramsus project\credits.h
+1368954104 d:\windows\utilisateurs\alexandre\bureau\eramsus project\credits.h
 

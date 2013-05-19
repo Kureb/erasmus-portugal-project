@@ -38,6 +38,10 @@ int main()
             {
                 showStatistics();
             }
+            else if(option == 5)
+            {
+                print_informations();
+            }
             else if(option == 4)
             {
                 print_credits();
