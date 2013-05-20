@@ -14,10 +14,31 @@
 ** of the board
 */
 
+int validateIA(board p, int col)
+{
+   int valid = 1;
+   if ((col<0) || (col>6))
+   {
+       valid = 0;
+   }
+   else if(p[col][0] != EMPTY)
+       valid = 0;
+   return valid;
+}
+
 int playIA_noob(board p)
 {
     int num;
     do
+	{
+		num = (rand() % (WIDTH));
+	} while (!validateIA(p, num));
+    //printf("The computer chose column %d \n", num);
+    /*int number = num-1;
+    int i=0;
+    for(i=HEIGHT-1; i>=0; i--)
+=======
+>>>>>>> .r37
     {
         num = random(WIDTH);
     }
@@ -247,7 +268,7 @@ int playIA_hardcore(board p, int numTurns)
     return num;
 }
 
-/* Returns the number of tokens
+ Returns the number of tokens
 ** which are in a line
 ** Returns a number between 1 and 4
 **  +-----------------------> x (j)
@@ -494,4 +515,4 @@ int checkWeight(board p, int j, int k)
 
     return maxi;
 
-}
+}}
