@@ -106,6 +106,90 @@
 
 1368379059 c:\users\vaio user\google drive\4inaline project\code\4ial_proposal_pt\4inaline\teampt.h
 
+1368864374 ne
+
+1368693933 source:c:\users\clode93\desktop\viopefinland\board.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"Global.h"
+	"Board.h"
+	"utilities.h"
+
+1368693933 c:\users\clode93\desktop\viopefinland\global.h
+
+1368693934 c:\users\clode93\desktop\viopefinland\board.h
+
+1368693933 c:\users\clode93\desktop\viopefinland\utilities.h
+	<windows.h>
+
+1368695281 source:c:\users\clode93\desktop\viopefinland\ia.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+	<time.h>
+	"Global.h"
+	"Board.h"
+	"Play.h"
+	"IA.h"
+
+1368708025 c:\users\clode93\desktop\viopefinland\play.h
+
+1368693933 c:\users\clode93\desktop\viopefinland\ia.h
+
+1368693933 source:c:\users\clode93\desktop\viopefinland\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<windows.h>
+	<string.h>
+	"Global.h"
+	"utilities.h"
+	"TeamPT.h"
+	"Play.h"
+	"Board.h"
+	"Statistics.h"
+
+1368693933 c:\users\clode93\desktop\viopefinland\teampt.h
+
+1368693933 c:\users\clode93\desktop\viopefinland\statistics.h
+	"Global.h"
+
+1368712741 source:c:\users\clode93\desktop\viopefinland\play.c
+	<stdio.h>
+	<conio.h>
+	<string.h>
+	"Global.h"
+	"Board.h"
+	"Play.h"
+	"utilities.h"
+	"IA.h"
+	"Statistics.h"
+
+1368693934 source:c:\users\clode93\desktop\viopefinland\teampt.c
+	<stdio.h>
+	<conio.h>
+	"Global.h"
+	"utilities.h"
+	"TeamPT.h"
+
+1368693933 source:c:\users\clode93\desktop\viopefinland\utilities.c
+	<windows.h>
+	<string.h>
+	<stdio.h>
+	"utilities.h"
+
+1368693934 source:c:\users\clode93\desktop\viopefinland\statistics.c
+	<stdio.h>
+	<windows.h>
+	<conio.h>
+	"Global.h"
+	"Statistics.h"
+	"utilities.h"
+
+1368693933 .h"
+
 1368694661 source:d:\windows\utilisateurs\alexandre\bureau\eramsus\board.c
 	<stdio.h>
 	<stdlib.h>
@@ -267,6 +351,49 @@
 	"Statistics.h"
 	"utilities.h"
 
+1368954104 7
+
+1369037198 source:c:\users\clode93\desktop\viopefinland - copia\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<windows.h>
+	<string.h>
+	"Global.h"
+	"utilities.h"
+	"TeamPT.h"
+	"Play.h"
+	"Board.h"
+	"Statistics.h"
+	"Credits.h"
+
+1368693933 c:\users\clode93\desktop\viopefinland - copia\global.h
+
+1368693933 c:\users\clode93\desktop\viopefinland - copia\utilities.h
+	<windows.h>
+
+1368693933 c:\users\clode93\desktop\viopefinland - copia\teampt.h
+
+1368724528 c:\users\clode93\desktop\viopefinland - copia\play.h
+
+1368693934 c:\users\clode93\desktop\viopefinland - copia\board.h
+
+1368724528 c:\users\clode93\desktop\viopefinland - copia\statistics.h
+	"Global.h"
+
+1369037199 source:c:\users\clode93\desktop\viopefinland - copia\teampt.c
+	<stdio.h>
+	<conio.h>
+	"Global.h"
+	"utilities.h"
+	"TeamPT.h"
+
+1368693933 source:c:\users\clode93\desktop\viopefinland - copia\utilities.c
+	<windows.h>
+	<string.h>
+	<stdio.h>
+	"utilities.h"
+
 1368864374 source:d:\windows\utilisateurs\alexandre\bureau\eramsus project\board.c
 	<stdio.h>
 	<stdlib.h>
@@ -365,4 +492,77 @@
 	"Credits.h"
 
 1368954104 d:\windows\utilisateurs\alexandre\bureau\copy\credits.h
+
+1369037199 source:c:\users\clode93\desktop\viopefinland - copia\board.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"Global.h"
+	"Board.h"
+	"utilities.h"
+
+1369037199 source:c:\users\clode93\desktop\viopefinland - copia\credits.c
+	<windows.h>
+	<string.h>
+	<stdio.h>
+	"utilities.h"
+	"Credits.h"
+
+1369037198 c:\users\clode93\desktop\viopefinland - copia\credits.h
+
+1369037411 source:c:\users\clode93\desktop\viopefinland - copia\ia.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"utilities.h"
+	"Global.h"
+	"Board.h"
+	"Play.h"
+	"IA.h"
+
+1369037198 c:\users\clode93\desktop\viopefinland - copia\ia.h
+
+1369037573 source:c:\users\clode93\desktop\viopefinland - copia\play.c
+	<stdio.h>
+	<conio.h>
+	<string.h>
+	"Global.h"
+	"Board.h"
+	"Play.h"
+	"utilities.h"
+	"IA.h"
+	"Statistics.h"
+
+1368724529 source:c:\users\clode93\desktop\viopefinland - copia\statistics.c
+	<stdio.h>
+	<windows.h>
+	<conio.h>
+	"Global.h"
+	"Statistics.h"
+	"utilities.h"
+
+1369037198 source:c:\users\clode93\desktop\viopefinland - copia\ia_woot.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"Global.h"
+	"Board.h"
+	"Play.h"
+	"IA.h"
+	"IA_woot.h"
+
+1369037198 c:\users\clode93\desktop\viopefinland - copia\ia_woot.h
+
+1369037198 source:c:\users\clode93\desktop\viopefinland - copia\iagiacomo&alexandre.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+	<time.h>
+	"Global.h"
+	"Board.h"
+	"Play.h"
+	"IA.h"
 

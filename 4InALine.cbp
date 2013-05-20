@@ -44,6 +44,13 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="IA.h" />
+		<Unit filename="IAGiacomo&amp;alexandre.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="IA_woot.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="IA_woot.h" />
 		<Unit filename="Play.c">
 			<Option compilerVar="CC" />
 		</Unit>
