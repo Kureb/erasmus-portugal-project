@@ -287,7 +287,7 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
                             setTextColor(LIGHT_RED);
                             setCursorPosition(50, 9);
                             printf("Invalid move");
-                            setTextColor(PURE_WHITE)
+                            setTextColor(PURE_WHITE);
                         }
                         else
                         {
@@ -492,7 +492,7 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
                         setTextColor(LIGHT_RED);
                         setCursorPosition(50, 8);
                         printf("Invalid move");
-                        setTextColor(PURE_WHITE)
+                        setTextColor(PURE_WHITE);
                     }
                     else
                     {
