@@ -27,6 +27,56 @@ int playIA_noob(board p)
     return num;
 }
 
+int checkCol (board p)
+{
+    int j,k,def=-1;
+        for (k=0; k<HEIGHT ; k++)
+            for (j=0; j<WIDTH ; j++){
+                if ((p[j][k]==J1)&&(p[j][k+1]==J1)&&(p[j][k+2]==J1)&& (k>0))
+                    def=j;
+                    }
+ if (!validate(p,def))
+        def=-1;
+
+return def;
+}
+
+
+int checkD (board p)
+ {
+    srand ((unsigned)time(NULL));
+    int j,k,def=-1;
+        for (k=0; k<HEIGHT ; k++)
+            for (j=0; j<WIDTH ; j++)
+                if (p[j][k]==J1)
+                    if (p[j+1][k-1]==J1){
+                        if ((p[j+2][k-2]==EMPTY)&&(p[j-1][k+1]==EMPTY)&&(p[j+2][k-1]!=EMPTY)&&(p[j-1][k+2]!=EMPTY))
+                            if ((rand()%2)==0)
+                                def=(j+2);
+                            else
+                                def=(j-1);
+                        if ((p[j+2][k-2]==EMPTY)&&(p[j-1][k+1]==J1)&&(p[j+2][k-1]!=EMPTY))
+                            def=j+2;
+                        if ((p[j+2][k-2]==J1)&&(p[j-1][k+1]==EMPTY)&&(p[j-1][k+2]!=EMPTY))
+                            def=j-1;
+
+                }
+                if (p[j-1][k-1]==J1){
+                        if ((p[j-2][k-2]==EMPTY)&&(p[j+1][k+1]==EMPTY)&&(p[j-2][k-1]!=EMPTY)&&(p[j+1][k+2]!=EMPTY))
+                            if ((rand()%2)==0)
+                                def=(j-2);
+                            else
+                                def=(j+1);
+                        if ((p[j-2][k-2]==EMPTY)&&(p[j+1][k+1]==J1)&&(p[j-2][k-1]!=EMPTY))
+                            def=j-2;
+                        if ((p[j-2][k-2]==J1)&&(p[j+1][k+1]==EMPTY)&&(p[j+1][k+2]!=EMPTY))
+                            def=j+1;
+                }
+ if (!validate(p,def))
+        def=-1;
+ return def;
+ }
+
 int checkOrizontal (board p)
 {
     srand ((unsigned)time(NULL));
@@ -96,7 +146,7 @@ int winning (board p) // if the pc is about to win, return the column in whitch 
 
                 }
             }
-            return win;
+
     if (!validate(p,win))
         win=-1;
 
@@ -117,27 +167,27 @@ int playIA_normal(board p,int k, int col)
 			//WINNING FUNC FIXED
 			if (winning(p)!=-1)
                 return winning(p);
-            //COLUMN FIXED
-
-                if (k<HEIGHT-1){
-                    if ((p[j][k+1]==J1)&&(p[j][k+2]==J1)&&(k>0))
-                        return j;
-                }
-
+            // VERTICAL
+            if (checkCol(p)!=-1)
+                return checkCol(p);
             // ORIZONTAL
             if (checkOrizontal(p)!=-1)
                 return checkOrizontal(p);
+            // DIAGONALS
+            if (checkD(p)!=-1)
+                return checkD(p);
 
 
-           if (play == -1)
-                if ((j>3)&&(validate(p,j-1)))
+           if (play == -1){
+                if ((j>3)&&(validate(p,(j-1))))
                     play=j-1;
-                else if ((j<=3)&&(validate(p,j+1)))
+                else if ((j<=3)&&(validate(p,(j+1))))
                     play=j+1;
                 else
                     do
                         play= rand()%7;
-                    while(validate(p,play));
+                    while(!validate(p,play));
+           }
 
 
 
