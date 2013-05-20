@@ -1,4 +1,5 @@
 #include <windows.h>
+#include <conio.h>
 #include <string.h>
 #include <stdio.h>
 #include "utilities.h"
@@ -40,13 +41,10 @@ void print_credits()
         fflush(stdin);
     }
     while(getch() != 13);
-
-
-
 }
 
 
-print_informations()
+void print_informations()
 {
     system("cls");
     printStringCenter("Informations", 0);

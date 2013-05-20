@@ -14,31 +14,10 @@
 ** of the board
 */
 
-int validateIA(board p, int col)
-{
-   int valid = 1;
-   if ((col<0) || (col>6))
-   {
-       valid = 0;
-   }
-   else if(p[col][0] != EMPTY)
-       valid = 0;
-   return valid;
-}
-
 int playIA_noob(board p)
 {
     int num;
     do
-	{
-		num = (rand() % (WIDTH));
-	} while (!validateIA(p, num));
-    //printf("The computer chose column %d \n", num);
-    /*int number = num-1;
-    int i=0;
-    for(i=HEIGHT-1; i>=0; i--)
-=======
->>>>>>> .r37
     {
         num = random(WIDTH);
     }
@@ -127,7 +106,7 @@ int playIA_normal(board p,int k, int col)
 	int x,y;
 	j=col;
 
-    Sleep(1500);
+    Sleep(500);
     do
 	{
 			//WINNING FUNC FIXED
@@ -173,7 +152,7 @@ int playIA_hardcore(board p, int numTurns)
     }
     else
     {
-        int plays[WIDTH] = {0}, pos[WIDTH] = {-1}, max, maxPos, winFlag, marksHorizontal, marksVertical, couldNotValidate, marksDiag1, marksDiag2, moveValidated;
+        int plays[WIDTH] = {0}, pos[WIDTH] = {-1}, max, maxPos, winFlag, marksHorizontal, marksVertical, marksDiag1, marksDiag2, moveValidated;
         setCursorPosition(0, 10);
         for(i = 0; i < WIDTH; i++)
             pos[i] = findLine(p, i);
@@ -238,7 +217,7 @@ int playIA_hardcore(board p, int numTurns)
             moveValidated = 1;
             do
             {
-                max = 0;
+                max = -1;
                 maxPos = 0;
                 for(j = 0; j < WIDTH; j++)
                 {
@@ -268,7 +247,7 @@ int playIA_hardcore(board p, int numTurns)
     return num;
 }
 
- Returns the number of tokens
+/* Returns the number of tokens
 ** which are in a line
 ** Returns a number between 1 and 4
 **  +-----------------------> x (j)
@@ -515,4 +494,4 @@ int checkWeight(board p, int j, int k)
 
     return maxi;
 
-}}
+}

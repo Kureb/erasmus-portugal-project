@@ -10,6 +10,7 @@
 #include "Board.h"
 #include "Statistics.h"
 #include "Credits.h"
+//#include <SDL.h>
 
 /* -------------------------- main project goals ----------------------
 -> define the data structures and other configurations that support the game
@@ -23,8 +24,41 @@
 //*****************************************
 // Main function
 //*****************************************
-int main()
+int main()//SDL_main(int argc, char *argv[])
 {
+    /*if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
+        return 1;
+
+    SDL_Surface *screen;
+    SDL_Event event;
+
+    if (!(screen = SDL_SetVideoMode(640, 480, 32, SDL_HWSURFACE)))
+    {
+        SDL_Quit();
+        return 1;
+    }
+
+    int keypress = 0;
+    while(!keypress)
+    {
+        //DrawScreen(screen,h++);
+        while(SDL_PollEvent(&event))
+        {
+            switch (event.type)
+            {
+            case SDL_QUIT:
+                keypress = 1;
+                break;
+            case SDL_KEYDOWN:
+                keypress = 1;
+                break;
+            }
+        }
+    }
+
+    SDL_Quit();
+    return 0;*/
+
     int option, difficulty = 4;
 
     do
