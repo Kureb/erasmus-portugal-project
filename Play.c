@@ -207,27 +207,6 @@ int findLine(board p, int col)
 
 void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
 {
-    // This code belongs to the french team, with some modifications
-    /*int nb_token = WIDTH * HEIGHT, win;
-    while(nb_token!=0)
-    {
-    	//showBoard(p, *g1);
-        win = play(p, g1);
-        nb_token--;
-        if(win==1)
-            break;
-
-    	//showBoard(p, *g2);
-        win = play(p, g2);
-        nb_token--;
-        if(win==1)
-            break;
-
-    }
-    if(nb_token==0)
-        printf("Noob, equality");
-    else
-    	showBoard(p, *g2); // Show board at the end again*/
     char ch;
     do
     {
@@ -308,10 +287,10 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
                             setTextColor(LIGHT_RED);
                             setCursorPosition(50, 9);
                             printf("Invalid move");
+                            setTextColor(PURE_WHITE)
                         }
                         else
                         {
-                            setTextColor(PURE_WHITE);
                             setCursorPosition(50, 8);
                             printf("\t\t");
                         }
@@ -513,10 +492,10 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
                         setTextColor(LIGHT_RED);
                         setCursorPosition(50, 8);
                         printf("Invalid move");
+                        setTextColor(PURE_WHITE)
                     }
                     else
                     {
-                        setTextColor(PURE_WHITE);
                         setCursorPosition(50, 8);
                         printf("\t\t");
                     }
