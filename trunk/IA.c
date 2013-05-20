@@ -69,7 +69,8 @@ int checkOrizontal (board p)
         }
 
 
-
+ if (!validate(p,def))
+        def=-1;
 
     return def;
 }
@@ -78,7 +79,7 @@ int winning (board p) // if the pc is about to win, return the column in whitch 
     {
 
 
-    int j,k,win=0;
+    int j,k,win=-1;
     for (k=0; k<HEIGHT ; k++){
         for (j=0; j<WIDTH ; j++){
             if (p[j][k]==J2){
@@ -96,21 +97,25 @@ int winning (board p) // if the pc is about to win, return the column in whitch 
                 }
             }
             return win;
+    if (!validate(p,win))
+        win=-1;
+
+            return win;
     }
 
 int playIA_normal(board p,int k, int col)
 
 {
+    srand ((unsigned)time(NULL));
     int limit = WIDTH-1, limitk = HEIGHT-1;
 	int num,j, play=-1;
 	int x,y;
 	j=col;
 
     Sleep(500);
-    do
-	{
+
 			//WINNING FUNC FIXED
-			if (winning(p))
+			if (winning(p)!=-1)
                 return winning(p);
             //COLUMN FIXED
 
@@ -124,18 +129,21 @@ int playIA_normal(board p,int k, int col)
                 return checkOrizontal(p);
 
 
-            if (play == -1)
-                if (j>3)
+           if (play == -1)
+                if ((j>3)&&(validate(p,j-1)))
                     play=j-1;
-                else
+                else if ((j<=3)&&(validate(p,j+1)))
                     play=j+1;
+                else
+                    do
+                        play= rand()%7;
+                    while(validate(p,play));
 
 
 
 
 
-			//}
-	} while (play==-1);
+
 
     return play;
 }
@@ -246,7 +254,7 @@ int playIA_hardcore(board p, int numTurns)
     Sleep(500);
     return num;
 }
-
+/*
 /* Returns the number of tokens
 ** which are in a line
 ** Returns a number between 1 and 4
