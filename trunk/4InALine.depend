@@ -1,14 +1,14 @@
 # depslib dependency file v1.0
-1367763772 source:c:\users\asus\desktop\finland project\4inaline\utilities.c
+1368604880 source:c:\users\asus\desktop\finland project\4inaline\utilities.c
 	<windows.h>
 	<string.h>
 	<stdio.h>
 	"utilities.h"
 
-1368283853 c:\users\asus\desktop\finland project\4inaline\utilities.h
+1368606562 c:\users\asus\desktop\finland project\4inaline\utilities.h
 	<windows.h>
 
-1367763213 source:c:\users\asus\desktop\finland project\4inaline\board.c
+1369030244 source:c:\users\asus\desktop\finland project\4inaline\board.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -18,274 +18,22 @@
 
 1368284536 c:\users\asus\desktop\finland project\4inaline\global.h
 
-1367681160 c:\users\asus\desktop\finland project\4inaline\board.h
+1368606602 c:\users\asus\desktop\finland project\4inaline\board.h
 
-1368184663 source:c:\users\asus\desktop\finland project\4inaline\ia.c
+1369046239 source:c:\users\asus\desktop\finland project\4inaline\ia.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<time.h>
+	"utilities.h"
 	"Global.h"
 	"Board.h"
 	"Play.h"
 	"IA.h"
 
-1368284843 c:\users\asus\desktop\finland project\4inaline\play.h
+1369048099 c:\users\asus\desktop\finland project\4inaline\play.h
 
-1368287020 source:c:\users\asus\desktop\finland project\4inaline\main.c
-	<stdio.h>
-	<stdlib.h>
-	<windows.h>
-	<string.h>
-	"Global.h"
-	"utilities.h"
-	"TeamPT.h"
-	"Play.h"
-	"Board.h"
-
-1368374824 source:c:\users\asus\desktop\finland project\4inaline\play.c
-	<stdio.h>
-	<conio.h>
-	<string.h>
-	"Global.h"
-	"Board.h"
-	"Play.h"
-	"utilities.h"
-	"IA.h"
-
-1368294505 c:\users\asus\desktop\finland project\4inaline\teampt.h
-
-1368373535 source:c:\users\asus\desktop\finland project\4inaline\teampt.c
-	<stdio.h>
-	<conio.h>
-	"Global.h"
-	"utilities.h"
-	"TeamPT.h"
-
-1367852538 c:\users\asus\desktop\finland project\4inaline\ia.h
-
-1368379032 source:c:\users\vaio user\google drive\4inaline project\code\4ial_proposal_pt\4inaline\board.c
-	<stdio.h>
-	<stdlib.h>
-	<conio.h>
-	"Global.h"
-	"Board.h"
-	"utilities.h"
-
-1368379035 c:\users\vaio user\google drive\4inaline project\code\4ial_proposal_pt\4inaline\global.h
-
-1368379034 c:\users\vaio user\google drive\4inaline project\code\4ial_proposal_pt\4inaline\board.h
-
-1368379062 c:\users\vaio user\google drive\4inaline project\code\4ial_proposal_pt\4inaline\utilities.h
-	<windows.h>
-
-1368379037 source:c:\users\vaio user\google drive\4inaline project\code\4ial_proposal_pt\4inaline\ia.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	<time.h>
-	"Global.h"
-	"Board.h"
-	"Play.h"
-	"IA.h"
-
-1368379054 c:\users\vaio user\google drive\4inaline project\code\4ial_proposal_pt\4inaline\play.h
-
-1368379039 c:\users\vaio user\google drive\4inaline project\code\4ial_proposal_pt\4inaline\ia.h
-
-1368379040 source:c:\users\vaio user\google drive\4inaline project\code\4ial_proposal_pt\4inaline\main.c
-	<stdio.h>
-	<stdlib.h>
-	<windows.h>
-	<string.h>
-	"Global.h"
-	"utilities.h"
-	"TeamPT.h"
-	"Play.h"
-	"Board.h"
-
-1368379059 c:\users\vaio user\google drive\4inaline project\code\4ial_proposal_pt\4inaline\teampt.h
-
-1368864374 ne
-
-1368693933 source:c:\users\clode93\desktop\viopefinland\board.c
-	<stdio.h>
-	<stdlib.h>
-	<conio.h>
-	"Global.h"
-	"Board.h"
-	"utilities.h"
-
-1368693933 c:\users\clode93\desktop\viopefinland\global.h
-
-1368693934 c:\users\clode93\desktop\viopefinland\board.h
-
-1368693933 c:\users\clode93\desktop\viopefinland\utilities.h
-	<windows.h>
-
-1368695281 source:c:\users\clode93\desktop\viopefinland\ia.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	<windows.h>
-	<time.h>
-	"Global.h"
-	"Board.h"
-	"Play.h"
-	"IA.h"
-
-1368708025 c:\users\clode93\desktop\viopefinland\play.h
-
-1368693933 c:\users\clode93\desktop\viopefinland\ia.h
-
-1368693933 source:c:\users\clode93\desktop\viopefinland\main.c
-	<stdio.h>
-	<stdlib.h>
-	<conio.h>
-	<windows.h>
-	<string.h>
-	"Global.h"
-	"utilities.h"
-	"TeamPT.h"
-	"Play.h"
-	"Board.h"
-	"Statistics.h"
-
-1368693933 c:\users\clode93\desktop\viopefinland\teampt.h
-
-1368693933 c:\users\clode93\desktop\viopefinland\statistics.h
-	"Global.h"
-
-1368712741 source:c:\users\clode93\desktop\viopefinland\play.c
-	<stdio.h>
-	<conio.h>
-	<string.h>
-	"Global.h"
-	"Board.h"
-	"Play.h"
-	"utilities.h"
-	"IA.h"
-	"Statistics.h"
-
-1368693934 source:c:\users\clode93\desktop\viopefinland\teampt.c
-	<stdio.h>
-	<conio.h>
-	"Global.h"
-	"utilities.h"
-	"TeamPT.h"
-
-1368693933 source:c:\users\clode93\desktop\viopefinland\utilities.c
-	<windows.h>
-	<string.h>
-	<stdio.h>
-	"utilities.h"
-
-1368693934 source:c:\users\clode93\desktop\viopefinland\statistics.c
-	<stdio.h>
-	<windows.h>
-	<conio.h>
-	"Global.h"
-	"Statistics.h"
-	"utilities.h"
-
-1368693933 .h"
-
-1368694661 source:d:\windows\utilisateurs\alexandre\bureau\eramsus\board.c
-	<stdio.h>
-	<stdlib.h>
-	<conio.h>
-	"Global.h"
-	"Board.h"
-	"utilities.h"
-
-1368704880 d:\windows\utilisateurs\alexandre\bureau\eramsus\global.h
-
-1368694661 d:\windows\utilisateurs\alexandre\bureau\eramsus\board.h
-
-1368694661 d:\windows\utilisateurs\alexandre\bureau\eramsus\utilities.h
-	<windows.h>
-
-1368705361 source:d:\windows\utilisateurs\alexandre\bureau\eramsus\ia.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	<windows.h>
-	<time.h>
-	"Global.h"
-	"Board.h"
-	"Play.h"
-	"IA.h"
-
-1368713504 d:\windows\utilisateurs\alexandre\bureau\eramsus\play.h
-
-1368705305 d:\windows\utilisateurs\alexandre\bureau\eramsus\ia.h
-
-1368694661 source:d:\windows\utilisateurs\alexandre\bureau\eramsus\main.c
-	<stdio.h>
-	<stdlib.h>
-	<conio.h>
-	<windows.h>
-	<string.h>
-	"Global.h"
-	"utilities.h"
-	"TeamPT.h"
-	"Play.h"
-	"Board.h"
-	"Statistics.h"
-
-1368694661 d:\windows\utilisateurs\alexandre\bureau\eramsus\teampt.h
-
-1368713504 d:\windows\utilisateurs\alexandre\bureau\eramsus\statistics.h
-	"Global.h"
-
-1368694661 source:d:\windows\utilisateurs\alexandre\bureau\eramsus\play.c
-	<stdio.h>
-	<conio.h>
-	<string.h>
-	"Global.h"
-	"Board.h"
-	"Play.h"
-	"utilities.h"
-	"IA.h"
-	"Statistics.h"
-
-1368694661 source:d:\windows\utilisateurs\alexandre\bureau\eramsus\teampt.c
-	<stdio.h>
-	<conio.h>
-	"Global.h"
-	"utilities.h"
-	"TeamPT.h"
-
-1368694661 source:d:\windows\utilisateurs\alexandre\bureau\eramsus\utilities.c
-	<windows.h>
-	<string.h>
-	<stdio.h>
-	"utilities.h"
-
-1368694661 source:d:\windows\utilisateurs\alexandre\bureau\eramsus\statistics.c
-	<stdio.h>
-	<windows.h>
-	<conio.h>
-	"Global.h"
-	"Statistics.h"
-	"utilities.h"
-
-1368955806 source:d:\windows\utilisateurs\alexandre\bureau\copy\board.c
-	<stdio.h>
-	<stdlib.h>
-	<conio.h>
-	"Global.h"
-	"Board.h"
-	"utilities.h"
-
-1368864374 d:\windows\utilisateurs\alexandre\bureau\copy\global.h
-
-1368864374 d:\windows\utilisateurs\alexandre\bureau\copy\board.h
-
-1368864374 d:\windows\utilisateurs\alexandre\bureau\copy\utilities.h
-	<windows.h>
-
-1368954090 source:d:\windows\utilisateurs\alexandre\bureau\copy\main.c
+1369045800 source:c:\users\asus\desktop\finland project\4inaline\main.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -299,14 +47,7 @@
 	"Statistics.h"
 	"Credits.h"
 
-1368864374 d:\windows\utilisateurs\alexandre\bureau\copy\teampt.h
-
-1368864374 d:\windows\utilisateurs\alexandre\bureau\copy\play.h
-
-1368864374 d:\windows\utilisateurs\alexandre\bureau\copy\statistics.h
-	"Global.h"
-
-1368957520 source:d:\windows\utilisateurs\alexandre\bureau\copy\play.c
+1369048776 source:c:\users\asus\desktop\finland project\4inaline\play.c
 	<stdio.h>
 	<conio.h>
 	<string.h>
@@ -317,33 +58,21 @@
 	"IA.h"
 	"Statistics.h"
 
-1368864374 d:\windows\utilisateurs\alexandre\bureau\copy\ia.h
+1368607129 c:\users\asus\desktop\finland project\4inaline\teampt.h
 
-1368954264 source:d:\windows\utilisateurs\alexandre\bureau\copy\teampt.c
+1369030244 source:c:\users\asus\desktop\finland project\4inaline\teampt.c
 	<stdio.h>
 	<conio.h>
 	"Global.h"
 	"utilities.h"
 	"TeamPT.h"
 
-1368864374 source:d:\windows\utilisateurs\alexandre\bureau\copy\utilities.c
-	<windows.h>
-	<string.h>
-	<stdio.h>
-	"utilities.h"
+1368791065 c:\users\asus\desktop\finland project\4inaline\ia.h
 
-1368864374 source:d:\windows\utilisateurs\alexandre\bureau\copy\ia.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	<time.h>
-	"utilities.h"
+1368709814 c:\users\asus\desktop\finland project\4inaline\statistics.h
 	"Global.h"
-	"Board.h"
-	"Play.h"
-	"IA.h"
 
-1368864374 source:d:\windows\utilisateurs\alexandre\bureau\copy\statistics.c
+1368709829 source:c:\users\asus\desktop\finland project\4inaline\statistics.c
 	<stdio.h>
 	<windows.h>
 	<conio.h>
@@ -351,218 +80,13 @@
 	"Statistics.h"
 	"utilities.h"
 
-1368954104 7
+1369030244 c:\users\asus\desktop\finland project\4inaline\credits.h
 
-1369037198 source:c:\users\clode93\desktop\viopefinland - copia\main.c
-	<stdio.h>
-	<stdlib.h>
-	<conio.h>
-	<windows.h>
-	<string.h>
-	"Global.h"
-	"utilities.h"
-	"TeamPT.h"
-	"Play.h"
-	"Board.h"
-	"Statistics.h"
-	"Credits.h"
-
-1368693933 c:\users\clode93\desktop\viopefinland - copia\global.h
-
-1368693933 c:\users\clode93\desktop\viopefinland - copia\utilities.h
-	<windows.h>
-
-1368693933 c:\users\clode93\desktop\viopefinland - copia\teampt.h
-
-1368724528 c:\users\clode93\desktop\viopefinland - copia\play.h
-
-1368693934 c:\users\clode93\desktop\viopefinland - copia\board.h
-
-1368724528 c:\users\clode93\desktop\viopefinland - copia\statistics.h
-	"Global.h"
-
-1369037199 source:c:\users\clode93\desktop\viopefinland - copia\teampt.c
-	<stdio.h>
-	<conio.h>
-	"Global.h"
-	"utilities.h"
-	"TeamPT.h"
-
-1368693933 source:c:\users\clode93\desktop\viopefinland - copia\utilities.c
-	<windows.h>
-	<string.h>
-	<stdio.h>
-	"utilities.h"
-
-1368864374 source:d:\windows\utilisateurs\alexandre\bureau\eramsus project\board.c
-	<stdio.h>
-	<stdlib.h>
-	<conio.h>
-	"Global.h"
-	"Board.h"
-	"utilities.h"
-
-1368864374 d:\windows\utilisateurs\alexandre\bureau\eramsus project\global.h
-
-1368864374 d:\windows\utilisateurs\alexandre\bureau\eramsus project\board.h
-
-1368864374 d:\windows\utilisateurs\alexandre\bureau\eramsus project\utilities.h
-	<windows.h>
-
-1368864374 source:d:\windows\utilisateurs\alexandre\bureau\eramsus project\ia.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	<time.h>
-	"utilities.h"
-	"Global.h"
-	"Board.h"
-	"Play.h"
-	"IA.h"
-
-1368864374 d:\windows\utilisateurs\alexandre\bureau\eramsus project\play.h
-
-1368864374 d:\windows\utilisateurs\alexandre\bureau\eramsus project\ia.h
-
-1368954090 source:d:\windows\utilisateurs\alexandre\bureau\eramsus project\main.c
-	<stdio.h>
-	<stdlib.h>
-	<conio.h>
-	<windows.h>
-	<string.h>
-	"Global.h"
-	"utilities.h"
-	"TeamPT.h"
-	"Play.h"
-	"Board.h"
-	"Statistics.h"
-	"Credits.h"
-
-1368864374 d:\windows\utilisateurs\alexandre\bureau\eramsus project\teampt.h
-
-1368864374 d:\windows\utilisateurs\alexandre\bureau\eramsus project\statistics.h
-	"Global.h"
-
-1368864374 source:d:\windows\utilisateurs\alexandre\bureau\eramsus project\play.c
-	<stdio.h>
-	<conio.h>
-	<string.h>
-	"Global.h"
-	"Board.h"
-	"Play.h"
-	"utilities.h"
-	"IA.h"
-	"Statistics.h"
-
-1368864374 source:d:\windows\utilisateurs\alexandre\bureau\eramsus project\statistics.c
-	<stdio.h>
+1369038336 source:c:\users\asus\desktop\finland project\4inaline\credits.c
 	<windows.h>
 	<conio.h>
-	"Global.h"
-	"Statistics.h"
-	"utilities.h"
-
-1368954264 source:d:\windows\utilisateurs\alexandre\bureau\eramsus project\teampt.c
-	<stdio.h>
-	<conio.h>
-	"Global.h"
-	"utilities.h"
-	"TeamPT.h"
-
-1368864374 source:d:\windows\utilisateurs\alexandre\bureau\eramsus project\utilities.c
-	<windows.h>
-	<string.h>
-	<stdio.h>
-	"utilities.h"
-
-1368954193 source:d:\windows\utilisateurs\alexandre\bureau\eramsus project\credits.c
-	<windows.h>
 	<string.h>
 	<stdio.h>
 	"utilities.h"
 	"Credits.h"
-
-1368954104 d:\windows\utilisateurs\alexandre\bureau\eramsus project\credits.h
-
-1368957974 source:d:\windows\utilisateurs\alexandre\bureau\copy\credits.c
-	<windows.h>
-	<string.h>
-	<stdio.h>
-	"utilities.h"
-	"Credits.h"
-
-1368954104 d:\windows\utilisateurs\alexandre\bureau\copy\credits.h
-
-1369037199 source:c:\users\clode93\desktop\viopefinland - copia\board.c
-	<stdio.h>
-	<stdlib.h>
-	<conio.h>
-	"Global.h"
-	"Board.h"
-	"utilities.h"
-
-1369037199 source:c:\users\clode93\desktop\viopefinland - copia\credits.c
-	<windows.h>
-	<string.h>
-	<stdio.h>
-	"utilities.h"
-	"Credits.h"
-
-1369037198 c:\users\clode93\desktop\viopefinland - copia\credits.h
-
-1369037411 source:c:\users\clode93\desktop\viopefinland - copia\ia.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	<time.h>
-	"utilities.h"
-	"Global.h"
-	"Board.h"
-	"Play.h"
-	"IA.h"
-
-1369037198 c:\users\clode93\desktop\viopefinland - copia\ia.h
-
-1369037573 source:c:\users\clode93\desktop\viopefinland - copia\play.c
-	<stdio.h>
-	<conio.h>
-	<string.h>
-	"Global.h"
-	"Board.h"
-	"Play.h"
-	"utilities.h"
-	"IA.h"
-	"Statistics.h"
-
-1368724529 source:c:\users\clode93\desktop\viopefinland - copia\statistics.c
-	<stdio.h>
-	<windows.h>
-	<conio.h>
-	"Global.h"
-	"Statistics.h"
-	"utilities.h"
-
-1369037198 source:c:\users\clode93\desktop\viopefinland - copia\ia_woot.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	<time.h>
-	"Global.h"
-	"Board.h"
-	"Play.h"
-	"IA.h"
-	"IA_woot.h"
-
-1369037198 c:\users\clode93\desktop\viopefinland - copia\ia_woot.h
-
-1369037198 source:c:\users\clode93\desktop\viopefinland - copia\iagiacomo&alexandre.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	<windows.h>
-	<time.h>
-	"Global.h"
-	"Board.h"
-	"Play.h"
-	"IA.h"
 
