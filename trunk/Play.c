@@ -181,16 +181,13 @@ int checkWin(board p, int j, int k, int paint)
     }
 
     return 0;
-    //return winHorizontal(p,j,k) || winVertical(p,j,k) || winDiagDownUp(p,j,k) || winDiagUpDown(p,j,k);
 }
 
 int validate(board p, int col)
 {
     int valid = 1;
     if ((col<0) || (col>6))
-    {
         valid = 0;
-    }
     else if(p[col][0] != EMPTY)
         valid = 0;
     return valid;
@@ -212,7 +209,7 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
     {
         // This code belongs to the italian team, with some modifications
         Gamer *currentGamer;
-        int play, i, win = 0, numTurns = 1, validMove, freePos = WIDTH * HEIGHT, firstNum, matchFortified, WHOSETURNISIT;
+        int play, i, j, win = 0, numTurns = 1, validMove, freePos = WIDTH * HEIGHT, firstNum, matchFortified, WHOSETURNISIT;
         char mark;
 
         i = random(2);
@@ -234,6 +231,8 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
             printf("Press 0 to save.");
             setCursorPosition(50, 8);
             printf("Press 9 to load.");
+            setCursorPosition(50, 13);
+			printf("Press ESC to give up.");
 
             do
             {
@@ -242,21 +241,34 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
                 if(play != 27)
                 {
                     play = play - '0' - 1;
-                    if(play == -1)
+                    if(play == -1) // Save
                     {
                         savegame(*g1, *g2, p, numTurns, freePos, *currentGamer);
-                        setCursorPosition(50, 10);
+                        setCursorPosition(50, 9);
                         setTextColor(LIGHT_BLUE);
-                        printf("Game saved!");
+                        printf("Game saved!\t");
                         setTextColor(PURE_WHITE);
                         validMove = 0;
                     }
-                    else if(play == 8)
+                    else if(play == 8) // Load
                     {
+                    	showBoard(p);
                         loadgame(g1, g2, p, &numTurns, &freePos, &numTurns, &firstNum, &WHOSETURNISIT, currentGamer);
+                        for(i = 0; i < WIDTH; i++)
+						{
+							for(j = 0; j < HEIGHT; j++)
+							{
+								if(p[i][j] != EMPTY)
+								{
+									setTextColor((p[i][j] == J1 ? GREEN : CYAN));
+									setCursorPosition(21 + i * 4, 3 + j * 2);
+									putchar(p[i][j]);
+								}
+							}
+							setTextColor(PURE_WHITE);
+						}
 
 						// Print info again
-						showBoard(p);
                         setCursorPosition(19, 17);
                         printf("%s (%c), make your move.\t\t", currentGamer->name, (currentGamer->num == 1 ? J1 : J2));
                         setCursorPosition(50, 3);
@@ -269,14 +281,13 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
                         printf("Press 0 to save.");
                         setCursorPosition(50, 8);
                         printf("Press 9 to load.");
+                        setCursorPosition(50, 13);
+                        printf("Press ESC to give up.");
                         setCursorPosition(50, 9);
                         setTextColor(LIGHT_BLUE);
-                        printf("Game loaded!");
+                        printf("Game loaded!\t");
                         setTextColor(PURE_WHITE);
-                        /*if (WHOSETURNISIT==1)
-                        	currentGamer=g1;
-                        else if(WHOSETURNISIT==2)
-                        	currentGamer=g2;*/
+
                         validMove = 0;
                     }
                     else
@@ -285,14 +296,16 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
                         if(!validMove)
                         {
                             setTextColor(LIGHT_RED);
-                            setCursorPosition(50, 9);
+                            setCursorPosition(50, 10);
                             printf("Invalid move");
                             setTextColor(PURE_WHITE);
                         }
                         else
                         {
-                            setCursorPosition(50, 8);
+                            setCursorPosition(50, 10);
                             printf("\t\t");
+                            setCursorPosition(50, 9);
+                            printf("\t\t\t");
                         }
                     }
                 }
@@ -351,28 +364,19 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
         {
             // swap players
             currentGamer = (currentGamer->num == 1 ? g2 : g1);
-            printf("Match fortified by %s. %s won!", (currentGamer->num == 1 ? g2->name : g1->name), currentGamer->name);
+            printf("%s couldn't stand the pressure. %s won!", (currentGamer->num == 1 ? g2->name : g1->name), currentGamer->name);
         }
 
         // Store data to files
 
         // Read data
         GamerStat *stats = NULL;
-        int numStats = 0;
-        /*FILE *file;
-        file = fopen("stats.dat", "rb");
-        if(file != NULL)
-        {
-        	fread(&numStats, sizeof(int), 1, file);
-        	stats = (GamerStat *) malloc(numStats * sizeof(GamerStat));
-        	fread(stats, sizeof(GamerStat), numStats, file);
-        	fclose(file);
-        }*/
+        int numStats = 0, foundStatP1 = 0, foundStatP2 = 0, totalScore;
+
         stats = readStatisticsFile(&numStats);
 
         GamerStat newStat;
         Gamer otherGamer = (currentGamer->num == 1 ? *g2 : *g1);
-        int foundStatP1 = 0, foundStatP2 = 0;
         if(numStats > 0)
         {
             for(i = 0; i < numStats && (!foundStatP1 || !foundStatP2); i++)
@@ -383,7 +387,10 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
                     if(freePos > 0)
                     {
                         stats[i].numWins++;
-                        stats[i].totalScore += calculateScore(currentGamer->moves);
+                        totalScore = calculateScore(currentGamer->moves);
+                        if(matchFortified)
+							totalScore /= 2;
+                        stats[i].totalScore += totalScore;
                     }
                     stats[i].totalNumMoves += currentGamer->moves;
                     foundStatP1 = 1;
@@ -477,6 +484,8 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
             printf("%s moves: %d\t", g1->name, g1->moves);
             setCursorPosition(50, 6);
             printf("%s moves: %d\t", g2->name, g2->moves);
+            setCursorPosition(50, 13);
+			printf("Press ESC to give up.");
 
             // Player turn
             do
@@ -583,13 +592,13 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
         else if(!matchFortified) // The board was filled
             printf("Draw! Noob equality.\t\t");
         else
-            printf("Math fortified by %s. %s won!", g1->name, g2->name);
+            printf("%s couldn't stand the pressure. %s won!", g1->name, g2->name);
 
 
         // Read data
 
         GamerStat *stats = NULL;
-        int numStats = 0;
+        int numStats = 0, totalScore;
         stats = readStatisticsFile(&numStats);
 
         GamerStat newStat;
@@ -604,7 +613,8 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
                     if(freeSpaces > 0 && winner->num == g1->num)
                     {
                         stats[i].numWins++;
-                        stats[i].totalScore += calculateScore(g1->moves);
+                        totalScore = calculateScore(g1->moves) * (difficulty == 1 ? 0.75 : (difficulty == 2 ? 1 : 1.25));
+                        stats[i].totalScore += totalScore;
                     }
                     stats[i].totalNumMoves += g1->moves;
                     foundStatP1 = 1;

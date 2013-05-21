@@ -30,87 +30,103 @@ int playIA_noob(board p)
 int checkCol (board p)
 {
     int j,k,def=-1;
-        for (k=0; k<HEIGHT ; k++)
-            for (j=0; j<WIDTH ; j++){
-                if ((p[j][k]==J1)&&(p[j][k+1]==J1)&&(p[j][k+2]==J1)&& (k>0))
-                    def=j;
-                    }
- if (!validate(p,def))
+    for (k=0; k<HEIGHT ; k++)
+        for (j=0; j<WIDTH ; j++)
+        {
+            if ((p[j][k]==J1)&&(p[j][k+1]==J1)&&(p[j][k+2]==J1)&& (k>0))
+                def=j;
+        }
+    if (!validate(p,def))
         def=-1;
 
-return def;
+    return def;
 }
 
 
 int checkD (board p)
- {
+{
     srand ((unsigned)time(NULL));
     int j,k,def=-1;
-        for (k=0; k<HEIGHT ; k++)
-            for (j=0; j<WIDTH ; j++)
-                if (p[j][k]==J1)
-                    if (p[j+1][k-1]==J1){
-                        if ((p[j+2][k-2]==EMPTY)&&(p[j-1][k+1]==EMPTY)&&(p[j+2][k-1]!=EMPTY)&&(p[j-1][k+2]!=EMPTY))
-                            if ((rand()%2)==0)
-                                def=(j+2);
-                            else
-                                def=(j-1);
-                        if ((p[j+2][k-2]==EMPTY)&&(p[j-1][k+1]==J1)&&(p[j+2][k-1]!=EMPTY))
-                            def=j+2;
-                        if ((p[j+2][k-2]==J1)&&(p[j-1][k+1]==EMPTY)&&(p[j-1][k+2]!=EMPTY))
-                            def=j-1;
+    for (k=0; k<HEIGHT ; k++)
+        for (j=0; j<WIDTH ; j++)
+            if (p[j][k]==J1)
+                if (p[j+1][k-1]==J1)
+                {
+                    if ((p[j+2][k-2]==EMPTY)&&(p[j-1][k+1]==EMPTY)&&(p[j+2][k-1]!=EMPTY)&&(p[j-1][k+2]!=EMPTY))
+                    {
+                        if ((rand()%2)==0)
+                            def=(j+2);
+                        else
+                            def=(j-1);
+                    }
+                    if ((p[j+2][k-2]==EMPTY)&&(p[j-1][k+1]==J1)&&(p[j+2][k-1]!=EMPTY))
+                        def=j+2;
+                    if ((p[j+2][k-2]==J1)&&(p[j-1][k+1]==EMPTY)&&(p[j-1][k+2]!=EMPTY))
+                        def=j-1;
 
                 }
-                if (p[j-1][k-1]==J1){
-                        if ((p[j-2][k-2]==EMPTY)&&(p[j+1][k+1]==EMPTY)&&(p[j-2][k-1]!=EMPTY)&&(p[j+1][k+2]!=EMPTY))
-                            if ((rand()%2)==0)
-                                def=(j-2);
-                            else
-                                def=(j+1);
-                        if ((p[j-2][k-2]==EMPTY)&&(p[j+1][k+1]==J1)&&(p[j-2][k-1]!=EMPTY))
-                            def=j-2;
-                        if ((p[j-2][k-2]==J1)&&(p[j+1][k+1]==EMPTY)&&(p[j+1][k+2]!=EMPTY))
-                            def=j+1;
-                }
- if (!validate(p,def))
+    if (p[j-1][k-1]==J1)
+    {
+        if ((p[j-2][k-2]==EMPTY)&&(p[j+1][k+1]==EMPTY)&&(p[j-2][k-1]!=EMPTY)&&(p[j+1][k+2]!=EMPTY))
+            if ((rand()%2)==0)
+                def=(j-2);
+            else
+                def=(j+1);
+        if ((p[j-2][k-2]==EMPTY)&&(p[j+1][k+1]==J1)&&(p[j-2][k-1]!=EMPTY))
+            def=j-2;
+        if ((p[j-2][k-2]==J1)&&(p[j+1][k+1]==EMPTY)&&(p[j+1][k+2]!=EMPTY))
+            def=j+1;
+    }
+    if (!validate(p,def))
         def=-1;
- return def;
- }
+    return def;
+}
 
 int checkOrizontal (board p)
 {
     srand ((unsigned)time(NULL));
     int j,k,def=-1;
-        for (k=0; k<HEIGHT ; k++)
-            for (j=0; j<WIDTH ; j++){
-                if (p[j][k]==J1){
-                    if (p[j+1][k]==J1) {
-                        if (k==(HEIGHT-1))    {
-                            if ((p[j+2][k]==EMPTY)&&(p[j-1][k]==EMPTY)){
-                                if ((rand()%2)==0)
-                                    def=(j+2);
-                                else
-                                    def=(j-1);
-                                }
-                            if ((p[j+2][k]==J1)&&(p[j-1][k]!=EMPTY)&&(p[j+3][k]==EMPTY)){
-                                def=(j+3) ;
-                            }
-                            if ((p[j+2][k]==J1)&&(p[j+3][k]!=EMPTY)&&(p[j-1][k]==EMPTY)){
-                                def=(j-1);
-                            }
-                        }
-
-                        else {
-                        if ((p[j+2][k]==EMPTY)&&(p[j-1][k]==EMPTY)&&(p[j-1][k+1]!=EMPTY)&&(p[j+2][k+1]!=EMPTY)){
+    for (k=0; k<HEIGHT ; k++)
+        for (j=0; j<WIDTH ; j++)
+        {
+            if (p[j][k]==J1)
+            {
+                if (p[j+1][k]==J1)
+                {
+                    if (k==(HEIGHT-1))
+                    {
+                        if ((p[j+2][k]==EMPTY)&&(p[j-1][k]==EMPTY))
+                        {
                             if ((rand()%2)==0)
                                 def=(j+2);
                             else
                                 def=(j-1);
-                            }
-                        if ((p[j+2][k]==J1)&&(p[j-1][k]!=EMPTY)&&(p[j+3][k]==EMPTY)&&(p[j-1][k+1]!=EMPTY)){
+                        }
+                        if ((p[j+2][k]==J1)&&(p[j-1][k]!=EMPTY)&&(p[j+3][k]==EMPTY))
+                        {
                             def=(j+3) ;
                         }
-                        if ((p[j+2][k]==J1)&&(p[j+3][k]!=EMPTY)&&(p[j+3][k+1]!=EMPTY)&&(p[j-1][k]==EMPTY)){
+                        if ((p[j+2][k]==J1)&&(p[j+3][k]!=EMPTY)&&(p[j-1][k]==EMPTY))
+                        {
+                            def=(j-1);
+                        }
+                    }
+
+                    else
+                    {
+                        if ((p[j+2][k]==EMPTY)&&(p[j-1][k]==EMPTY)&&(p[j-1][k+1]!=EMPTY)&&(p[j+2][k+1]!=EMPTY))
+                        {
+                            if ((rand()%2)==0)
+                                def=(j+2);
+                            else
+                                def=(j-1);
+                        }
+                        if ((p[j+2][k]==J1)&&(p[j-1][k]!=EMPTY)&&(p[j+3][k]==EMPTY)&&(p[j-1][k+1]!=EMPTY))
+                        {
+                            def=(j+3) ;
+                        }
+                        if ((p[j+2][k]==J1)&&(p[j+3][k]!=EMPTY)&&(p[j+3][k+1]!=EMPTY)&&(p[j-1][k]==EMPTY))
+                        {
                             def=(j-1);
                         }
                     }
@@ -119,75 +135,80 @@ int checkOrizontal (board p)
         }
 
 
- if (!validate(p,def))
+    if (!validate(p,def))
         def=-1;
 
     return def;
 }
 
 int winning (board p) // if the pc is about to win, return the column in whitch the computer has to play to win, otherwise returns 0
-    {
+{
 
 
     int j,k,win=-1;
-    for (k=0; k<HEIGHT ; k++){
-        for (j=0; j<WIDTH ; j++){
-            if (p[j][k]==J2){
+    for (k=0; k<HEIGHT ; k++)
+    {
+        for (j=0; j<WIDTH ; j++)
+        {
+            if (p[j][k]==J2)
+            {
                 if ((p[j][k+1]==J2)&&(p[j][k+2]==J2)&& (k>0))
-                        win=j;
+                    win=j;
 
-                if ((p[j+1][k]==J2)&&(p[j+2][k]==J2)){
-                        if(((j+3)<=(WIDTH-1))&& p[j+3][k]==EMPTY)
-                            win=j+3;
-                        if(((j-1)>=0)&& p[j-1][k]==EMPTY)
-                            win=j-1;
-                        }
-                    }
-
+                if ((p[j+1][k]==J2)&&(p[j+2][k]==J2))
+                {
+                    if(((j+3)<=(WIDTH-1))&& p[j+3][k]==EMPTY)
+                        win=j+3;
+                    if(((j-1)>=0)&& p[j-1][k]==EMPTY)
+                        win=j-1;
                 }
             }
+
+        }
+    }
 
     if (!validate(p,win))
         win=-1;
 
-            return win;
-    }
+    return win;
+}
 
 int playIA_normal(board p,int k, int col)
 
 {
     srand ((unsigned)time(NULL));
     int limit = WIDTH-1, limitk = HEIGHT-1;
-	int num,j, play=-1;
-	int x,y;
-	j=col;
+    int num,j, play=-1;
+    int x,y;
+    j=col;
 
     Sleep(500);
 
-			//WINNING FUNC FIXED
-			if (winning(p)!=-1)
-                return winning(p);
-            // VERTICAL
-            if (checkCol(p)!=-1)
-                return checkCol(p);
-            // ORIZONTAL
-            if (checkOrizontal(p)!=-1)
-                return checkOrizontal(p);
-            // DIAGONALS
-            if (checkD(p)!=-1)
-                return checkD(p);
+    //WINNING FUNC FIXED
+    if (winning(p)!=-1)
+        return winning(p);
+    // VERTICAL
+    if (checkCol(p)!=-1)
+        return checkCol(p);
+    // ORIZONTAL
+    if (checkOrizontal(p)!=-1)
+        return checkOrizontal(p);
+    // DIAGONALS
+    if (checkD(p)!=-1)
+        return checkD(p);
 
 
-           if (play == -1){
-                if ((j>3)&&(validate(p,(j-1))))
-                    play=j-1;
-                else if ((j<=3)&&(validate(p,(j+1))))
-                    play=j+1;
-                else
-                    do
-                        play= rand()%7;
-                    while(!validate(p,play));
-           }
+    if (play == -1)
+    {
+        if ((j>3)&&(validate(p,(j-1))))
+            play=j-1;
+        else if ((j<=3)&&(validate(p,(j+1))))
+            play=j+1;
+        else
+            do
+                play= rand()%7;
+            while(!validate(p,play));
+    }
 
 
 
@@ -210,7 +231,7 @@ int playIA_hardcore(board p, int numTurns)
     }
     else
     {
-        int plays[WIDTH] = {0}, pos[WIDTH] = {-1}, max, maxPos, winFlag, marksHorizontal, marksVertical, marksDiag1, marksDiag2, moveValidated;
+        int plays[WIDTH] = {0}, pos[WIDTH], max, maxPos, winFlag, marksHorizontal, marksVertical, marksDiag1, marksDiag2, moveValidated;
         setCursorPosition(0, 10);
         for(i = 0; i < WIDTH; i++)
             pos[i] = findLine(p, i);
@@ -257,6 +278,21 @@ int playIA_hardcore(board p, int numTurns)
 
                         for(k = i + 1, l = pos[i] - 1; i < WIDTH && l >= 0 && p[k][l] == J2; k++, l--, marksDiag2++);
                         for(k = i - 1, l = pos[i] + 1; i >= 0 && l < HEIGHT && p[k][l] == J2; k--, l++, marksDiag2++);
+
+                        /*if(pos[i] <= 1)
+                        {
+                            if(marksVertical < 3)
+                                marksVertical = 0; // Playing here is not useful if we can't win with it
+                            if(marksDiag1 < 3)
+                                marksDiag1 = 0;
+                            if(marksDiag2 < 3)
+                                marksDiag2 = 0;
+                        }*/
+                        if(i < 3 && p[i + 1][pos[i]] == J1 && p[i + 2][pos[i]] == J1 && p[i + 3][pos[i]] == EMPTY)
+                        {
+                            marksHorizontal = 10; // High priority move! - - i x x - -
+                        }
+
                         max = marksHorizontal;
                         if(marksVertical > max)
                             max = marksVertical;
@@ -273,32 +309,72 @@ int playIA_hardcore(board p, int numTurns)
         if(num == -1)
         {
             moveValidated = 1;
-            do
+            int maxPlays[WIDTH] = {-1};
+            int numMaxP;
+            int playFlags[WIDTH];
+            for(i = 0; i < WIDTH; i++)
             {
-                max = -1;
-                maxPos = 0;
-                for(j = 0; j < WIDTH; j++)
+                if(pos[i] < 0)
+                    playFlags[i] = -1;
+                else
+                    playFlags[i] = 1;
+            }
+
+            max = -1;
+            maxPos = 0;
+            numMaxP = 0;
+            for(j = 0; j < WIDTH; j++)
+            {
+                if(pos[j] >= 0)
                 {
-                    if(pos[j] >= 0 && plays[j] > max)
+                    winFlag = 0;
+                    if(pos[j] > 0)
                     {
-                        winFlag = 0;
-                        if(pos[j] > 0 && moveValidated)
-                        {
-                            p[j][pos[j] - 1] = J1;
-                            winFlag = checkWin(p, j, pos[j] - 1, 0);
-                            p[j][pos[j] - 1] = EMPTY;
-                        }
-                        if(!winFlag)
+                        p[j][pos[j] - 1] = J1;
+                        winFlag = checkWin(p, j, pos[j] - 1, 0);
+                        p[j][pos[j] - 1] = EMPTY;
+                    }
+                    if(!winFlag)
+                    {
+                        if(plays[j] > max)
                         {
                             maxPos = j;
                             max = plays[j];
+                            maxPlays[0] = j;
+                            numMaxP = 1;
+                        }
+                        else if(plays[j] == max)
+                        {
+                            maxPlays[numMaxP] = j;
+                            numMaxP++;
                         }
                     }
+                    else
+						playFlags[j] = 0;
                 }
-                num = maxPos;
+            }
+            j = 0; // Just a temporary flag
+            for(i = 0; i < WIDTH; i++)
+            {
+                if(playFlags[i] == 1)
+                {
+                    j = 1;
+                    break;
+                }
+            }
+            if(j == 0) // Didn't found any positions that wouln't make the player a winner
+            {
+                for(i = 0; i < WIDTH; i++)
+                {
+                    if(playFlags[i] == 0) // Pick the first free column it finds
+                        num = i;
+                }
+            }
+            else
+            {
+                num = maxPlays[random(numMaxP)];
                 moveValidated = validate(p, num);
             }
-            while(moveValidated != 1);
         }
     }
     Sleep(500);
