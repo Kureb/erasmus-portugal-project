@@ -10,7 +10,8 @@
 #include "Board.h"
 #include "Statistics.h"
 #include "Credits.h"
-//#include <SDL.h>
+/*#include "SDL/SDL.h"
+#include "SDL/SDL_mixer.h"*/
 
 /* -------------------------- main project goals ----------------------
 -> define the data structures and other configurations that support the game

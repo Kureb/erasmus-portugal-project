@@ -19,7 +19,7 @@ int playIA_noob(board p)
     int num;
     do
     {
-        num = random(WIDTH);
+        num = playRandom(WIDTH);
     }
     while (!validate(p, num));
     Sleep(300);
@@ -145,8 +145,6 @@ int checkOrizontal (board p)
 
 int winning (board p) // if the pc is about to win, return the column in whitch the computer has to play to win, otherwise returns 0
 {
-
-
     int j,k,win=-1;
     for (k=0; k<HEIGHT ; k++)
     {
@@ -225,13 +223,13 @@ int playIA_hardcore(board p, int numTurns)
     if(numTurns == 1) // This is the first turn
     {
         if(p[3][HEIGHT - 1] == J1)
-            num = 2 + (random(2) * 2); // 2 or 4
+            num = 2 + (playRandom(2) * 2); // 2 or 4
         else
             num = 3;
     }
     else
     {
-        int plays[WIDTH] = {0}, pos[WIDTH], max, maxPos, winFlag, marksHorizontal, marksVertical, marksDiag1, marksDiag2, moveValidated;
+        int plays[WIDTH] = {0}, pos[WIDTH], max, maxPos, winFlag, marksHorizontal, marksVertical, marksDiag1, marksDiag2;
         setCursorPosition(0, 10);
         for(i = 0; i < WIDTH; i++)
             pos[i] = findLine(p, i);
@@ -279,19 +277,145 @@ int playIA_hardcore(board p, int numTurns)
                         for(k = i + 1, l = pos[i] - 1; i < WIDTH && l >= 0 && p[k][l] == J2; k++, l--, marksDiag2++);
                         for(k = i - 1, l = pos[i] + 1; i >= 0 && l < HEIGHT && p[k][l] == J2; k--, l++, marksDiag2++);
 
-                        /*if(pos[i] <= 1)
+
+                        if(i < 4 && p[i + 1][pos[i]] == J1 && p[i + 2][pos[i]] == J1 && p[i + 3][pos[i]] == EMPTY)
                         {
-                            if(marksVertical < 3)
-                                marksVertical = 0; // Playing here is not useful if we can't win with it
-                            if(marksDiag1 < 3)
-                                marksDiag1 = 0;
-                            if(marksDiag2 < 3)
-                                marksDiag2 = 0;
-                        }*/
-                        if(i < 3 && p[i + 1][pos[i]] == J1 && p[i + 2][pos[i]] == J1 && p[i + 3][pos[i]] == EMPTY)
-                        {
-                            marksHorizontal = 10; // High priority move! - - i x x - -
+                            marksHorizontal += 10; // High priority move! - - i x x - -
                         }
+                        if(i > 2 && p[i - 1][pos[i]] == J1 && p[i - 2][pos[i]] == J1 && p[i - 3][pos[i]] == EMPTY)
+                        {
+                            marksHorizontal += 10; // High priority move! - - - x x i -
+                        }
+
+                        if(pos[i] + 1 + marksVertical < 4)
+							marksVertical = 0;
+
+						if(pos[i] < 2)
+						{
+							// Diagonal 1
+							/*if(pos[i] + 1 + marksDiag1 < 4)
+							{
+								for(j = i, )
+							}
+							else*/
+							if(pos[i] == 0)
+							{
+
+								if(i + marksDiag1 + 1 < 6 && (7 - i + marksDiag1 >= 4))
+								{
+									if(p[i + marksDiag1 + 1][pos[i] + marksDiag1 + 1] != EMPTY)
+										marksDiag1 = 0; // This move is not useful
+														/* - - - ? - - -
+														** - - - X O - -
+														** - - - - - O -
+														** - - - - - - X
+														** - - - - - - -
+														** - - - - - - -
+														*/
+								}
+								else
+									marksDiag1 = 0;
+							}
+							if(pos[i] == 1)
+							{
+								if(i >= 1 && p[i - 1][pos[i] - 1] != J2)
+								{
+									if(p[i + marksDiag1 + 1][pos[i] + marksDiag1 + 1] != EMPTY)
+									{
+										if(i >= 1 && p[i - 1][pos[i] - 1] == EMPTY)
+										{
+
+										}
+									}
+								}
+							}
+						}
+
+                        if(i == 0)
+						{
+							// Horizontal
+							if(p[marksHorizontal + 1][pos[i]] != EMPTY)
+								marksHorizontal = 0;
+
+							// Diagonal 1
+							if(pos[i] + marksDiag1 < 6)
+							{
+								if(p[i + marksDiag1 + 1][pos[i] + marksDiag1 + 1] != EMPTY)
+									marksDiag1 = 0;
+							}
+							else if(pos[i] + marksDiag1 == 6)
+								marksDiag1 = 0;
+						}
+						if(i == 6)
+						{
+							// Horizontal
+							if(p[6 - marksHorizontal - 1][pos[i]] != EMPTY)
+								marksHorizontal = 0;
+
+							// Diagonal 1
+							if(pos[i] - marksDiag1 > 0)
+							{
+								if(p[i - marksDiag1 - 1][pos[i] - marksDiag1 - 1] != EMPTY)
+									marksDiag1 = 0;
+							}
+							else if(pos[i] - marksDiag1 == 0)
+								marksDiag1 = 0;
+						}
+
+						if(i > 0)
+						{
+							if(p[i - 1][pos[i]] == J1)
+							{
+								if(i + marksHorizontal + 1 < WIDTH)
+								{
+									if(p[i + marksHorizontal + 1][pos[i]] != EMPTY)
+										marksHorizontal = 0;
+								}
+								else
+									marksHorizontal = 0;
+							}
+						}
+						if(i < 6)
+						{
+							if(p[i + 1][pos[i]] == J1)
+							{
+								if(i - marksHorizontal - 1 >= 0)
+								{
+									if(p[i - marksHorizontal - 1][pos[i]] != EMPTY)
+										marksHorizontal = 0;
+								}
+								else
+									marksHorizontal = 0;
+							}
+						}
+
+						// Check for examples like this: - X O ? O X -
+						j = 0; // Temporary flag
+						if(marksHorizontal == 2)
+						{
+							if(i > 0 && i < 6)
+							{
+								if(p[i - 1][pos[i]] == J2 && p[i + 1][pos[i]] == J2)
+								{
+									if(i > 1)
+									{
+										if(p[i - 2][pos[i]] == J1)
+											j++;
+									}
+									else
+										j++;
+									if(i < 5)
+									{
+										if(p[i + 2][pos[i]] == J1)
+											j++;
+									}
+									else
+										j++;
+								}
+								if(j == 2)
+									marksHorizontal = 0;
+							}
+						}
 
                         max = marksHorizontal;
                         if(marksVertical > max)
@@ -300,7 +424,8 @@ int playIA_hardcore(board p, int numTurns)
                             max = marksDiag1;
                         if(marksDiag2 > max)
                             max = marksDiag2;
-                        plays[i] = max;
+						if(max > plays[i])
+							plays[i] = max;
                     }
                 }
             }
@@ -308,7 +433,6 @@ int playIA_hardcore(board p, int numTurns)
 
         if(num == -1)
         {
-            moveValidated = 1;
             int maxPlays[WIDTH] = {-1};
             int numMaxP;
             int playFlags[WIDTH];
@@ -372,8 +496,7 @@ int playIA_hardcore(board p, int numTurns)
             }
             else
             {
-                num = maxPlays[random(numMaxP)];
-                moveValidated = validate(p, num);
+                num = maxPlays[playRandom(numMaxP)];
             }
         }
     }
