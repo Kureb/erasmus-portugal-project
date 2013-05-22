@@ -68,10 +68,12 @@ int checkD (board p)
     if (p[j-1][k-1]==J1)
     {
         if ((p[j-2][k-2]==EMPTY)&&(p[j+1][k+1]==EMPTY)&&(p[j-2][k-1]!=EMPTY)&&(p[j+1][k+2]!=EMPTY))
+		{
             if ((rand()%2)==0)
                 def=(j-2);
             else
                 def=(j+1);
+		}
         if ((p[j-2][k-2]==EMPTY)&&(p[j+1][k+1]==J1)&&(p[j-2][k-1]!=EMPTY))
             def=j-2;
         if ((p[j-2][k-2]==J1)&&(p[j+1][k+1]==EMPTY)&&(p[j+1][k+2]!=EMPTY))
@@ -177,9 +179,7 @@ int playIA_normal(board p,int k, int col)
 
 {
     srand ((unsigned)time(NULL));
-    int limit = WIDTH-1, limitk = HEIGHT-1;
-    int num,j, play=-1;
-    int x,y;
+    int j, play=-1;
     j=col;
 
     Sleep(500);
@@ -380,7 +380,7 @@ int playIA_hardcore(board p, int numTurns)
     Sleep(500);
     return num;
 }
-/*
+
 /* Returns the number of tokens
 ** which are in a line
 ** Returns a number between 1 and 4

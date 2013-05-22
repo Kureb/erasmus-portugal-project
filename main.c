@@ -59,11 +59,12 @@ int main()//SDL_main(int argc, char *argv[])
     SDL_Quit();
     return 0;*/
 
-    int option, difficulty = 4;
+    int option, difficulty;
 
     do
     {
         clrscr(); // Replaces system("cls"). Only testing for now
+        difficulty = 4;
         setCursorVisible(FALSE);
         option = welcome(); // Give the welcome screen to the user and wait until he decides which game type he will choose. His decision is then returned
         if(option > 0)
