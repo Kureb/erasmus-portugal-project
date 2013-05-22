@@ -46,7 +46,7 @@ void setCursorVisible(BOOL visible)
     SetConsoleCursorInfo(Screen, &ConCurInf);
 }
 
-int random(int n)
+int playRandom(int n)
 {
 	FILETIME now;
     GetSystemTimeAsFileTime(&now);

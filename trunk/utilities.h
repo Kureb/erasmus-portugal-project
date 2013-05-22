@@ -90,7 +90,7 @@ void setCursorVisible(BOOL visible);
 //output value:
 //		the random number ranging from 0 to n-1
 //*****************************************
-int random(int n);
+int playRandom(int n);
 
 //*****************************************
 //Clears the console

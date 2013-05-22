@@ -90,7 +90,6 @@ int checkWin(board p, int j, int k, int paint)
 
     //Vertical
     for(v=k+1; v < HEIGHT && p[j][v]==disc; v++, vertical++);
-    for(v=k-1; v >= 0 && p[j][v]==disc; v--, vertical++);
     if(vertical>=4)
     {
         if(paint)
@@ -212,7 +211,7 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
         int play, i, j, win = 0, numTurns = 1, validMove, freePos = WIDTH * HEIGHT, firstNum, matchFortified, WHOSETURNISIT;
         char mark;
 
-        i = random(2);
+        i = playRandom(2);
         currentGamer = (i == 0 ? g1 : g2); // Choose a random player to play first
         firstNum = currentGamer->num;
         matchFortified = 0;
