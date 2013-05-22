@@ -252,8 +252,9 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
                     }
                     else if(play == 8) // Load
                     {
+                    	loadgame(g1, g2, p, &numTurns, &freePos, &numTurns, &firstNum, &WHOSETURNISIT, currentGamer);
                     	showBoard(p);
-                        loadgame(g1, g2, p, &numTurns, &freePos, &numTurns, &firstNum, &WHOSETURNISIT, currentGamer);
+
                         for(i = 0; i < WIDTH; i++)
 						{
 							for(j = 0; j < HEIGHT; j++)
