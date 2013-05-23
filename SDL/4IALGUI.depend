@@ -1,0 +1,633 @@
+# depslib dependency file v1.0
+1369036950 source:c:\users\alexandre\workspace\4ialgui\main.cpp
+	<stdlib.h>
+	<stdio.h>
+	<SDL/SDL.h>
+	<SDL/SDL_image.h>
+	<SDL/SDL_ttf.h>
+	"Global.h"
+	"utilities.h"
+
+1341013976 c:\program files (x86)\codeblocks\mingw\include\stdlib.h
+	<_mingw.h>
+	<stddef.h>
+
+1341013970 c:\program files (x86)\codeblocks\mingw\include\_mingw.h
+
+1341013976 c:\program files (x86)\codeblocks\mingw\include\stdio.h
+	<_mingw.h>
+	<stddef.h>
+	<stdarg.h>
+	<sys/types.h>
+
+1341013980 c:\program files (x86)\codeblocks\mingw\include\sys\types.h
+	<_mingw.h>
+	<stddef.h>
+
+1325742240 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_audio.h"
+	"SDL_cdrom.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_loadso.h"
+	"SDL_mutex.h"
+	"SDL_rwops.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_video.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1326114588 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_config.h
+	"SDL_platform.h"
+	"SDL_config_dreamcast.h"
+	"SDL_config_macos.h"
+	"SDL_config_macosx.h"
+	"SDL_config_symbian.h"
+	"SDL_config_win32.h"
+	"SDL_config_os2.h"
+	"SDL_config_minimal.h"
+
+1325742240 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_platform.h
+
+1326114594 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_config_win32.h
+	"SDL_platform.h"
+
+1341013974 c:\program files (x86)\codeblocks\mingw\include\malloc.h
+	<_mingw.h>
+	<stdlib.h>
+
+1341013974 c:\program files (x86)\codeblocks\mingw\include\memory.h
+	<string.h>
+
+1341013976 c:\program files (x86)\codeblocks\mingw\include\string.h
+	<_mingw.h>
+	<stddef.h>
+
+1341013976 c:\program files (x86)\codeblocks\mingw\include\strings.h
+	<string.h>
+
+1341013972 c:\program files (x86)\codeblocks\mingw\include\inttypes.h
+	<_mingw.h>
+	<stdint.h>
+	<stddef.h>
+
+1341013976 c:\program files (x86)\codeblocks\mingw\include\stdint.h
+	<stddef.h>
+
+1341013970 c:\program files (x86)\codeblocks\mingw\include\ctype.h
+	<_mingw.h>
+	<stddef.h>
+
+1326114600 c:\program files (x86)\codeblocks\mingw\include\sdl\begin_code.h
+
+1325742240 c:\program files (x86)\codeblocks\mingw\include\sdl\close_code.h
+
+1325742240 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1341013974 c:\program files (x86)\codeblocks\mingw\include\process.h
+	<_mingw.h>
+	<sys/types.h>
+	<stdint.h>
+
+1325742240 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_cdrom.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_active.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_quit.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_active.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keysym.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_keysym.h
+
+1325742240 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1325742240 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325785234 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_image.h
+	"SDL.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325789594 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_ttf.h
+	"SDL.h"
+	"begin_code.h"
+	"close_code.h"
+
+1369074930 c:\users\alexandre\workspace\4ialgui\global.h
+	<SDL/SDL.h>
+	<SDL/SDL_image.h>
+
+1369236625 c:\users\alexandre\workspace\4ialgui\utilities.h
+	<windows.h>
+	<SDL/SDL.h>
+	<SDL/SDL_ttf.h>
+
+1301114762 c:\program files (x86)\codeblocks\mingw\include\windows.h
+	<winresrc.h>
+	<stdarg.h>
+	<windef.h>
+	<wincon.h>
+	<winbase.h>
+	<wingdi.h>
+	<winuser.h>
+	<winnls.h>
+	<winver.h>
+	<winnetwk.h>
+	<winreg.h>
+	<winsvc.h>
+	<cderr.h>
+	<dde.h>
+	<ddeml.h>
+	<dlgs.h>
+	<imm.h>
+	<lzexpand.h>
+	<mmsystem.h>
+	<nb30.h>
+	<rpc.h>
+	<shellapi.h>
+	<winperf.h>
+	<commdlg.h>
+	<winspool.h>
+	<winsock2.h>
+	<winsock.h>
+	<ole2.h>
+
+1301114762 c:\program files (x86)\codeblocks\mingw\include\winresrc.h
+	<winuser.h>
+	<winnt.h>
+	<winver.h>
+	<dde.h>
+	<dlgs.h>
+	<commctrl.h>
+
+1301114764 c:\program files (x86)\codeblocks\mingw\include\winuser.h
+
+1301114762 c:\program files (x86)\codeblocks\mingw\include\winnt.h
+	<winerror.h>
+	<string.h>
+	<basetsd.h>
+	<pshpack4.h>
+	<poppack.h>
+
+1301114762 c:\program files (x86)\codeblocks\mingw\include\winerror.h
+
+1301114748 c:\program files (x86)\codeblocks\mingw\include\basetsd.h
+
+1301114756 c:\program files (x86)\codeblocks\mingw\include\pshpack4.h
+
+1301114756 c:\program files (x86)\codeblocks\mingw\include\poppack.h
+
+1301114764 c:\program files (x86)\codeblocks\mingw\include\winver.h
+
+1301114748 c:\program files (x86)\codeblocks\mingw\include\dde.h
+
+1301114750 c:\program files (x86)\codeblocks\mingw\include\dlgs.h
+
+1301114748 c:\program files (x86)\codeblocks\mingw\include\commctrl.h
+	<prsht.h>
+
+1301114756 c:\program files (x86)\codeblocks\mingw\include\prsht.h
+
+1301114762 c:\program files (x86)\codeblocks\mingw\include\windef.h
+	<winnt.h>
+
+1301114762 c:\program files (x86)\codeblocks\mingw\include\wincon.h
+
+1301114760 c:\program files (x86)\codeblocks\mingw\include\winbase.h
+
+1301114762 c:\program files (x86)\codeblocks\mingw\include\wingdi.h
+
+1301114762 c:\program files (x86)\codeblocks\mingw\include\winnls.h
+
+1301114762 c:\program files (x86)\codeblocks\mingw\include\winnetwk.h
+
+1301114762 c:\program files (x86)\codeblocks\mingw\include\winreg.h
+
+1301114764 c:\program files (x86)\codeblocks\mingw\include\winsvc.h
+
+1301114748 c:\program files (x86)\codeblocks\mingw\include\cderr.h
+
+1301114748 c:\program files (x86)\codeblocks\mingw\include\ddeml.h
+
+1301114750 c:\program files (x86)\codeblocks\mingw\include\imm.h
+
+1301114754 c:\program files (x86)\codeblocks\mingw\include\lzexpand.h
+
+1301114754 c:\program files (x86)\codeblocks\mingw\include\mmsystem.h
+
+1301114754 c:\program files (x86)\codeblocks\mingw\include\nb30.h
+
+1301114758 c:\program files (x86)\codeblocks\mingw\include\rpc.h
+	<windows.h>
+	<rpcdce.h>
+	<rpcnsi.h>
+	<rpcnterr.h>
+	<winerror.h>
+	<excpt.h>
+
+1301114758 c:\program files (x86)\codeblocks\mingw\include\rpcdce.h
+	<basetyps.h>
+	<rpcdcep.h>
+
+1301114748 c:\program files (x86)\codeblocks\mingw\include\basetyps.h
+
+1301114758 c:\program files (x86)\codeblocks\mingw\include\rpcdcep.h
+
+1301114758 c:\program files (x86)\codeblocks\mingw\include\rpcnsi.h
+
+1301114758 c:\program files (x86)\codeblocks\mingw\include\rpcnterr.h
+
+1341013972 c:\program files (x86)\codeblocks\mingw\include\excpt.h
+	<_mingw.h>
+	<windef.h>
+
+1301114760 c:\program files (x86)\codeblocks\mingw\include\shellapi.h
+	<pshpack2.h>
+	<poppack.h>
+
+1301114756 c:\program files (x86)\codeblocks\mingw\include\pshpack2.h
+
+1301114762 c:\program files (x86)\codeblocks\mingw\include\winperf.h
+
+1301114748 c:\program files (x86)\codeblocks\mingw\include\commdlg.h
+	<unknwn.h>
+	<prsht.h>
+
+1301114760 c:\program files (x86)\codeblocks\mingw\include\unknwn.h
+	<windows.h>
+	<objfwd.h>
+	<wtypes.h>
+
+1301114756 c:\program files (x86)\codeblocks\mingw\include\objfwd.h
+	<basetyps.h>
+
+1301114764 c:\program files (x86)\codeblocks\mingw\include\wtypes.h
+	<rpc.h>
+	<rpcndr.h>
+
+1301114758 c:\program files (x86)\codeblocks\mingw\include\rpcndr.h
+	<rpcnsip.h>
+	<objfwd.h>
+
+1301114758 c:\program files (x86)\codeblocks\mingw\include\rpcnsip.h
+
+1301114762 c:\program files (x86)\codeblocks\mingw\include\winspool.h
+
+1301114762 c:\program files (x86)\codeblocks\mingw\include\winsock2.h
+	<windows.h>
+
+1301114762 c:\program files (x86)\codeblocks\mingw\include\winsock.h
+	<windows.h>
+	<mswsock.h>
+
+1301114754 c:\program files (x86)\codeblocks\mingw\include\mswsock.h
+
+1301114756 c:\program files (x86)\codeblocks\mingw\include\ole2.h
+	<winerror.h>
+	<objbase.h>
+	<olectlid.h>
+	<oleauto.h>
+	<oleidl.h>
+
+1301114754 c:\program files (x86)\codeblocks\mingw\include\objbase.h
+	<rpc.h>
+	<rpcndr.h>
+	<stdlib.h>
+	<basetyps.h>
+	<wtypes.h>
+	<unknwn.h>
+	<objidl.h>
+	<cguid.h>
+
+1301114756 c:\program files (x86)\codeblocks\mingw\include\objidl.h
+	<objfwd.h>
+
+1301114748 c:\program files (x86)\codeblocks\mingw\include\cguid.h
+
+1301114756 c:\program files (x86)\codeblocks\mingw\include\olectlid.h
+
+1301114756 c:\program files (x86)\codeblocks\mingw\include\oleauto.h
+	<oaidl.h>
+
+1301114754 c:\program files (x86)\codeblocks\mingw\include\oaidl.h
+	<windows.h>
+	<ole2.h>
+
+1301114756 c:\program files (x86)\codeblocks\mingw\include\oleidl.h
+	<objfwd.h>
+
+1369238938 source:c:\users\alexandre\workspace\4ialgui\utilities.c
+	<windows.h>
+	<string.h>
+	<stdio.h>
+	"utilities.h"
+	<SDL/SDL.h>
+	<SDL/SDL_ttf.h>
+
+1369238938 source:c:\users\alexandre\workspace\4ialgui\main.c
+	<stdlib.h>
+	<stdio.h>
+	<SDL/SDL.h>
+	<SDL/SDL_image.h>
+	<conio.h>
+	<SDL/SDL_ttf.h>
+	"global.h"
+	"board.h"
+	"play.h"
+	"utilities.h"
+
+1369233982 source:c:\users\alexandre\workspace\4ialgui\board.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<SDL/SDL.h>
+	<SDL/SDL_image.h>
+	"global.h"
+	"board.h"
+	"utilities.h"
+
+1341013970 c:\program files (x86)\codeblocks\mingw\include\conio.h
+	<_mingw.h>
+
+1369226554 c:\users\alexandre\workspace\4ialgui\board.h
+	"global.h"
+
+1369238938 source:c:\users\alexandre\workspace\4ialgui\play.c
+	<stdlib.h>
+	<stdio.h>
+	<SDL/SDL.h>
+	<SDL/SDL_ttf.h>
+	<conio.h>
+	"board.h"
+	"global.h"
+	"utilities.h"
+
+1369057098 source:c:\users\alexandre\workspace\4ialgui\ia.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"utilities.h"
+	"Global.h"
+	"Board.h"
+	"Play.h"
+	"IA.h"
+
+1341013976 c:\program files (x86)\codeblocks\mingw\include\time.h
+	<_mingw.h>
+	<stddef.h>
+
+1369233857 c:\users\alexandre\workspace\4ialgui\play.h
+
+1369057052 c:\users\alexandre\workspace\4ialgui\ia.h
+
+1369057124 c:\users\alexandre\workspace\4ialgui\statistics.h
+	"Global.h"
+
+1369074540 c:\users\alexandre\workspace\4ialgui\play.c
+	<stdlib.h>
+	<stdio.h>
+	<SDL/SDL.h>
+	<conio.h>
+	"global.h"
+	"utilities.h"
+
+1369218853 source:c:\users\alexandre\workspace\4ialgui\statistics.c
+	<stdio.h>
+	<windows.h>
+	<conio.h>
+	"Global.h"
+	"Statistics.h"
+	"utilities.h"
+
+1369293068 source:c:\users\alexandre\workspace\4ialgui - copy\board.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<SDL/SDL.h>
+	<SDL/SDL_image.h>
+	"global.h"
+	"board.h"
+	"utilities.h"
+
+1369247621 c:\users\alexandre\workspace\4ialgui - copy\global.h
+	<SDL/SDL.h>
+	<SDL/SDL_image.h>
+
+1369226554 c:\users\alexandre\workspace\4ialgui - copy\board.h
+	"global.h"
+
+1369236625 c:\users\alexandre\workspace\4ialgui - copy\utilities.h
+	<windows.h>
+	<SDL/SDL.h>
+	<SDL/SDL_ttf.h>
+
+1369293609 source:c:\users\alexandre\workspace\4ialgui - copy\main.c
+	<stdlib.h>
+	<stdio.h>
+	<SDL/SDL.h>
+	<SDL/SDL_image.h>
+	<conio.h>
+	<SDL/SDL_ttf.h>
+	"global.h"
+	"board.h"
+	"play.h"
+	"TeamPT.h"
+	"utilities.h"
+
+1369256840 c:\users\alexandre\workspace\4ialgui - copy\play.h
+
+1369293260 source:c:\users\alexandre\workspace\4ialgui - copy\play.c
+	<stdlib.h>
+	<stdio.h>
+	<SDL/SDL.h>
+	<SDL/SDL_ttf.h>
+	<conio.h>
+	"board.h"
+	"global.h"
+	"utilities.h"
+
+1369218853 source:c:\users\alexandre\workspace\4ialgui - copy\statistics.c
+	<stdio.h>
+	<windows.h>
+	<conio.h>
+	"Global.h"
+	"Statistics.h"
+	"utilities.h"
+
+1369057124 c:\users\alexandre\workspace\4ialgui - copy\statistics.h
+	"Global.h"
+
+1369293861 source:c:\users\alexandre\workspace\4ialgui - copy\utilities.c
+	<windows.h>
+	<string.h>
+	<stdio.h>
+	"utilities.h"
+	<SDL/SDL.h>
+	<SDL/SDL_ttf.h>
+
+1369251621 source:c:\users\alexandre\workspace\4ialgui - copy\teampt.c
+	<stdio.h>
+	<conio.h>
+	"Global.h"
+	"utilities.h"
+	"TeamPT.h"
+
+1369251411 c:\users\alexandre\workspace\4ialgui - copy\teampt.h
+
+1369256738 source:c:\users\alexandre\workspace\4ialgui - copy\ia.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"utilities.h"
+	"Global.h"
+	"Board.h"
+	"Play.h"
+	"IA.h"
+
+1369256723 c:\users\alexandre\workspace\4ialgui - copy\ia.h
+
