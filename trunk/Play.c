@@ -96,7 +96,7 @@ int checkWin(board p, int j, int k, int paint)
     {
         if(paint)
         {
-            setTextColor(LIGHT_RED);
+            setTextColor(COLOR_WIN);
             for(i=k; i < HEIGHT && p[j][i] == disc; i++)
             {
                 setCursorPosition(21 + j * 4, 3 + i * 2);
@@ -119,7 +119,7 @@ int checkWin(board p, int j, int k, int paint)
     {
         if(paint)
         {
-            setTextColor(LIGHT_RED);
+            setTextColor(COLOR_WIN);
             for(i=j; i < WIDTH && p[i][k] == disc; i++)
             {
                 setCursorPosition(21 + i * 4, 3 + k * 2);
@@ -142,7 +142,7 @@ int checkWin(board p, int j, int k, int paint)
     {
         if(paint)
         {
-            setTextColor(LIGHT_RED);
+            setTextColor(COLOR_WIN);
             for(i=j, l = k; i < WIDTH && l < HEIGHT && p[i][l] == disc; i++, l++)
             {
                 setCursorPosition(21 + i * 4, 3 + l * 2);
@@ -165,7 +165,7 @@ int checkWin(board p, int j, int k, int paint)
     {
         if(paint)
         {
-            setTextColor(LIGHT_RED);
+            setTextColor(COLOR_WIN);
             for(i=j, l = k; i >= 0 && l < HEIGHT && p[i][l] == disc; i--, l++)
             {
                 setCursorPosition(21 + i * 4, 3 + l * 2);
@@ -210,7 +210,7 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
     {
         // This code belongs to the italian team, with some modifications
         Gamer *currentGamer;
-        int play, i, j, win = 0, numTurns = 1, validMove, freePos = WIDTH * HEIGHT, firstNum, matchFortified, WHOSETURNISIT;
+        int play, i, j, win = 0, numTurns = 1, validMove, freePos = WIDTH * HEIGHT, firstNum, matchFortified, WHOSETURNISIT, winnerScore = 0;
         char mark;
 
         i = playRandom(2);
@@ -262,7 +262,7 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
 							{
 								if(p[i][j] != EMPTY)
 								{
-									setTextColor((p[i][j] == J1 ? GREEN : CYAN));
+									setTextColor((p[i][j] == J1 ? COLOR1 : COLOR2));
 									setCursorPosition(21 + i * 4, 3 + j * 2);
 									putchar(p[i][j]);
 								}
@@ -323,7 +323,7 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
             if(play != 27)
             {
                 //Color the char
-                short color = (currentGamer->num == 1 ? GREEN : CYAN);
+                short color = (currentGamer->num == 1 ? COLOR1 : COLOR2);
                 setTextColor(color);
 
                 i = findLine(p, play);
@@ -333,7 +333,7 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
                 // Print the char
                 setCursorPosition(21 + play * 4, 3 + i * 2);
                 putchar(mark);
-                PlaySound("Sound\\Coin.wav",NULL,SND_NOSTOP);
+                PlaySound("Sound\\Coin.wav", NULL, SND_ASYNC);
                 setTextColor(WHITE);
                 //End of colo the char
 
@@ -359,10 +359,17 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
         printf("%s moves: %d\t", g2->name, g2->moves);
 
         setCursorPosition(19, 17);
-        if(win){
-            printf("%s won! Congratulations!\t", currentGamer->name);
-            PlaySound("Sound\\win.wav",NULL,SND_NOSTOP);
-            }
+        if(win)
+		{
+			winnerScore = calculateScore(currentGamer->moves);
+			setTextColor(currentGamer->num == 1 ? COLOR1 : COLOR2);
+			printf("%s", currentGamer->name);
+			setTextColor(PURE_WHITE);
+            printf(" won! Congratulations!\t");
+            setCursorPosition(19, 18);
+            printf("%s was awarded %d points.", currentGamer->name, winnerScore);
+            PlaySound("Sound\\win.wav",NULL,SND_ASYNC);
+		}
         else if(!matchFortified)// The board was filled
             printf("Draw! Noob equality.\t\t");
         else
@@ -370,6 +377,10 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
             // swap players
             currentGamer = (currentGamer->num == 1 ? g2 : g1);
             printf("%s couldn't stand the pressure. %s won!", (currentGamer->num == 1 ? g2->name : g1->name), currentGamer->name);
+
+            winnerScore = calculateScore(currentGamer->moves) / 2;
+            setCursorPosition(19, 18);
+            printf("%s was awarded %d points.", currentGamer->name, winnerScore);
         }
 
         // Store data to files
@@ -392,9 +403,7 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
                     if(freePos > 0)
                     {
                         stats[i].numWins++;
-                        totalScore = calculateScore(currentGamer->moves);
-                        if(matchFortified)
-							totalScore /= 2;
+                        totalScore = winnerScore;
                         stats[i].totalScore += totalScore;
                     }
                     stats[i].totalNumMoves += currentGamer->moves;
@@ -444,8 +453,8 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
         writeStatisticsFile(stats, numStats);
         free(stats);
 
-        printStringCenter("Press ENTER to play again", 19);
-        printStringCenter("or ESC to return to main menu", 20);
+        printStringCenter("Press ENTER to play again", 20);
+        printStringCenter("or ESC to return to main menu", 21);
         // Wait until ENTER or ESC is pressed
         do
         {
@@ -468,7 +477,7 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
 void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
 {
     Gamer *winner;
-    int freeSpaces, i, win, play, validMove, numTurns, matchFortified;
+    int freeSpaces, i, win, play, validMove, numTurns, matchFortified, winnerScore = 0;
     char ch;
     do
     {
@@ -529,7 +538,7 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
             else
             {
                 //Change the color of the tokens
-                short color = (g1->num == 1 ? GREEN : CYAN);
+                short color = (g1->num == 1 ? COLOR1 : COLOR2);
                 setTextColor(color);
                 i = findLine(p, play);
                 p[play][i] = J1;
@@ -538,7 +547,7 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
                 setCursorPosition(21 + play * 4, 3 + i * 2);
                 putchar(J1);
                 setTextColor(WHITE);
-                PlaySound("Sound\\Coin.wav",NULL,SND_ASYNC|SND_NOSTOP);
+                PlaySound("Sound\\Coin.wav",NULL, SND_ASYNC);
 
                 win = checkWin(p, play, i, 1);
                 g1->moves++; // Increase number of moves
@@ -561,7 +570,7 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
                     if(difficulty==3)
                         play = playIA_hardcore(p, numTurns);
                     //Set Color
-                    color = (g1->num == 2 ? GREEN : CYAN);
+                    color = (g1->num == 2 ? COLOR1 : COLOR2);
                     setTextColor(color);
 
                     i = findLine(p, play);
@@ -569,7 +578,7 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
                     putchar(J2);
                     p[play][i] = J2;
                     setTextColor(WHITE);
-                    PlaySound("Sound\\Coin.wav",NULL,NULL);
+                    PlaySound("Sound\\Coin.wav",NULL,SND_ASYNC);
                     win = checkWin(p, play, i, 1);
                     g2->moves++;
                     if(win)
@@ -594,15 +603,23 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
         printf("%s moves: %d\t", g2->name, g2->moves);
 
         setCursorPosition(19, 17);
-        if(win){
-                        printf("%s won! ", winner->name);
-            if (winner->num == 2){
-                PlaySound("Sound\\game_over.wav",NULL,NULL);
+        if(win)
+		{
+			setTextColor(winner->num == 1 ? COLOR1 : COLOR2);
+			printf("%s", winner->name);
+			setTextColor(PURE_WHITE);
+			printf(" won! ");
+            if (winner->num == 2)
+			{
+                PlaySound("Sound\\game_over.wav",NULL,SND_ASYNC);
                 printf ("Better luck next time.\t");
             }
             else{
-                PlaySound("Sound\\win.wav",NULL,NULL);
+            	winnerScore = calculateScore(winner->moves) * (difficulty == 1 ? 0.75 : (difficulty == 2 ? 1 : 1.25));
+                PlaySound("Sound\\win.wav",NULL,SND_ASYNC);
                 printf ("Congratulations!\t");
+				setCursorPosition(19, 18);
+				printf("You were awarded %d points.", winnerScore);
             }
         }
         else if(!matchFortified) // The board was filled
@@ -629,7 +646,7 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
                     if(freeSpaces > 0 && winner->num == g1->num)
                     {
                         stats[i].numWins++;
-                        totalScore = calculateScore(g1->moves) * (difficulty == 1 ? 0.75 : (difficulty == 2 ? 1 : 1.25));
+                        totalScore = winnerScore;
                         stats[i].totalScore += totalScore;
                     }
                     stats[i].totalNumMoves += g1->moves;
@@ -661,8 +678,8 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
         writeStatisticsFile(stats, numStats);
         free(stats);
 
-        printStringCenter("Press ENTER to play again", 19);
-        printStringCenter("or ESC to return to main menu", 20);
+        printStringCenter("Press ENTER to play again", 20);
+        printStringCenter("or ESC to return to main menu", 21);
         // Wait until ENTER or ESC is pressed
         do
         {

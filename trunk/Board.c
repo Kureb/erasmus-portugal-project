@@ -34,6 +34,7 @@ void showBoard(board p)
 		putchar('-');
 	setCursorPosition(28, 1);
     printf("GAME BOARD");
+    setTextColor(GREY);
     for(j = 0; j < 7; j++)	// Print all lines of chars
     {
         setCursorPosition(19, 2 + j * 2);
@@ -84,14 +85,15 @@ void showBoard(board p)
             }
         }
     }
-    for(i = 0; i < HEIGHT; i++) // Print the content of the game board
+    /*for(i = 0; i < HEIGHT; i++) // Print the content of the game board
     {
         for(j = 0; j < WIDTH; j++)
         {
             setCursorPosition(21 + j * 4, 3 + i * 2);
             putch(p[j][i]);
         }
-    }
+    }*/
+    setTextColor(WHITE);
     setCursorPosition(21, 15);
     printf("1   2   3   4   5   6   7"); // Print column's numbers
     setCursorPosition(19, 16);

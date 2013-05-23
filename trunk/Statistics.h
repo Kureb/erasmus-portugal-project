@@ -3,6 +3,8 @@
 
 #include "Global.h"
 
+#define MAX_HIGH 5
+
 void showStatistics();
 
 GamerStat* readStatisticsFile(int *numStats);
