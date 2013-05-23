@@ -110,7 +110,10 @@ void writeStatisticsFile(GamerStat *stats, int numStats)
 
 int calculateScore(int moves)
 {
-    return (1.0 / (float) moves) * 1000; // the higher the number of moves, the lower the score
+	int score = 0;
+	if(moves > 0)
+		score = (1.0 / (float) moves) * 1000;
+    return score; // the higher the number of moves, the lower the score
 }
 
 GamerStat* readStatisticsFile(int *numStats)
@@ -129,26 +132,34 @@ GamerStat* readStatisticsFile(int *numStats)
 	return stats;
 }
 
+int compareHighScores(const void *var1, const void *var2)
+{
+	GamerStat *stat1, *stat2;
+	stat1 = (GamerStat *) var1;
+	stat2 = (GamerStat *) var2;
+	return stat2->totalScore - stat1->totalScore;
+}
+
 void showHighScores(int numStats, GamerStat *stats)
 {
     system("cls");
     printStringCenter("High-Scores", 3);
-    GamerStat bestStats[5];
-    int numBestStats = (numStats > 5 ? 5 : numStats), i, j, k;
+    int numBestStats = (numStats > MAX_HIGH ? MAX_HIGH : numStats), i;
 
-    for(i = 0; i < 5; i++)
+
+    /*for(i = 0; i < MAX_HIGH; i++)
     {
         bestStats[i].totalScore = -1;
     }
     for(i = 0; i < numStats; i++)
     {
-        if(stats[i].totalScore > bestStats[4].totalScore) // If the stat being checked is better than the last, we will find its position
+        if(stats[i].totalScore > bestStats[MAX_HIGH - 1].totalScore) // If the stat being checked is better than the last, we will find its position
         {
-            for(j = 0; j < 5; j++)
+            for(j = 0; j < MAX_HIGH; j++)
             {
                 if(stats[i].totalScore > bestStats[j].totalScore)
                 {
-                    for(k = j; k < 4; k++)
+                    for(k = j; k < MAX_HIGH - 1; k++)
                     {
                         bestStats[k + 1] = bestStats[k]; // Move all positions by one
                     }
@@ -157,11 +168,12 @@ void showHighScores(int numStats, GamerStat *stats)
                 }
             }
         }
-    }
+    }*/
+    qsort(stats, numStats, sizeof(GamerStat), compareHighScores);
     for(i = 0; i < numBestStats; i++)
     {
         setCursorPosition(25, 6 + i);
-        printf("%d%s\t%s - %d", i + 1, (i == 0 ? "st" : (i == 1 ? "nd" : (i == 2 ? "rd" : "th"))), bestStats[i].name, bestStats[i].totalScore);
+        printf("%d%s\t%s - %d", i + 1, (i == 0 ? "st" : (i == 1 ? "nd" : (i == 2 ? "rd" : "th"))), stats[i].name, stats[i].totalScore);
     }
     printStringCenter("Press ENTER to return", 8 + i);
     do

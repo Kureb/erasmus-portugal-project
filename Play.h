@@ -1,6 +1,10 @@
 #ifndef H_PLAY
 #define H_PLAY
 
+#define COLOR1 TURQUOISE
+#define COLOR2 YELLOW
+#define COLOR_WIN PURE_WHITE
+
 //Checks if a player has won.
 int checkWin(board p, int j, int k, int paint);
 

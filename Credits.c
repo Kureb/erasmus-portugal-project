@@ -152,11 +152,10 @@ void print_credits()
     while(getch() != 13);
 }
 
-
 void print_informations()
 {
     system("cls");
-    printStringCenter("Informations", 0);
+    printStringCenter("Informations", 1);
     setCursorPosition(1,5);
     printf("The aim of this project is the development of the 4InALine game.");
     setCursorPosition(1,6);
@@ -170,17 +169,10 @@ void print_informations()
     setCursorPosition(1,10);
     printf("There are two players and only one player plays at a time.");
 
-     printStringCenter("Press ENTER to return", 22);
+	printStringCenter("Press ENTER to return", 21);
     do
     {
         fflush(stdin);
     }
     while(getch() != 13);
 }
-
-
-
-
-
-
-

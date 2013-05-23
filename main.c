@@ -11,7 +11,8 @@
 #include "Statistics.h"
 #include "Credits.h"
 /*#include "SDL/SDL.h"
-#include "SDL/SDL_mixer.h"*/
+#include "SDL/SDL_mixer.h"
+#include "SDL/SDL_ttf.h"*/
 
 /* -------------------------- main project goals ----------------------
 -> define the data structures and other configurations that support the game
@@ -27,8 +28,9 @@
 //*****************************************
 int main()//SDL_main(int argc, char *argv[])
 {
-    /*if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
+	/*if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
         return 1;
+	TTF_Init();
 
     SDL_Surface *screen;
     SDL_Event event;
@@ -62,6 +64,7 @@ int main()//SDL_main(int argc, char *argv[])
 
     int option, difficulty;
 
+	setTextColor(PURE_WHITE);
     do
     {
         clrscr(); // Replaces system("cls"). Only testing for now
