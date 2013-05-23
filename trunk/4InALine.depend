@@ -90,3 +90,97 @@
 	"utilities.h"
 	"Credits.h"
 
+1369291987 source:c:\users\giacomo\desktop\nuova cartella\board.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"Global.h"
+	"Board.h"
+	"utilities.h"
+
+1369291987 c:\users\giacomo\desktop\nuova cartella\global.h
+
+1369291987 c:\users\giacomo\desktop\nuova cartella\board.h
+
+1369291987 c:\users\giacomo\desktop\nuova cartella\utilities.h
+	<windows.h>
+
+1369291987 source:c:\users\giacomo\desktop\nuova cartella\credits.c
+	<windows.h>
+	<conio.h>
+	<string.h>
+	<stdio.h>
+	"utilities.h"
+	"Credits.h"
+
+1369291987 c:\users\giacomo\desktop\nuova cartella\credits.h
+
+1369291987 source:c:\users\giacomo\desktop\nuova cartella\ia.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"utilities.h"
+	"Global.h"
+	"Board.h"
+	"Play.h"
+	"IA.h"
+
+1369291987 c:\users\giacomo\desktop\nuova cartella\play.h
+
+1369291982 c:\users\giacomo\desktop\nuova cartella\ia.h
+
+1369291987 source:c:\users\giacomo\desktop\nuova cartella\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<windows.h>
+	<string.h>
+	"Global.h"
+	"utilities.h"
+	"TeamPT.h"
+	"Play.h"
+	"Board.h"
+	"Statistics.h"
+	"Credits.h"
+	"SDL/SDL_mixer.h"
+
+1369291982 c:\users\giacomo\desktop\nuova cartella\teampt.h
+
+1369291982 c:\users\giacomo\desktop\nuova cartella\statistics.h
+	"Global.h"
+
+1369297175 source:c:\users\giacomo\desktop\nuova cartella\play.c
+	<stdio.h>
+	<conio.h>
+	<string.h>
+	<windows.h>
+	<mmsystem.h>
+	"Global.h"
+	"Board.h"
+	"Play.h"
+	"utilities.h"
+	"IA.h"
+	"Statistics.h"
+
+1369291987 source:c:\users\giacomo\desktop\nuova cartella\statistics.c
+	<stdio.h>
+	<windows.h>
+	<conio.h>
+	"Global.h"
+	"Statistics.h"
+	"utilities.h"
+
+1369291987 source:c:\users\giacomo\desktop\nuova cartella\teampt.c
+	<stdio.h>
+	<conio.h>
+	"Global.h"
+	"utilities.h"
+	"TeamPT.h"
+
+1369291987 source:c:\users\giacomo\desktop\nuova cartella\utilities.c
+	<windows.h>
+	<string.h>
+	<stdio.h>
+	"utilities.h"
+
