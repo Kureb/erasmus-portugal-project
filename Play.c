@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <conio.h>
 #include <string.h>
+#include <windows.h>
+#include <mmsystem.h>
 #include "Global.h"
 #include "Board.h"
 #include "Play.h"
@@ -298,6 +300,7 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
                             setTextColor(LIGHT_RED);
                             setCursorPosition(50, 10);
                             printf("Invalid move");
+                            PlaySound("Sound\\Cfdgsystdgdfhfn",NULL,SND_NOSTOP);
                             setTextColor(PURE_WHITE);
                         }
                         else
@@ -330,7 +333,7 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
                 // Print the char
                 setCursorPosition(21 + play * 4, 3 + i * 2);
                 putchar(mark);
-
+                PlaySound("Sound\\Coin.wav",NULL,SND_NOSTOP);
                 setTextColor(WHITE);
                 //End of colo the char
 
@@ -356,8 +359,10 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p)
         printf("%s moves: %d\t", g2->name, g2->moves);
 
         setCursorPosition(19, 17);
-        if(win)
+        if(win){
             printf("%s won! Congratulations!\t", currentGamer->name);
+            PlaySound("Sound\\win.wav",NULL,SND_NOSTOP);
+            }
         else if(!matchFortified)// The board was filled
             printf("Draw! Noob equality.\t\t");
         else
@@ -533,6 +538,7 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
                 setCursorPosition(21 + play * 4, 3 + i * 2);
                 putchar(J1);
                 setTextColor(WHITE);
+                PlaySound("Sound\\Coin.wav",NULL,SND_ASYNC|SND_NOSTOP);
 
                 win = checkWin(p, play, i, 1);
                 g1->moves++; // Increase number of moves
@@ -563,6 +569,7 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
                     putchar(J2);
                     p[play][i] = J2;
                     setTextColor(WHITE);
+                    PlaySound("Sound\\Coin.wav",NULL,NULL);
                     win = checkWin(p, play, i, 1);
                     g2->moves++;
                     if(win)
@@ -587,8 +594,17 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty)
         printf("%s moves: %d\t", g2->name, g2->moves);
 
         setCursorPosition(19, 17);
-        if(win)
-            printf("%s won! %s\t", winner->name, (winner->num == 2 ? "Better luck next time." : "Congratulations!"));
+        if(win){
+                        printf("%s won! ", winner->name);
+            if (winner->num == 2){
+                PlaySound("Sound\\game_over.wav",NULL,NULL);
+                printf ("Better luck next time.\t");
+            }
+            else{
+                PlaySound("Sound\\win.wav",NULL,NULL);
+                printf ("Congratulations!\t");
+            }
+        }
         else if(!matchFortified) // The board was filled
             printf("Draw! Noob equality.\t\t");
         else
