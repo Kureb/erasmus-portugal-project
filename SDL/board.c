@@ -26,8 +26,6 @@ void initializeGrid(board p, SDL_Surface* screen)
             p[i][j] = VIDE;
         }
     }
-
-    // SDL_BlitSurface(vide, NULL, screen, &positionVide);
 }
 
 /* Display of the board,
@@ -58,7 +56,8 @@ void showBoard(board p, SDL_Surface* screen, TTF_Font *font, TTF_Font *bigFont)
             //    positionVide.y = 100 + i * 50 + 10;
             position.x = (i * TAILLE_PION) + (screen->w - (7*TAILLE_PION))/2;
             position.y = j * TAILLE_PION + 100;
-            if (j == -1) {
+            if (j == -1)
+            {
                 position.y = j * TAILLE_PION + 450;
                 sprintf(number,"%d",i+1);
                 printWindow(0,0,0,position.x,position.y,screen,number, bigFont);

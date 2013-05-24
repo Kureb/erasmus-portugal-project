@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
 
 
     /*
+    //For DEBUG, it allow us to use the console
     freopen("CON", "w", stdout);
     freopen("CON", "r", stdin);
     freopen("CON", "w", stderr);
@@ -60,40 +61,6 @@ int main(int argc, char *argv[])
 
 
 
-    /*
-
-        TTF_Font *font=NULL;
-        font = TTF_OpenFont("BebasNeue.otf", 14);
-
-
-        SDL_Surface *textSurf = NULL;
-        SDL_Rect position;
-        SDL_Color color = {0,255,1202};
-
-        position.x = 50;
-        position.y = 50;
-
-        textSurf = TTF_RenderText_Blended(font, "test", color);
-
-        SDL_BlitSurface(textSurf, NULL, screen, &position);
-        SDL_Flip(screen);
-
-    */
-
-
-
-    //TTF_CloseFont(font);
-    //SDL_free(textSurf);
-
-
-
-
-
-
-
-
-
-
     int option, difficulty = 4;
     char * name;
 
@@ -111,10 +78,10 @@ int main(int argc, char *argv[])
             {
                 board p;
                 Gamer g1,g2;
-                strcpy(g1.name, "Alex");
+                strcpy(g1.name, "Player 1");
                 g1.num = 1;
                 g1.moves = 0;
-                strcpy(g2.name,"Jorge");
+                strcpy(g2.name,"Player 2");
                 g2.num = 2;
                 g2.moves = 0;
                 initializeGrid(p,screen);
@@ -132,7 +99,7 @@ int main(int argc, char *argv[])
                     {
                         board p;
                         Gamer g1,g2;
-                        strcpy(g1.name, "Alex");
+                        strcpy(g1.name, "Player");
                         g1.num = 1;
                         g1.moves = 0;
                         g2.num = 2;
@@ -140,10 +107,6 @@ int main(int argc, char *argv[])
                         strcpy(g2.name, "Computer");
                         initializeGrid(p, screen);
                         showBoard(p, screen, font, bigFont);
-                        // setCursorVisible(FALSE);
-                        /*if(option == 1) // Player vs Player
-                            playerVsPlayer(&g1,&g2,p,screen,font, bigFont);
-                        else // Player vs Computer*/
                         playerVsComputer(&g1, &g2, p, difficulty, screen, font,bigFont);
                     }
                 }
@@ -151,38 +114,6 @@ int main(int argc, char *argv[])
         }
     }
     while(option != -1);
-    /*option = pause()+1;
-    if(option==1){
-        board p;
-        initializeGrid(p, screen);
-        showBoard(p, screen, font, bigFont);
-        Gamer g1, g2;
-        g1.num = 1;
-        strcpy(g1.name, "Alex");
-        g2.num = 2;
-        strcpy(g2.name, "Test");
-        playerVsPlayer(&g1, &g2, p, screen, font, bigFont);
-    }else if(option==2){
-        board p;
-        initializeGrid(p, screen);
-        showBoard(p, screen, font, bigFont);
-        Gamer g1, g2;
-        g1.num = 1;
-        strcpy(g1.name, "Alex");
-        g2.num = 2;
-        strcpy(g2.name, "Computer");
-        difficulty = pause()+1;
-        playerVsComputer(&g1, &g2, p, difficulty, screen, font,bigFont);
-
-    }
-
-    */
-
-
-
-    // }
-
-
 
     TTF_CloseFont(font);
     TTF_CloseFont(bigFont);
