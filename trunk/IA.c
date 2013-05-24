@@ -345,6 +345,15 @@ int playIA_hardcore(board p, int numTurns)
 							}
 							else if(pos[i] + marksDiag1 == 6)
 								marksDiag1 = 0;
+
+							// Diagonal 2
+							if(pos[i] + marksDiag2 > 0)
+							{
+								if(p[i + marksDiag2 + 1][pos[i] - marksDiag2 - 1] != EMPTY)
+									marksDiag2 = 0;
+							}
+							else if(pos[i] + marksDiag2 == 0)
+								marksDiag2 = 0;
 						}
 						if(i == 6)
 						{
@@ -360,6 +369,15 @@ int playIA_hardcore(board p, int numTurns)
 							}
 							else if(pos[i] - marksDiag1 == 0)
 								marksDiag1 = 0;
+
+							// Diagonal 2
+							if(pos[i] + marksDiag2 < 6)
+							{
+								if(p[i - marksDiag2 - 1][pos[i] + marksDiag2 + 1] != EMPTY)
+									marksDiag2 = 0;
+							}
+							else if(pos[i] + marksDiag2 == 6)
+								marksDiag2 = 0;
 						}
 
 						if(i > 0)
