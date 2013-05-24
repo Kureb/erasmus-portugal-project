@@ -14,7 +14,7 @@
 //		3 if the user wants to check the high scores
 //		0 if the user wants to exit
 //*****************************************
-int welcome();
+int welcome(SDL_Surface * screen, TTF_Font * font, TTF_Font * bigFont);
 
 //*****************************************
 //The choose difficulty screen
@@ -28,7 +28,7 @@ int welcome();
 //		2 if the chosen difficulty is normal
 //		3 if the chosen difficulty is hard
 //*****************************************
-int chooseDifficulty();
+int chooseDifficulty(SDL_Surface * screen, TTF_Font * font, TTF_Font * bigFont);
 
 #endif // TEAMPT_H
 

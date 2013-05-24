@@ -381,7 +381,7 @@ int playIA_hardcore(board p, int numTurns, SDL_Surface *screen)
     return num;
 }
 /*
-/* Returns the number of tokens
+* Returns the number of tokens
 ** which are in a line
 ** Returns a number between 1 and 4
 **  +-----------------------> x (j)
