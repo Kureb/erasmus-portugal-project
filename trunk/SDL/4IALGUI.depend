@@ -543,7 +543,7 @@
 	"Statistics.h"
 	"utilities.h"
 
-1369311303 source:c:\users\alexandre\workspace\4ialgui - copy\board.c
+1369385551 source:c:\users\alexandre\workspace\4ialgui - copy\board.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -566,7 +566,7 @@
 	<SDL/SDL.h>
 	<SDL/SDL_ttf.h>
 
-1369331606 source:c:\users\alexandre\workspace\4ialgui - copy\main.c
+1369385401 source:c:\users\alexandre\workspace\4ialgui - copy\main.c
 	<stdlib.h>
 	<stdio.h>
 	<SDL/SDL.h>
@@ -581,7 +581,7 @@
 
 1369302621 c:\users\alexandre\workspace\4ialgui - copy\play.h
 
-1369384728 source:c:\users\alexandre\workspace\4ialgui - copy\play.c
+1369385985 source:c:\users\alexandre\workspace\4ialgui - copy\play.c
 	<stdlib.h>
 	<stdio.h>
 	<SDL/SDL.h>
@@ -590,8 +590,11 @@
 	<mmsystem.h>
 	<conio.h>
 	"board.h"
+	"play.h"
+	"IA.h"
 	"global.h"
 	"utilities.h"
+	"statistics.h"
 
 1369218853 source:c:\users\alexandre\workspace\4ialgui - copy\statistics.c
 	<stdio.h>
@@ -604,7 +607,7 @@
 1369057124 c:\users\alexandre\workspace\4ialgui - copy\statistics.h
 	"Global.h"
 
-1369312877 source:c:\users\alexandre\workspace\4ialgui - copy\utilities.c
+1369385432 source:c:\users\alexandre\workspace\4ialgui - copy\utilities.c
 	<stdlib.h>
 	<stdio.h>
 	<SDL/SDL.h>
@@ -612,7 +615,7 @@
 	<SDL/SDL_ttf.h>
 	"utilities.h"
 
-1369331281 source:c:\users\alexandre\workspace\4ialgui - copy\teampt.c
+1369385565 source:c:\users\alexandre\workspace\4ialgui - copy\teampt.c
 	<stdio.h>
 	<conio.h>
 	"Global.h"
@@ -621,7 +624,7 @@
 
 1369314372 c:\users\alexandre\workspace\4ialgui - copy\teampt.h
 
-1369302755 source:c:\users\alexandre\workspace\4ialgui - copy\ia.c
+1369385745 source:c:\users\alexandre\workspace\4ialgui - copy\ia.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

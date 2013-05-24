@@ -8,8 +8,11 @@
 #include <conio.h>
 //#include <SDL/SDL_ttf.h>
 #include "board.h"
+#include "play.h"
+#include "IA.h"
 #include "global.h"
 #include "utilities.h"
+#include "statistics.h"
 
 /*
 **
@@ -140,12 +143,9 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p, SDL_Surface *screen, TTF_Font
         matchFortified = 0;
         do
         {
-            //TTF_Init();
-            // Print some info
+
             setCursorPosition(19, 17);
             printf("%s (%c), make your move.\t\t", currentGamer->name, (currentGamer->num == 1 ? J1 : J2));
-            currentGamer->name;
-
             wtf = malloc(sizeof(char)*(strlen(currentGamer->name)));
             wtf = strcpy(wtf,currentGamer->name);
             wtf = strcat(wtf, " is your turn!\0");
@@ -397,7 +397,7 @@ void playerVsPlayer(Gamer *g1, Gamer *g2, board p, SDL_Surface *screen, TTF_Font
             showBoard(p, screen, font, bigFont);
 
         }
-    //TTF_Quit();
+        //TTF_Quit();
     }
     while(ch != 27);
 }
@@ -434,12 +434,12 @@ int checkWin(board p, int j, int k, int paint, SDL_Surface *ecran)
     char mark;
     switch(disc)
     {
-        case J1:
-            mark = J1W;
-            break;
-        case J2:
-            mark = J2W;
-            break;
+    case J1:
+        mark = J1W;
+        break;
+    case J2:
+        mark = J2W;
+        break;
     }
 
 
@@ -515,18 +515,18 @@ int checkWin(board p, int j, int k, int paint, SDL_Surface *ecran)
         {
             for(i=j, l = k; i >= 0 && l < HEIGHT && p[i][l] == disc; i--, l++)
             {
-               p[i][l] = mark;
+                p[i][l] = mark;
             }
             for(i=j + 1, l = k - 1; i < WIDTH && l >= 0 && p[i][l] == disc; i++, l--)
             {
-               p[i][l] = mark;
+                p[i][l] = mark;
             }
         }
         return 1;
     }
 
     return 0;
-    //return winHorizontal(p,j,k) || winVertical(p,j,k) || winDiagDownUp(p,j,k) || winDiagUpDown(p,j,k);
+
 }
 
 
@@ -641,7 +641,7 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty, SDL_Surface
                     wtf = strcpy(wtf,"Computer is thinking...\0");
                     //wtf = strcat(wtf, " is your turn!\0");
                     SDL_WM_SetCaption(wtf, NULL);
-                free(wtf);
+                    free(wtf);
                     printf("Computer is thinking...\t"); // If the loop takes a lot of time, the player will know the computer is processing
                     if (difficulty==1)
                     {
@@ -650,7 +650,7 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty, SDL_Surface
 
                     if(difficulty==2)
                     {
-                        play = playIA_normal(p, i, play);
+                        play = playIA_normal(p, i, play, screen);
                     }
 
                     if(difficulty==3)
@@ -690,8 +690,9 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty, SDL_Surface
         printf("%s moves: %d\t", g2->name, g2->moves);
 
         setCursorPosition(19, 17);
-        if(win){
-                showBoard(p,screen,font,bigFont);
+        if(win)
+        {
+            showBoard(p,screen,font,bigFont);
 
             printf("%s won! %s\t", winner->name, (winner->num == 2 ? "Better luck next time." : "Congratulations!"));
             PlaySound("Sound\\game_over.wav",NULL,SND_ASYNC);
@@ -700,7 +701,8 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty, SDL_Surface
         else if(!matchFortified) // The board was filled
             printf("Draw! Noob equality.\t\t");
 
-        else{
+        else
+        {
             printf("%s couldn't stand the pressure. %s won!", g1->name, g2->name);
             PlaySound("Sound\\win.wav",NULL,SND_ASYNC);
         }

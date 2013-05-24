@@ -68,10 +68,12 @@ int checkD (board p)
     if (p[j-1][k-1]==J1)
     {
         if ((p[j-2][k-2]==VIDE)&&(p[j+1][k+1]==VIDE)&&(p[j-2][k-1]!=VIDE)&&(p[j+1][k+2]!=VIDE))
+        {
             if ((rand()%2)==0)
                 def=(j-2);
             else
                 def=(j+1);
+        }
         if ((p[j-2][k-2]==VIDE)&&(p[j+1][k+1]==J1)&&(p[j-2][k-1]!=VIDE))
             def=j-2;
         if ((p[j-2][k-2]==J1)&&(p[j+1][k+1]==VIDE)&&(p[j+1][k+2]!=VIDE))
@@ -177,10 +179,7 @@ int playIA_normal(board p,int k, int col, SDL_Surface *screen)
 
 {
     srand ((unsigned)time(NULL));
-    int limit = WIDTH-1, limitk = HEIGHT-1;
-    int num,j, play=-1;
-    int x,y;
-    j=col;
+    int j=col, play=-1;
 
     Sleep(500);
 
@@ -350,7 +349,7 @@ int playIA_hardcore(board p, int numTurns, SDL_Surface *screen)
                         }
                     }
                     else
-						playFlags[j] = 0;
+                        playFlags[j] = 0;
                 }
             }
             j = 0; // Just a temporary flag

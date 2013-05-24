@@ -76,7 +76,7 @@ int pause()
         case SDL_KEYDOWN:
             switch (event.key.keysym.sym)
             {
-            case SDLK_ESCAPE: /* Appui sur la touche Echap, on arrête le programme */
+            case SDLK_ESCAPE:
                 return 27;
                 break;
             case SDLK_s:
@@ -133,14 +133,6 @@ int pause()
 void printWindow(int R,int G,int B, int x, int y, SDL_Surface * screen, char * text, TTF_Font *font)
 {
 
-
-    //if(TTF_Init() ==- 1) return -1;
-
-    //TTF_Font *font=NULL;
-    //font = TTF_OpenFont("BebasNeue.otf", 14);
-
-
-
     SDL_Surface *textSurf = NULL;
     SDL_Rect position;
     SDL_Color color = {R,G,B};
@@ -167,7 +159,6 @@ void printWindow(int R,int G,int B, int x, int y, SDL_Surface * screen, char * t
 
     font = NULL;
 
-    //TTF_Quit();
 
 }
 
