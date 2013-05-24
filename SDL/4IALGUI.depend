@@ -543,7 +543,7 @@
 	"Statistics.h"
 	"utilities.h"
 
-1369293068 source:c:\users\alexandre\workspace\4ialgui - copy\board.c
+1369311303 source:c:\users\alexandre\workspace\4ialgui - copy\board.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -557,15 +557,16 @@
 	<SDL/SDL.h>
 	<SDL/SDL_image.h>
 
-1369226554 c:\users\alexandre\workspace\4ialgui - copy\board.h
+1369302720 c:\users\alexandre\workspace\4ialgui - copy\board.h
 	"global.h"
+	<SDL/SDL_ttf.h>
 
-1369236625 c:\users\alexandre\workspace\4ialgui - copy\utilities.h
+1369301103 c:\users\alexandre\workspace\4ialgui - copy\utilities.h
 	<windows.h>
 	<SDL/SDL.h>
 	<SDL/SDL_ttf.h>
 
-1369293609 source:c:\users\alexandre\workspace\4ialgui - copy\main.c
+1369331606 source:c:\users\alexandre\workspace\4ialgui - copy\main.c
 	<stdlib.h>
 	<stdio.h>
 	<SDL/SDL.h>
@@ -578,13 +579,15 @@
 	"TeamPT.h"
 	"utilities.h"
 
-1369256840 c:\users\alexandre\workspace\4ialgui - copy\play.h
+1369302621 c:\users\alexandre\workspace\4ialgui - copy\play.h
 
-1369293260 source:c:\users\alexandre\workspace\4ialgui - copy\play.c
+1369384728 source:c:\users\alexandre\workspace\4ialgui - copy\play.c
 	<stdlib.h>
 	<stdio.h>
 	<SDL/SDL.h>
 	<SDL/SDL_ttf.h>
+	<windows.h>
+	<mmsystem.h>
 	<conio.h>
 	"board.h"
 	"global.h"
@@ -601,24 +604,24 @@
 1369057124 c:\users\alexandre\workspace\4ialgui - copy\statistics.h
 	"Global.h"
 
-1369293861 source:c:\users\alexandre\workspace\4ialgui - copy\utilities.c
-	<windows.h>
-	<string.h>
+1369312877 source:c:\users\alexandre\workspace\4ialgui - copy\utilities.c
+	<stdlib.h>
 	<stdio.h>
-	"utilities.h"
 	<SDL/SDL.h>
+	<conio.h>
 	<SDL/SDL_ttf.h>
+	"utilities.h"
 
-1369251621 source:c:\users\alexandre\workspace\4ialgui - copy\teampt.c
+1369331281 source:c:\users\alexandre\workspace\4ialgui - copy\teampt.c
 	<stdio.h>
 	<conio.h>
 	"Global.h"
 	"utilities.h"
 	"TeamPT.h"
 
-1369251411 c:\users\alexandre\workspace\4ialgui - copy\teampt.h
+1369314372 c:\users\alexandre\workspace\4ialgui - copy\teampt.h
 
-1369256738 source:c:\users\alexandre\workspace\4ialgui - copy\ia.c
+1369302755 source:c:\users\alexandre\workspace\4ialgui - copy\ia.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

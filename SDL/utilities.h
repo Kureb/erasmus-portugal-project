@@ -108,7 +108,7 @@ void clrscr();
 
 int pause();
 
-void printWindow(int R,int G,int B, int x, int y, SDL_Surface * screen, char * text);
+void printWindow(int R,int G,int B, int x, int y, SDL_Surface * screen, char * text, TTF_Font *font);
 
 #endif // UTILITIES_H
 

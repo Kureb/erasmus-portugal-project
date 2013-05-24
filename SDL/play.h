@@ -7,9 +7,9 @@
 //Returns 1 if it's possible to place a mark at column col, 0 otherwise
 int validate(board p, int col);
 
-void playerVsPlayer(Gamer *g1, Gamer *g2, board p, SDL_Surface *screen);
+void playerVsPlayer(Gamer *g1, Gamer *g2, board p, SDL_Surface *screen, TTF_Font *font, TTF_Font *bigFont);
 
-void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty, SDL_Surface *screen);
+void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty, SDL_Surface *screen, TTF_Font *font, TTF_Font *bigFont);
 
 int findLine(board p, int col);
 
