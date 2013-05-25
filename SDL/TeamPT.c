@@ -13,13 +13,14 @@ int welcome(SDL_Surface * screen, TTF_Font * font, TTF_Font * bigFont)
     printWindow(0,0,0,999,300,screen,"Please choose an option",font);
     printWindow(0,0,0,999,330,screen, "1 - Player vs Player",font);
     printWindow(0,0,0,999,360,screen, "2 - Player vs Computer",font);
-    printWindow(0,0,0,999,400,screen,"Q - Exit",font);
+    printWindow(0,0,0,999,390,screen, "3 - Credits",font);
+    printWindow(0,0,0,999,420,screen,"Q - Exit",font);
 
     do
     {
         option = pause()+1;
     }
-    while(!(option > 0 && option < 3 || option == -1));    // Check if the option was valid and repeat the cicle if not
+    while(!(option > 0 && option < 4 || option == -1));    // Check if the option was valid and repeat the cicle if not
 
 
     return option;

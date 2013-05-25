@@ -10,6 +10,7 @@
 #include "play.h"
 #include "TeamPT.h"
 #include "utilities.h"
+#include "credits.h"
 
 
 
@@ -74,6 +75,10 @@ int main(int argc, char *argv[])
 
         if(option > 0)
         {
+            if(option == 3)
+            {
+                print_credits(screen,font);
+            }
             if(option == 1)  // Player vs Player
             {
                 board p;
@@ -110,6 +115,7 @@ int main(int argc, char *argv[])
                         playerVsComputer(&g1, &g2, p, difficulty, screen, font,bigFont);
                     }
                 }
+
             }
         }
     }
