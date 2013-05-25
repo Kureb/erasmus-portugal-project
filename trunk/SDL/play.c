@@ -564,6 +564,7 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty, SDL_Surface
     int freeSpaces, i, win, play, validMove, numTurns, matchFortified;
     char ch;
     char * wtf;
+    char * winnerMessage;
     Gamer *currentGamer = g1;
     do
     {
@@ -692,19 +693,22 @@ void playerVsComputer(Gamer *g1, Gamer *g2, board p, int difficulty, SDL_Surface
         setCursorPosition(19, 17);
         if(win)
         {
-            showBoard(p,screen,font,bigFont);
-
-            printf("%s won! %s\t", winner->name, (winner->num == 2 ? "Better luck next time." : "Congratulations!"));
+            showBoard(p, screen, font, bigFont);
+            winnerMessage = malloc(sizeof(char)*(strlen((currentGamer->num == 12 ? g1->name : g2->name) + 22)));
+            winnerMessage = strcpy(winnerMessage,(currentGamer->num == 1 ? g1->name : g2->name));
+            winnerMessage = strcat(winnerMessage, " won! Congratulations!\0");
             PlaySound("Sound\\game_over.wav",NULL,SND_ASYNC);
-        }
+            printWindow(0,0,0,999,50,screen,winnerMessage, font);
 
+            free(winnerMessage);
+        }
         else if(!matchFortified) // The board was filled
             printf("Draw! Noob equality.\t\t");
 
         else
         {
             printf("%s couldn't stand the pressure. %s won!", g1->name, g2->name);
-            PlaySound("Sound\\win.wav",NULL,SND_ASYNC);
+            PlaySound("Sound\win.wav",NULL,SND_ASYNC);
         }
 
 

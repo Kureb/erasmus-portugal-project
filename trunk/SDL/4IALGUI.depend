@@ -637,3 +637,203 @@
 
 1369256723 c:\users\alexandre\workspace\4ialgui - copy\ia.h
 
+1369385551 source:d:\windows\utilisateurs\alexandre\bureau\2405erasmus\sdl\board.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<SDL/SDL.h>
+	<SDL/SDL_image.h>
+	"global.h"
+	"board.h"
+	"utilities.h"
+
+1369247621 d:\windows\utilisateurs\alexandre\bureau\2405erasmus\sdl\global.h
+	<SDL/SDL.h>
+	<SDL/SDL_image.h>
+
+1369302720 d:\windows\utilisateurs\alexandre\bureau\2405erasmus\sdl\board.h
+	"global.h"
+	<SDL/SDL_ttf.h>
+
+1369301103 d:\windows\utilisateurs\alexandre\bureau\2405erasmus\sdl\utilities.h
+	<windows.h>
+	<SDL/SDL.h>
+	<SDL/SDL_ttf.h>
+
+1369385745 source:d:\windows\utilisateurs\alexandre\bureau\2405erasmus\sdl\ia.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"utilities.h"
+	"Global.h"
+	"Board.h"
+	"Play.h"
+	"IA.h"
+
+1369302621 d:\windows\utilisateurs\alexandre\bureau\2405erasmus\sdl\play.h
+
+1369256723 d:\windows\utilisateurs\alexandre\bureau\2405erasmus\sdl\ia.h
+
+1369385401 source:d:\windows\utilisateurs\alexandre\bureau\2405erasmus\sdl\main.c
+	<stdlib.h>
+	<stdio.h>
+	<SDL/SDL.h>
+	<SDL/SDL_image.h>
+	<conio.h>
+	<SDL/SDL_ttf.h>
+	"global.h"
+	"board.h"
+	"play.h"
+	"TeamPT.h"
+	"utilities.h"
+
+1369314372 d:\windows\utilisateurs\alexandre\bureau\2405erasmus\sdl\teampt.h
+
+1369385985 source:d:\windows\utilisateurs\alexandre\bureau\2405erasmus\sdl\play.c
+	<stdlib.h>
+	<stdio.h>
+	<SDL/SDL.h>
+	<SDL/SDL_ttf.h>
+	<windows.h>
+	<mmsystem.h>
+	<conio.h>
+	"board.h"
+	"play.h"
+	"IA.h"
+	"global.h"
+	"utilities.h"
+	"statistics.h"
+
+1369057124 d:\windows\utilisateurs\alexandre\bureau\2405erasmus\sdl\statistics.h
+	"Global.h"
+
+1369218853 source:d:\windows\utilisateurs\alexandre\bureau\2405erasmus\sdl\statistics.c
+	<stdio.h>
+	<windows.h>
+	<conio.h>
+	"Global.h"
+	"Statistics.h"
+	"utilities.h"
+
+1369385565 source:d:\windows\utilisateurs\alexandre\bureau\2405erasmus\sdl\teampt.c
+	<stdio.h>
+	<conio.h>
+	"Global.h"
+	"utilities.h"
+	"TeamPT.h"
+
+1369385432 source:d:\windows\utilisateurs\alexandre\bureau\2405erasmus\sdl\utilities.c
+	<stdlib.h>
+	<stdio.h>
+	<SDL/SDL.h>
+	<conio.h>
+	<SDL/SDL_ttf.h>
+	"utilities.h"
+
+1369385551 source:d:\windows\utilisateurs\alexandre\bureau\sdl\board.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<SDL/SDL.h>
+	<SDL/SDL_image.h>
+	"global.h"
+	"board.h"
+	"utilities.h"
+
+1369247621 d:\windows\utilisateurs\alexandre\bureau\sdl\global.h
+	<SDL/SDL.h>
+	<SDL/SDL_image.h>
+
+1369302720 d:\windows\utilisateurs\alexandre\bureau\sdl\board.h
+	"global.h"
+	<SDL/SDL_ttf.h>
+
+1369301103 d:\windows\utilisateurs\alexandre\bureau\sdl\utilities.h
+	<windows.h>
+	<SDL/SDL.h>
+	<SDL/SDL_ttf.h>
+
+1369385745 source:d:\windows\utilisateurs\alexandre\bureau\sdl\ia.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"utilities.h"
+	"Global.h"
+	"Board.h"
+	"Play.h"
+	"IA.h"
+
+1369302621 d:\windows\utilisateurs\alexandre\bureau\sdl\play.h
+
+1369256723 d:\windows\utilisateurs\alexandre\bureau\sdl\ia.h
+
+1369397911 source:d:\windows\utilisateurs\alexandre\bureau\sdl\main.c
+	<stdlib.h>
+	<stdio.h>
+	<SDL/SDL.h>
+	<SDL/SDL_image.h>
+	<conio.h>
+	<SDL/SDL_ttf.h>
+	"global.h"
+	"board.h"
+	"play.h"
+	"TeamPT.h"
+	"utilities.h"
+	"credits.h"
+
+1369314372 d:\windows\utilisateurs\alexandre\bureau\sdl\teampt.h
+
+1369395175 source:d:\windows\utilisateurs\alexandre\bureau\sdl\play.c
+	<stdlib.h>
+	<stdio.h>
+	<SDL/SDL.h>
+	<SDL/SDL_ttf.h>
+	<windows.h>
+	<mmsystem.h>
+	<conio.h>
+	"board.h"
+	"play.h"
+	"IA.h"
+	"global.h"
+	"utilities.h"
+	"statistics.h"
+
+1369057124 d:\windows\utilisateurs\alexandre\bureau\sdl\statistics.h
+	"Global.h"
+
+1369218853 source:d:\windows\utilisateurs\alexandre\bureau\sdl\statistics.c
+	<stdio.h>
+	<windows.h>
+	<conio.h>
+	"Global.h"
+	"Statistics.h"
+	"utilities.h"
+
+1369395737 source:d:\windows\utilisateurs\alexandre\bureau\sdl\teampt.c
+	<stdio.h>
+	<conio.h>
+	"Global.h"
+	"utilities.h"
+	"TeamPT.h"
+
+1369385432 source:d:\windows\utilisateurs\alexandre\bureau\sdl\utilities.c
+	<stdlib.h>
+	<stdio.h>
+	<SDL/SDL.h>
+	<conio.h>
+	<SDL/SDL_ttf.h>
+	"utilities.h"
+
+1369399636 source:d:\windows\utilisateurs\alexandre\bureau\sdl\credits.c
+	<windows.h>
+	<conio.h>
+	<string.h>
+	<stdio.h>
+	"utilities.h"
+	"Credits.h"
+	<SDL/SDL.h>
+
+1369397622 d:\windows\utilisateurs\alexandre\bureau\sdl\credits.h
+
